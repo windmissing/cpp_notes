@@ -1,10 +1,3 @@
----
-layout: post
-title:  "g++ 链接器（三）-可重定位目标文件的链接（静态链接）"
-category: [compile]
-tags: [g++, linking, static]
----
-
 链接就是指把各个独立但不完整的模块组装成一个可执行文件的过程。
 
 ```

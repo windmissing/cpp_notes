@@ -1,11 +1,3 @@
----
-layout: post
-title:  " linux g++ 链接器（一）基础概念"
-category: [compile]
-tags: [g++, linking, linux]
----
-
-
 [上一篇  linux g++ 链接器] (http://windmissing.github.io/compile/2016-07/linux-g++-linking.html)  
   
 

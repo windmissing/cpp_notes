@@ -30,3 +30,6 @@
     * [linux g++ 链接 （二）](linker/2016-07-25-linux-g++-linking.md)
     * [g++ 链接器（三）-可重定位目标文件的链接（静态链接）](linker/2016-07-14-static-linking-g++.md)
     * [g++ 链接器（四）-共享目标文件的链接（动态链接）](linker/2016-07-18-dynamic-linking-g++.md)
+    * [链接中的符号](linker/2015-04-07-symbols-in-linking.md)
+    * [g++/ld中的符号重定义](linker/2015-04-03-symbol-redifine-in-g++-ld.md)
+    * [普通目标文件的符号重定义处理策略](linker/2015-04-07-symbol-confliction-in-normal-target-file.md)

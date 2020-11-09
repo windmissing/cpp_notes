@@ -27,6 +27,7 @@
     * [操作符重载总结](grammar/2012-01-14-operator-overloading-in-cpp.md)
     * [友元friend总结](grammar/2012-01-11-friend-member-of-class.md)
     * [C++Primer笔记](grammar/2013-11-24-c++-primer-record.md)
+    * [使用scanf函数时应该注意的问题](grammar/2011-12-29-scanf.md)
 * 链接
     * [linux g++ 链接器（一）基础概念](linker/2016-07-27-linux-g++-basic-conception.md)
     * [linux g++ 链接 （二）](linker/2016-07-25-linux-g++-linking.md)

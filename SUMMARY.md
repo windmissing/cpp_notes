@@ -3,12 +3,17 @@
 * [Introduction](README.md)
 
 * 语法
+    * [基本语法](grammar/2012-01-11-basic.md)
     * [地址、内存、堆、栈总结](grammar/2012-01-14-address-memory-heap-stack.md)
     * [指针与引用使用总结](grammar/2012-01-16-porinter-and-reference-in-cpp.md)
+    * [指针与取地址](grammar/pointer_and_address.md)
     * [NULL是什么](grammar/2015-03-12-what-is-null.md)
     * [C语言进阶：整型提升](grammar/2015-08-25-Integer-Promotion.md)
+    * [size和bit](grammar/size_and_bits.md)
+    * [数值编码](grammar/code.md)
     * [关键字：static](grammar/2012-01-11-static-summarize.md)
     * [关键字：const](grammar/2016-01-18-const-summarize.md)
+    * [函数传参](grammar/function_parameter.md)
     * [函数返回值总结](grammar/2012-01-17-return-value-from-function-in-cpp.md)
     * [函数指针总结](grammar/2012-01-18-pointer-to-function.md)
     * [构造函数对结构体初始化的影响](grammar/2016-11-30-contructor-in-struct.md)
@@ -19,6 +24,7 @@
     * [构造函数、复制构造函数、析构函数混合使用总结](grammar/2012-09-27-contructor-and-copy-contructor-and-release.md)
     * [类的大小](grammar/2012-08-13-size-of-class.md)
     * [多态总结](grammar/2012-01-17-polymorphism-in-cpp.md)
+    * [虚基类](grammar/virtual_class.md)
     * [C++虚函数易错题](grammar/2019-09-05-virtual-function-analyse-0.md)
     * [virtual关键字在父类](grammar/2019-09-05-virtual-function-analyse-1.md)
     * [virtual关键字在子类](grammar/2019-09-05-virtual-function-analyse-2.md)
@@ -28,6 +34,7 @@
     * [友元friend总结](grammar/2012-01-11-friend-member-of-class.md)
     * [C++Primer笔记](grammar/2013-11-24-c++-primer-record.md)
     * [使用scanf函数时应该注意的问题](grammar/2011-12-29-scanf.md)
+    * [文件操作](grammar/file_operation.md)
 * 链接
     * [linux g++ 链接器（一）基础概念](linker/2016-07-27-linux-g++-basic-conception.md)
     * [linux g++ 链接 （二）](linker/2016-07-25-linux-g++-linking.md)

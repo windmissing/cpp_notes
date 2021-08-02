@@ -22,6 +22,7 @@
     * [复制构造函数总结](grammar/2012-01-12-copy-constructor-summarize.md)
     * [复制控制成员总结](grammar/2012-01-12-copy-control-members-summerize.md)
     * [构造函数、复制构造函数、析构函数混合使用总结](grammar/2012-09-27-contructor-and-copy-contructor-and-release.md)
+    * [类成员的对齐规则](grammar/align.md)
     * [类的大小](grammar/2012-08-13-size-of-class.md)
     * [多态总结](grammar/2012-01-17-polymorphism-in-cpp.md)
     * [虚基类](grammar/virtual_class.md)

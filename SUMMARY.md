@@ -44,5 +44,7 @@
     * [链接中的符号](linker/2015-04-07-symbols-in-linking.md)
     * [g++/ld中的符号重定义](linker/2015-04-03-symbol-redifine-in-g++-ld.md)
     * [普通目标文件的符号重定义处理策略](linker/2015-04-07-symbol-confliction-in-normal-target-file.md)
+* GTEST
+	* [事件机制](GTEST/event.md)
 * 其它
-    * [为什么有序数组的执行速度快于无序数组？](others/2016-12-13-why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array.md)
+    * [为什么有序数组的执行速度快于无序数组？](others/2016-12-13-why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array.md)gkwr

@@ -47,5 +47,6 @@
 * GTEST
 	* [事件机制](GTEST/event.md)
 	* [断言](GTEST/check.md)
+	* [使用控制](GTEST?control.md)
 * 其它
     * [为什么有序数组的执行速度快于无序数组？](others/2016-12-13-why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array.md)gkwr

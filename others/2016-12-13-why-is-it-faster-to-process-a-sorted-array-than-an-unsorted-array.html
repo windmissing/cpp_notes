@@ -1,0 +1,1127 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>为什么有序数组的执行速度快于无序数组？ · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="windmissing">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-plus/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sectionx/sectionx.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-click-reveal/click_reveal.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"windmissing/cpp_notes","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    语法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../grammar/2012-01-11-basic.html">
+            
+                <a href="../grammar/2012-01-11-basic.html">
+            
+                    
+                    基本语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../grammar/2012-01-14-address-memory-heap-stack.html">
+            
+                <a href="../grammar/2012-01-14-address-memory-heap-stack.html">
+            
+                    
+                    地址、内存、堆、栈总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../grammar/2012-01-16-porinter-and-reference-in-cpp.html">
+            
+                <a href="../grammar/2012-01-16-porinter-and-reference-in-cpp.html">
+            
+                    
+                    指针与引用使用总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../grammar/pointer_and_address.html">
+            
+                <a href="../grammar/pointer_and_address.html">
+            
+                    
+                    指针与取地址
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../grammar/2015-03-12-what-is-null.html">
+            
+                <a href="../grammar/2015-03-12-what-is-null.html">
+            
+                    
+                    NULL是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../grammar/2015-08-25-Integer-Promotion.html">
+            
+                <a href="../grammar/2015-08-25-Integer-Promotion.html">
+            
+                    
+                    C语言进阶：整型提升
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../grammar/size_and_bits.html">
+            
+                <a href="../grammar/size_and_bits.html">
+            
+                    
+                    size和bit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../grammar/code.html">
+            
+                <a href="../grammar/code.html">
+            
+                    
+                    数值编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../grammar/2012-01-11-static-summarize.html">
+            
+                <a href="../grammar/2012-01-11-static-summarize.html">
+            
+                    
+                    关键字：static
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../grammar/2016-01-18-const-summarize.html">
+            
+                <a href="../grammar/2016-01-18-const-summarize.html">
+            
+                    
+                    关键字：const
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../grammar/function_parameter.html">
+            
+                <a href="../grammar/function_parameter.html">
+            
+                    
+                    函数传参
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../grammar/2012-01-17-return-value-from-function-in-cpp.html">
+            
+                <a href="../grammar/2012-01-17-return-value-from-function-in-cpp.html">
+            
+                    
+                    函数返回值总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../grammar/2012-01-18-pointer-to-function.html">
+            
+                <a href="../grammar/2012-01-18-pointer-to-function.html">
+            
+                    
+                    函数指针总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="../grammar/2016-11-30-contructor-in-struct.html">
+            
+                <a href="../grammar/2016-11-30-contructor-in-struct.html">
+            
+                    
+                    构造函数对结构体初始化的影响
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="../grammar/2012-01-05-declaration-definition-and-initialization-for-class.html">
+            
+                <a href="../grammar/2012-01-05-declaration-definition-and-initialization-for-class.html">
+            
+                    
+                    类的声明、定义与初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="../grammar/2012-01-17-supperclass-inheritance.html">
+            
+                <a href="../grammar/2012-01-17-supperclass-inheritance.html">
+            
+                    
+                    基类与派生类、继承关系总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="../grammar/2012-01-12-copy-constructor-summarize.html">
+            
+                <a href="../grammar/2012-01-12-copy-constructor-summarize.html">
+            
+                    
+                    复制构造函数总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="../grammar/2012-01-12-copy-control-members-summerize.html">
+            
+                <a href="../grammar/2012-01-12-copy-control-members-summerize.html">
+            
+                    
+                    复制控制成员总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.19" data-path="../grammar/2012-09-27-contructor-and-copy-contructor-and-release.html">
+            
+                <a href="../grammar/2012-09-27-contructor-and-copy-contructor-and-release.html">
+            
+                    
+                    构造函数、复制构造函数、析构函数混合使用总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.20" data-path="../grammar/align.html">
+            
+                <a href="../grammar/align.html">
+            
+                    
+                    类成员的对齐规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.21" data-path="../grammar/2012-08-13-size-of-class.html">
+            
+                <a href="../grammar/2012-08-13-size-of-class.html">
+            
+                    
+                    类的大小
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.22" data-path="../grammar/2012-01-17-polymorphism-in-cpp.html">
+            
+                <a href="../grammar/2012-01-17-polymorphism-in-cpp.html">
+            
+                    
+                    多态总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.23" data-path="../grammar/virtual_class.html">
+            
+                <a href="../grammar/virtual_class.html">
+            
+                    
+                    虚基类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.24" data-path="../grammar/2019-09-05-virtual-function-analyse-0.html">
+            
+                <a href="../grammar/2019-09-05-virtual-function-analyse-0.html">
+            
+                    
+                    C++虚函数易错题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.25" data-path="../grammar/2019-09-05-virtual-function-analyse-1.html">
+            
+                <a href="../grammar/2019-09-05-virtual-function-analyse-1.html">
+            
+                    
+                    virtual关键字在父类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.26" data-path="../grammar/2019-09-05-virtual-function-analyse-2.html">
+            
+                <a href="../grammar/2019-09-05-virtual-function-analyse-2.html">
+            
+                    
+                    virtual关键字在子类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.27" data-path="../grammar/2019-09-06-virtual-function-analyse-3.html">
+            
+                <a href="../grammar/2019-09-06-virtual-function-analyse-3.html">
+            
+                    
+                    析构函数的virtual在子类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.28" data-path="../grammar/2019-09-06-virtual-function-analyse-4.html">
+            
+                <a href="../grammar/2019-09-06-virtual-function-analyse-4.html">
+            
+                    
+                    间接调用虚函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.29" data-path="../grammar/2012-01-14-operator-overloading-in-cpp.html">
+            
+                <a href="../grammar/2012-01-14-operator-overloading-in-cpp.html">
+            
+                    
+                    操作符重载总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.30" data-path="../grammar/2012-01-11-friend-member-of-class.html">
+            
+                <a href="../grammar/2012-01-11-friend-member-of-class.html">
+            
+                    
+                    友元friend总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.31" data-path="../grammar/2013-11-24-c++-primer-record.html">
+            
+                <a href="../grammar/2013-11-24-c++-primer-record.html">
+            
+                    
+                    C++Primer笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.32" data-path="../grammar/2011-12-29-scanf.html">
+            
+                <a href="../grammar/2011-12-29-scanf.html">
+            
+                    
+                    使用scanf函数时应该注意的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.33" data-path="../grammar/file_operation.html">
+            
+                <a href="../grammar/file_operation.html">
+            
+                    
+                    文件操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    链接
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../linker/2016-07-27-linux-g++-basic-conception.html">
+            
+                <a href="../linker/2016-07-27-linux-g++-basic-conception.html">
+            
+                    
+                    linux g++ 链接器（一）基础概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../linker/2016-07-25-linux-g++-linking.html">
+            
+                <a href="../linker/2016-07-25-linux-g++-linking.html">
+            
+                    
+                    linux g++ 链接 （二）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../linker/2016-07-14-static-linking-g++.html">
+            
+                <a href="../linker/2016-07-14-static-linking-g++.html">
+            
+                    
+                    g++ 链接器（三）-可重定位目标文件的链接（静态链接）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../linker/2016-07-18-dynamic-linking-g++.html">
+            
+                <a href="../linker/2016-07-18-dynamic-linking-g++.html">
+            
+                    
+                    g++ 链接器（四）-共享目标文件的链接（动态链接）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../linker/2015-04-07-symbols-in-linking.html">
+            
+                <a href="../linker/2015-04-07-symbols-in-linking.html">
+            
+                    
+                    链接中的符号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../linker/2015-04-03-symbol-redifine-in-g++-ld.html">
+            
+                <a href="../linker/2015-04-03-symbol-redifine-in-g++-ld.html">
+            
+                    
+                    g++/ld中的符号重定义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../linker/2015-04-07-symbol-confliction-in-normal-target-file.html">
+            
+                <a href="../linker/2015-04-07-symbol-confliction-in-normal-target-file.html">
+            
+                    
+                    普通目标文件的符号重定义处理策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    GTEST
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../GTEST/event.html">
+            
+                <a href="../GTEST/event.html">
+            
+                    
+                    事件机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../GTEST/check.html">
+            
+                <a href="../GTEST/check.html">
+            
+                    
+                    断言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../GTEST?control.md">
+            
+                <span>
+            
+                    
+                    使用控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    其它
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.5.1" data-path="2016-12-13-why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array.html">
+            
+                <a href="2016-12-13-why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array.html">
+            
+                    
+                    为什么有序数组的执行速度快于无序数组？
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >为什么有序数组的执行速度快于无序数组？</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x8FD9;&#x662F;&#x4E00;&#x6BB5;&#x795E;&#x5947;&#x7684;c++&#x4EE3;&#x7801;&#xFF0C;&#x4E0D;&#x77E5;&#x9053;&#x4E3A;&#x4EC0;&#x4E48;&#xFF0C;&#x5C06;&#x91CC;&#x9762;&#x7684;&#x6570;&#x7EC4;data&#x6392;&#x5E8F;&#xFF0C;&#x80FD;&#x591F;&#x4F7F;&#x4EE3;&#x7801;&#x7684;&#x8FD0;&#x884C;&#x901F;&#x5EA6;&#x5FEB;&#x4E86;&#x8FD1;6&#x500D;&#x3002;  </p>
+<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;ctime&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">// Generate data</span>
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> arraySize = <span class="hljs-number">32768</span>;
+    <span class="hljs-keyword">int</span> data[arraySize];
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">unsigned</span> c = <span class="hljs-number">0</span>; c &lt; arraySize; ++c)
+        data[c] = <span class="hljs-built_in">std</span>::rand() % <span class="hljs-number">256</span>;
+
+    <span class="hljs-comment">// !!! With this, the next loop runs faster</span>
+    <span class="hljs-built_in">std</span>::sort(data, data + arraySize);
+
+    <span class="hljs-comment">// Test</span>
+    <span class="hljs-keyword">clock_t</span> start = clock();
+    <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> sum = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">unsigned</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100000</span>; ++i)
+    {
+        <span class="hljs-comment">// Primary loop</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">unsigned</span> c = <span class="hljs-number">0</span>; c &lt; arraySize; ++c)
+        {
+            <span class="hljs-keyword">if</span> (data[c] &gt;= <span class="hljs-number">128</span>)
+                sum += data[c];
+        }
+    }
+
+    <span class="hljs-keyword">double</span> elapsedTime = <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">double</span>&gt;(clock() - start) / CLOCKS_PER_SEC;
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; elapsedTime &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;sum = &quot;</span> &lt;&lt; sum &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+}
+</code></pre>
+<ul>
+<li>&#x6CA1;&#x6709;``&#x8FD9;&#x4E00;&#x53E5;&#xFF0C;&#x4EE3;&#x7801;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x4E3A;11.54&#x79D2;  </li>
+<li>&#x52A0;&#x4E86;&#x8FD9;&#x4E2A;&#x6392;&#x5E8F;&#x8BED;&#x53E5;&#xFF0C;&#x4EE3;&#x7801;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x662F;1.93&#x79D2;  </li>
+</ul>
+<!-- more -->
+<p>&#x4E00;&#x5F00;&#x59CB;&#xFF0C;&#x6211;&#x4EE5;&#x4E3A;&#x662F;C++&#x8BED;&#x8A00;&#x6216;&#x8005;&#x8FD9;&#x4E2A;&#x7F16;&#x8BD1;&#x5668;&#x6BD4;&#x8F83;&#x7279;&#x6B8A;&#xFF0C;&#x4E8E;&#x662F;&#x6211;&#x53C8;&#x7528;JAVA&#x505A;&#x4E86;&#x5B9E;&#x9A8C;&#xFF1A;  </p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> java.util.Arrays;
+<span class="hljs-keyword">import</span> java.util.Random;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span>
+</span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span>
+    </span>{
+        <span class="hljs-comment">// Generate data</span>
+        <span class="hljs-keyword">int</span> arraySize = <span class="hljs-number">32768</span>;
+        <span class="hljs-keyword">int</span> data[] = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[arraySize];
+
+        Random rnd = <span class="hljs-keyword">new</span> Random(<span class="hljs-number">0</span>);
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> c = <span class="hljs-number">0</span>; c &lt; arraySize; ++c)
+            data[c] = rnd.nextInt() % <span class="hljs-number">256</span>;
+
+        <span class="hljs-comment">// !!! With this, the next loop runs faster</span>
+        Arrays.sort(data);
+
+        <span class="hljs-comment">// Test</span>
+        <span class="hljs-keyword">long</span> start = System.nanoTime();
+        <span class="hljs-keyword">long</span> sum = <span class="hljs-number">0</span>;
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100000</span>; ++i)
+        {
+            <span class="hljs-comment">// Primary loop</span>
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> c = <span class="hljs-number">0</span>; c &lt; arraySize; ++c)
+            {
+                <span class="hljs-keyword">if</span> (data[c] &gt;= <span class="hljs-number">128</span>)
+                    sum += data[c];
+            }
+        }
+
+        System.out.println((System.nanoTime() - start) / <span class="hljs-number">1000000000.0</span>);
+        System.out.println(<span class="hljs-string">&quot;sum = &quot;</span> + sum);
+    }
+}
+</code></pre>
+<p>&#x5176;&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x548C;C++&#x7684;&#x7C7B;&#x4F3C;&#xFF0C;&#x53EA;&#x662F;&#x5DEE;&#x522B;&#x6CA1;&#x90A3;&#x4E48;&#x6781;&#x7AEF;&#x3002;  </p>
+<hr>
+<p>&#x6211;&#x6700;&#x521D;&#x7684;&#x7406;&#x89E3;&#x662F;&#xFF0C;&#x6392;&#x5E8F;&#x7684;&#x8FC7;&#x7A0B;&#x628A;data&#x653E;&#x8FDB;&#x4E86;cache&#xFF0C;&#x540E;&#x6765;&#x89C9;&#x5F97;&#x8FD9;&#x60F3;&#x6CD5;&#x5F88;&#x50BB;&#xFF0C;&#x56E0;&#x4E3A;&#x6570;&#x7EC4;&#x662F;&#x521A;&#x521A;&#x624D;&#x751F;&#x6210;&#x7684;&#x3002;&#x90A3;&#x4E48;  </p>
+<ul>
+<li>&#x5230;&#x5E95;&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;</li>
+<li>&#x4E3A;&#x4EC0;&#x4E48;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#x7684;&#x6267;&#x884C;&#x901F;&#x5EA6;&#x6BD4;&#x65E0;&#x5E8F;&#x6570;&#x7EC4;&#x5FEB;&#xFF1F;</li>
+<li>&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x7684;&#x8FD0;&#x884C;&#x6761;&#x4EF6;&#x662F;&#x72EC;&#x7ACB;&#x7684;&#xFF0C;&#x5B83;&#x4E0D;&#x5E94;&#x8BE5;&#x548C;&#x987A;&#x5E8F;&#x6709;&#x5173;&#x3002;  </li>
+</ul>
+<h4 id="&#x56DE;&#x7B54;&#x4E00;&#xFF1A;&#x4F60;&#x662F;&#x5206;&#x652F;&#x9884;&#x6D4B;&#x5931;&#x8D25;&#x7684;&#x53D7;&#x5BB3;&#x8005;"><a name="&#x56DE;&#x7B54;&#x4E00;&#xFF1A;&#x4F60;&#x662F;&#x5206;&#x652F;&#x9884;&#x6D4B;&#x5931;&#x8D25;&#x7684;&#x53D7;&#x5BB3;&#x8005;" class="anchor-navigation-ex-anchor" href="#&#x56DE;&#x7B54;&#x4E00;&#xFF1A;&#x4F60;&#x662F;&#x5206;&#x652F;&#x9884;&#x6D4B;&#x5931;&#x8D25;&#x7684;&#x53D7;&#x5BB3;&#x8005;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x56DE;&#x7B54;&#x4E00;&#xFF1A;&#x4F60;&#x662F;&#x5206;&#x652F;&#x9884;&#x6D4B;&#x5931;&#x8D25;&#x7684;&#x53D7;&#x5BB3;&#x8005;</h4>
+<h5 id="&#x4EC0;&#x4E48;&#x662F;&#x5206;&#x652F;&#x9884;&#x6D4B;"><a name="&#x4EC0;&#x4E48;&#x662F;&#x5206;&#x652F;&#x9884;&#x6D4B;" class="anchor-navigation-ex-anchor" href="#&#x4EC0;&#x4E48;&#x662F;&#x5206;&#x652F;&#x9884;&#x6D4B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4EC0;&#x4E48;&#x662F;&#x5206;&#x652F;&#x9884;&#x6D4B;</h5>
+<p>&#x53C2;&#x8003;&#x8FD9;&#x4E2A;&#x94C1;&#x8DEF;&#x67A2;&#x7EBD;&#xFF1A;<br><img src="http://i.stack.imgur.com/muxnt.jpg" alt="Image by Mecanismo, via Wikimedia Commons. Used under the CC-By-SA 3.0 license."><br>&#x5173;&#x4E8E;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x5047;&#x8BBE;&#x73B0;&#x5728;&#x662F;19&#x4E16;&#x7EAA;&#xFF08;1800s&#xFF09;&#xFF0C;&#x90A3;&#x65F6;&#x5019;&#x8FDC;&#x8DDD;&#x79BB;&#x901A;&#x4FE1;&#x8FD8;&#x6CA1;&#x6709;&#x53D1;&#x660E;&#x3002;<br>&#x4F60;&#x662F;&#x4E00;&#x4E2A;&#x94C1;&#x8DEF;&#x67A2;&#x7EBD;&#x7684;&#x64CD;&#x4F5C;&#x5458;&#xFF0C;&#x6B64;&#x65F6;&#x542C;&#x5230;&#x706B;&#x8F66;&#x8981;&#x6765;&#x4E86;&#xFF0C;&#x4F46;&#x4F60;&#x4E0D;&#x77E5;&#x9053;&#x5B83;&#x8981;&#x5F80;&#x54EA;&#x4E2A;&#x65B9;&#x5411;&#x53BB;&#x3002;&#x4F60;&#x9700;&#x8981;&#x8BA9;&#x706B;&#x8F66;&#x505C;&#x4E0B;&#x5E76;&#x8BE2;&#x95EE;&#x4ED6;&#x4EEC;&#x8981;&#x53BB;&#x7684;&#x65B9;&#x5411;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x6574;&#x706B;&#x8F66;&#x8F68;&#x9053;&#x3002;<br>&#x7136;&#x800C;&#x706B;&#x8F66;&#x5F88;&#x91CD;&#xFF0C;&#x8981;&#x5F3A;&#x5927;&#x7684;&#x60EF;&#x6027;&#xFF0C;&#x8981;&#x82B1;&#x8D39;&#x5F88;&#x591A;&#x65F6;&#x95F4;&#x542F;&#x52A8;&#x548C;&#x505C;&#x4E0B;&#x3002;<br>&#x6709;&#x6CA1;&#x6709;&#x66F4;&#x597D;&#x7684;&#x65B9;&#x6CD5;&#xFF1F;&#x4F60;&#x5148;&#x9884;&#x6D4B;&#x706B;&#x8F66;&#x7684;&#x65B9;&#x6CD5;&#xFF01;  </p>
+<ul>
+<li>&#x5982;&#x679C;&#x4F60;&#x731C;&#x5BF9;&#x4E86;&#xFF0C;&#x5B83;&#x7EE7;&#x7EED;&#x8FD0;&#x884C;&#x3002;  </li>
+<li>&#x5982;&#x679C;&#x4F60;&#x731C;&#x9519;&#x4E86;&#xFF0C;&#x706B;&#x8F66;&#x53F8;&#x673A;&#x4F1A;&#x628A;&#x706B;&#x8F66;&#x505C;&#x4E0B;&#x3001;&#x5012;&#x56DE;&#xFF0C;&#x5E76;&#x558A;&#x4F60;&#x5207;&#x6362;&#x65B9;&#x5411;&#x3002;&#x7136;&#x540E;&#x542F;&#x52A8;&#x706B;&#x8F66;&#x5F00;&#x5411;&#x53E6;&#x4E00;&#x4E2A;&#x65B9;&#x5411;&#x3002;</li>
+</ul>
+<p><strong>&#x5982;&#x679C;&#x4F60;&#x6BCF;&#x6B21;&#x90FD;&#x80FD;&#x731C;&#x5BF9;</strong>&#xFF0C;&#x706B;&#x8F66;&#x5C31;&#x4E0D;&#x4F1A;&#x505C;&#x3002;
+<strong>&#x5982;&#x679C;&#x4F60;&#x7ECF;&#x5E38;&#x731C;&#x9519;</strong>&#xFF0C;&#x706B;&#x8F66;&#x4F1A;&#x82B1;&#x8D39;&#x5927;&#x91CF;&#x7684;&#x65F6;&#x95F4;&#x505C;&#x4E0B;&#x3001;&#x5012;&#x56DE;&#x3001;&#x542F;&#x52A8;&#x3002;  </p>
+<hr>
+<p>&#x518D;&#x8BF4;<strong>if&#x6761;&#x4EF6;&#x8BED;&#x53E5;</strong>&#xFF1A;&#x4ECE;&#x5904;&#x7406;&#x5668;&#x89D2;&#x5EA6;&#x770B;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x5206;&#x652F;&#x6307;&#x4EE4;&#x3002;<br><img src="http://i.stack.imgur.com/pyfwC.png" alt=""><br>&#x5047;&#x8BBE;&#x4F60;&#x662F;&#x5904;&#x7406;&#x5668;&#xFF0C;&#x4F60;&#x770B;&#x5230;&#x4E86;&#x8FD9;&#x4E2A;&#x5206;&#x652F;&#x6307;&#x4EE4;&#xFF0C;&#x4F46;&#x4E0D;&#x4F60;&#x77E5;&#x9053;&#x9009;&#x62E9;&#x54EA;&#x4E2A;&#x5206;&#x652F;&#x3002;&#x4F60;&#x4F1A;&#x600E;&#x4E48;&#x505A;&#xFF1F;<br>&#x4F60;&#x9700;&#x8981;&#x505C;&#x6B62;&#x6267;&#x884C;&#xFF0C;&#x7B49;&#x5F85;&#x8FD9;&#x6761;&#x6307;&#x4EE4;&#x6267;&#x884C;&#x5B8C;&#x6210;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x6B63;&#x786E;&#x7684;&#x6307;&#x4EE4;&#x3002;<br>&#x73B0;&#x4EE3;&#x5904;&#x7406;&#x5668;&#x90FD;&#x975E;&#x5E38;&#x590D;&#x6742;&#xFF0C;&#x5B83;&#x4EEC;&#x62E5;&#x6709;&#x5F88;&#x7684;&#x7BA1;&#x9053;&#xFF0C;&#x9700;&#x8981;&#x82B1;&#x5F88;&#x957F;&#x65F6;&#x95F4;&#x201C;&#x542F;&#x52A8;&#x201D;&#x548C;&#x201C;&#x505C;&#x4E0B;&#x201D;&#x3002;<br>&#x6709;&#x6CA1;&#x6709;&#x66F4;&#x597D;&#x7684;&#x65B9;&#x6CD5;&#xFF1F;&#x90A3;&#x5C31;&#x662F;&#x9884;&#x6D4B;&#x5206;&#x652F;&#x7684;&#x65B9;&#x5411;&#x3002;  </p>
+<ul>
+<li>&#x5982;&#x679C;&#x4F60;&#x731C;&#x5BF9;&#x4E86;&#xFF0C;&#x5C31;&#x7EE7;&#x7EED;&#x6267;&#x884C;  </li>
+<li>&#x5982;&#x679C;&#x4F60;&#x731C;&#x9519;&#x4E86;&#xFF0C;&#x5C31;&#x8981;&#x6E05;&#x7A7A;&#x7BA1;&#x9053;&#x5E76;&#x56DE;&#x9000;&#x5230;&#x5206;&#x652F;&#x6307;&#x4EE4;&#x5904;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x65B0;&#x5F00;&#x59CB;&#x6267;&#x884C;&#x540E;&#x9762;&#x7684;&#x6307;&#x4EE4;&#x3002;  </li>
+</ul>
+<p><strong>&#x5982;&#x679C;&#x4F60;&#x6BCF;&#x6B21;&#x90FD;&#x731C;&#x5BF9;</strong>&#xFF0C;&#x6267;&#x884C;&#x5C31;&#x4E0D;&#x4F1A;&#x505C;&#x6B62;&#x3002;<br><strong>&#x5982;&#x679C;&#x4F60;&#x7ECF;&#x5E38;&#x731C;&#x9519;</strong>&#xFF0C;&#x5C31;&#x8981;&#x82B1;&#x5927;&#x91CF;&#x7684;&#x65F6;&#x95F4;&#x505C;&#x4E0B;&#x3001;&#x56DE;&#x6EDA;&#x548C;&#x91CD;&#x65B0;&#x5F00;&#x59CB;&#x3002;  </p>
+<hr>
+<p>&#x8FD9;&#x5C31;&#x662F;&#x5206;&#x652F;&#x9884;&#x6D4B;&#x3002;&#x6211;&#x627F;&#x8BA4;&#x8FD9;&#x4E2A;&#x7C7B;&#x4F3C;&#x4E0D;&#x662F;&#x6700;&#x6070;&#x5F53;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x706B;&#x8F66;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x65D7;&#x5E1C;&#x6765;&#x8868;&#x793A;&#x5B83;&#x8981;&#x524D;&#x5F80;&#x7684;&#x65B9;&#x5411;&#x3002;&#x4F46;&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x91CC;&#xFF0C;&#x5904;&#x7406;&#x5668;&#x76F4;&#x5230;&#x6700;&#x540E;&#x4E00;&#x523B;&#x624D;&#x80FD;&#x77E5;&#x9053;&#x5206;&#x652F;&#x7684;&#x65B9;&#x5411;&#x3002;<br>&#x90A3;&#x4E48;&#x4F60;&#x600E;&#x4E48;&#x6709;&#x7B56;&#x7565;&#x5730;&#x731C;&#x6D4B;&#xFF0C;&#x624D;&#x80FD;&#x4F7F;&#x201C;&#x8BA9;&#x706B;&#x8F66;&#x56DE;&#x9000;&#x7136;&#x540E;&#x8D70;&#x53E6;&#x4E00;&#x6761;&#x7EBF;&#x8DEF;&#x201D;&#x7684;&#x6B21;&#x6570;&#x5C3D;&#x91CF;&#x5730;&#x5C11;&#x5462;&#xFF1F;&#x4F60;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x5386;&#x53F2;&#xFF01;&#x5982;&#x679C;&#x706B;&#x8F66;99% &#x90FD;&#x662F;&#x8D70;&#x5DE6;&#x8FB9;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x731C;&#x5DE6;&#x8FB9;&#x3002;&#x5982;&#x679C;&#x60F3;&#x53CD;&#xFF0C;&#x5219;&#x731C;&#x53E6;&#x4E00;&#x65B9;&#x5411;&#x3002;&#x5982;&#x679C;&#x6BCF;&#x6761;&#x8DEF;&#x8D70;3&#x6B21;&#xFF0C;&#x4F60;&#x4E5F;&#x8FD9;&#x4E48;&#x731C;&#x3002;&#x3002;&#x3002;
+<strong>&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;&#x4F60;&#x8BD5;&#x56FE;&#x627E;&#x5230;&#x4E00;&#x4E2A;&#x6A21;&#x5F0F;&#x5E76;&#x4F9D;&#x636E;&#x5B83;&#x6765;&#x505A;&#x63A8;&#x6D4B;&#x3002;</strong>&#x5206;&#x652F;&#x9884;&#x6D4B;&#x5927;&#x6982;&#x5C31;&#x662F;&#x8FD9;&#x6837;&#x5DE5;&#x4F5C;&#x7684;&#x3002;<br>&#x5927;&#x90E8;&#x5206;&#x5E94;&#x7528;&#x7684;&#x5206;&#x652F;&#x884C;&#x4E3A;&#x90FD;&#x662F;&#x5F88;&#x6709;&#x89C4;&#x5F8B;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x73B0;&#x4EE3;&#x5206;&#x652F;&#x9884;&#x6D4B;&#x5668;&#x80FD;&#x8FBE;&#x5230;90%&#x4EE5;&#x4E0A;&#x7684;&#x6B63;&#x786E;&#x7387;&#x3002;&#x4F46;&#x662F;&#x5F53;&#x9047;&#x5230;&#x5206;&#x652F;&#x65E0;&#x6CD5;&#x9884;&#x6D4B;&#x53C8;&#x627E;&#x4E0D;&#x5230;&#x5176;&#x89C4;&#x5F8B;&#x65F6;&#xFF0C;&#x5206;&#x652F;&#x9884;&#x6D4B;&#x5668;&#x51E0;&#x4E4E;&#x6CA1;&#x6709;&#x7528;&#x3002;<br>&#x8FDB;&#x4E00;&#x6B65;&#x9605;&#x8BFB;&#xFF1A;<a href="http://en.wikipedia.org/wiki/Branch_predictor" target="_blank">&#x201C;&#x5206;&#x652F;&#x9884;&#x6D4B;&#x5668;&#x201D;&#x7EF4;&#x57FA;&#x767E;&#x79D1;</a>  </p>
+<hr>
+<h5 id="&#x57FA;&#x4E8E;&#x4EE5;&#x4E0A;&#x4FE1;&#x606F;&#xFF0C;&#x72AF;&#x4EBA;&#x5C31;&#x662F;&#x8FD9;&#x6761;if&#x8BED;&#x53E5;"><a name="&#x57FA;&#x4E8E;&#x4EE5;&#x4E0A;&#x4FE1;&#x606F;&#xFF0C;&#x72AF;&#x4EBA;&#x5C31;&#x662F;&#x8FD9;&#x6761;if&#x8BED;&#x53E5;" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x4E8E;&#x4EE5;&#x4E0A;&#x4FE1;&#x606F;&#xFF0C;&#x72AF;&#x4EBA;&#x5C31;&#x662F;&#x8FD9;&#x6761;if&#x8BED;&#x53E5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x57FA;&#x4E8E;&#x4EE5;&#x4E0A;&#x4FE1;&#x606F;&#xFF0C;&#x72AF;&#x4EBA;&#x5C31;&#x662F;&#x8FD9;&#x6761;if&#x8BED;&#x53E5;</h5>
+<pre><code class="lang-c++"><span class="hljs-keyword">if</span> (data[c] &gt;= <span class="hljs-number">128</span>)
+    sum += data[c];
+</code></pre>
+<p>&#x6CE8;&#x610F;&#x5230;data&#x7684;&#x503C;&#x90FD;&#x5206;&#x5E03;&#x5728;[0, 255]&#x3002;&#x5F53;&#x6570;&#x636E;&#x6392;&#x597D;&#x5E8F;&#xFF0C;&#x524D;&#x9762;&#x5927;&#x7EA6;&#x4E00;&#x534A;&#x7684;&#x6570;&#x636E;&#x90FD;&#x4E0D;&#x4F1A;&#x8FDB;&#x5165;if&#x8BED;&#x53E5;&#x5185;&#xFF0C;&#x800C;&#x540E;&#x9762;&#x7684;&#x6570;&#x636E;&#x90FD;&#x4F1A;&#x8FDB;&#x5165;if&#x5185;&#x3002;<br>&#x8FD9;&#x5BF9;&#x5206;&#x652F;&#x9884;&#x6D4B;&#x5668;&#x6765;&#x8BF4;&#x662F;&#x5F88;&#x53CB;&#x597D;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5206;&#x652F;&#x4F1A;&#x5EF6;&#x7EED;&#x4E0E;&#x4E0A;&#x4E00;&#x6B21;&#x76F8;&#x540C;&#x7684;&#x65B9;&#x5411;&#x3002;&#x5373;&#x4F7F;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x9971;&#x548C;&#x8BA1;&#x6570;&#x5668;&#x4E5F;&#x80FD;&#x6B63;&#x786E;&#x5730;&#x9884;&#x6D4B;&#x5206;&#x652F;&#x65B9;&#x5411;&#xFF0C;&#x9664;&#x4E86;&#x521A;&#x6362;&#x65B9;&#x5411;&#x4E4B;&#x540E;&#x7684;&#x51E0;&#x6B21;&#x4E4B;&#x5916;&#x3002;  </p>
+<h6 id="&#x5FEB;&#x901F;&#x53EF;&#x89C6;&#x5316;"><a name="&#x5FEB;&#x901F;&#x53EF;&#x89C6;&#x5316;" class="anchor-navigation-ex-anchor" href="#&#x5FEB;&#x901F;&#x53EF;&#x89C6;&#x5316;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5FEB;&#x901F;&#x53EF;&#x89C6;&#x5316;</h6>
+<pre><code>T = branch taken
+N = branch not taken
+
+data[] = 0, 1, 2, 3, 4, ... 126, 127, 128, 129, 130, ... 250, 251, 252, ...
+branch = N  N  N  N  N  ...   N    N    T    T    T  ...   T    T    T  ...
+
+       = NNNNNNNNNNNN ... NNNNNNNTTTTTTTTT ... TTTTTTTTTT  (easy to predict)
+</code></pre><p>&#x4F46;&#x662F;&#x662F;&#x5982;&#x679C;&#x6570;&#x636E;&#x662F;&#x968F;&#x673A;&#x7684;&#xFF0C;&#x5206;&#x652F;&#x9884;&#x6D4B;&#x5668;&#x5C31;&#x51E0;&#x4E4E;&#x6CA1;&#x6709;&#x7528;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4E0D;&#x80FD;&#x9884;&#x6D4B;&#x968F;&#x673A;&#x6570;&#x636E;&#x3002;&#x5927;&#x6982;&#x5206;&#x6709;50%&#x7684;&#x8BEF;&#x5224;&#x7387;&#x3002;&#xFF08;&#x548C;&#x968F;&#x673A;&#x5730;&#x731C;&#x6CA1;&#x6709;&#x533A;&#x522B;&#xFF09;</p>
+<pre><code>data[] = 226, 185, 125, 158, 198, 144, 217, 79, 202, 118,  14, 150, 177, 182, 133, ...
+branch =   T,   T,   N,   T,   T,   T,   T,  N,   T,   N,   N,   T,   T,   T,   N  ...
+
+       = TTNTTTTNTNNTTTN ...   (completely random - hard to predict)
+</code></pre><hr>
+<h6 id="&#x53EF;&#x4EE5;&#x505A;&#x4EC0;&#x4E48;&#xFF1F;"><a name="&#x53EF;&#x4EE5;&#x505A;&#x4EC0;&#x4E48;&#xFF1F;" class="anchor-navigation-ex-anchor" href="#&#x53EF;&#x4EE5;&#x505A;&#x4EC0;&#x4E48;&#xFF1F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53EF;&#x4EE5;&#x505A;&#x4EC0;&#x4E48;&#xFF1F;</h6>
+<p>&#x5982;&#x679C;&#x4E0D;&#x80FD;&#x901A;&#x8FC7;&#x4F18;&#x5316;&#x7F16;&#x8BD1;&#x5668;&#x5F97;&#x5230;&#x671F;&#x671B;&#x7684;&#x6307;&#x4EE4;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x8BD5;&#x8BD5;&#x4E00;&#x4E9B;hack&#x65B9;&#x6CD5;&#xFF0C;&#x727A;&#x7272;&#x53EF;&#x8BFB;&#x6027;&#x6362;&#x6765;&#x6027;&#x80FD;&#x3002;<br>&#x628A;  </p>
+<pre><code class="lang-c++"><span class="hljs-keyword">if</span> (data[c] &gt;= <span class="hljs-number">128</span>)
+    sum += data[c];
+</code></pre>
+<p>&#x6539;&#x6210;  </p>
+<pre><code class="lang-c++"><span class="hljs-keyword">int</span> t = (data[c] - <span class="hljs-number">128</span>) &gt;&gt; <span class="hljs-number">31</span>;
+sum += ~t &amp; data[c];
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x5C31;&#x6D88;&#x9664;&#x4E86;&#x5206;&#x652F;&#x800C;&#x66FF;&#x6362;&#x6210;&#x4E86;&#x4F4D;&#x64CD;&#x4F5C;&#x3002;<br><em>&#x6CE8;&#x610F;&#xFF1A;&#x8FD9;&#x4E2A;hack&#x8BED;&#x53E5;&#x4E0E;&#x539F;&#x6765;&#x7684;if&#x8BED;&#x53E5;&#x4E0D;&#x662F;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#x7684;&#x3002;&#x4F46;&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x5BF9;&#x6765;&#x81EA;data[]&#x7684;&#x6240;&#x6709;&#x6570;&#x636E;&#x90FD;&#x662F;&#x6709;&#x7528;&#x7684;&#x3002;</em>  </p>
+<h6 id="benchmarks-core-i7-920--35-ghz"><a name="benchmarks-core-i7-920--35-ghz" class="anchor-navigation-ex-anchor" href="#benchmarks-core-i7-920--35-ghz"><i class="fa fa-link" aria-hidden="true"></i></a>Benchmarks Core i7 920 @ 3.5 GHz</h6>
+<p>C++ - Visual Studio 2010 - x64 Release</p>
+<pre><code>//  Branch - Random
+seconds = 11.777
+
+//  Branch - Sorted
+seconds = 2.352
+
+//  Branchless - Random
+seconds = 2.564
+
+//  Branchless - Sorted
+seconds = 2.587
+</code></pre><p>Java - Netbeans 7.1.1 JDK 7 - x64</p>
+<pre><code>//  Branch - Random
+seconds = 10.93293813
+
+//  Branch - Sorted
+seconds = 5.643797077
+
+//  Branchless - Random
+seconds = 3.113581453
+
+//  Branchless - Sorted
+seconds = 3.186068823
+</code></pre><p>&#x5B9E;&#x9A8C;&#x7ED3;&#x679C;&#xFF1A;  </p>
+<ul>
+<li><strong>&#x4F7F;&#x7528;&#x5206;&#x652F;&#xFF1A;</strong>&#x6709;&#x5E8F;&#x6570;&#x636E;&#x4E0E;&#x65E0;&#x5E8F;&#x6570;&#x636E;&#x7684;&#x5DEE;&#x522B;&#x5F88;&#x5927;  </li>
+<li><strong>&#x4F7F;&#x7528;hach:</strong>&#x6709;&#x5E8F;&#x6570;&#x636E;&#x4E0E;&#x65E0;&#x5E8F;&#x6570;&#x636E;&#x4E4B;&#x95F4;&#x6CA1;&#x5DEE;&#x522B;</li>
+<li>&#x5728;C++&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x5BF9;&#x4E8E;&#x6709;&#x5E8F;&#x6570;&#x636E;&#xFF0C;&#x4F7F;&#x7528;hack&#x53CD;&#x800C;&#x6BD4;&#x4F7F;&#x7528;&#x5206;&#x652F;&#x6162;&#x4E00;&#x70B9;  </li>
+</ul>
+<p>&#x901A;&#x5E38;&#x907F;&#x514D;&#x5728;&#x5173;&#x952E;&#x73AF;&#x5883;&#x4E2D;&#x4F7F;&#x7528;&#x4F9D;&#x8D56;&#x6570;&#x636E;&#x7684;&#x5206;&#x652F;&#xFF08;&#x5C31;&#x50CF;&#x4F8B;&#x5B50;&#x4E2D;&#x8FD9;&#x6837;&#xFF09;&#x3002;  </p>
+<hr>
+<h5 id="&#x66F4;&#x65B0;"><a name="&#x66F4;&#x65B0;" class="anchor-navigation-ex-anchor" href="#&#x66F4;&#x65B0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x66F4;&#x65B0;</h5>
+<ul>
+<li>GCC 4.6.1&#x5728;x64&#x4E0A;&#x4F7F;&#x7528;<code>-O3</code>&#x6216;<code>ftree-vectorize</code>&#x53EF;&#x4EE5;&#x4EA7;&#x751F;&#x201C;&#x6761;&#x4EF6;&#x8F6C;&#x79FB;&#x201D;&#x3002;&#x56E0;&#x6B64;&#x6709;&#x5E8F;&#x6570;&#x636E;&#x548C;&#x65E0;&#x5E8F;&#x6570;&#x636E;&#x7684;&#x6267;&#x884C;&#x6548;&#x679C;&#x6CA1;&#x6709;&#x5DEE;&#x522B; - &#x90FD;&#x5F88;&#x5FEB;&#x3002;  </li>
+<li>VC++ 2010&#x5BF9;&#x4E8E;&#x8FD9;&#x79CD;&#x5206;&#x652F;&#x4E0D;&#x80FD;&#x4EA7;&#x751F;&#x201C;&#x6761;&#x4EF6;&#x8F6C;&#x79FB;&#x201D;&#xFF0C;&#x5373;&#x4F7F;&#x662F;&#x4F7F;&#x7528;<code>/0x</code>&#x3002;  </li>
+<li>Intel 11&#x7F16;&#x8BD1;&#x5668;&#x505A;&#x4E86;&#x4E00;&#x4E9B;&#x795E;&#x5947;&#x7684;&#x6539;&#x8FDB;&#x3002;&#x5B83;&#x5BF9;&#x4E24;&#x4E2A;&#x5FAA;&#x73AF;&#x505A;&#x4E86;&#x4EA4;&#x6362;&#xFF0C;&#x628A;&#x4E0D;&#x53EF;&#x9884;&#x6D4B;&#x7684;&#x5206;&#x652F;&#x79FB;&#x5230;&#x4E86;&#x5FAA;&#x73AF;&#x5916;&#x9762;&#x3002;&#x56E0;&#x6B64;&#x8FD9;&#x4F46;&#x5BF9;&#x201C;&#x65E0;&#x6CD5;&#x9884;&#x6D4B;&#x201D;&#x514D;&#x75AB;&#xFF0C;&#x800C;&#x4E14;&#x8FD8;&#x6BD4;VC++&#x548C;GCC&#x7684;&#x6548;&#x679C;&#x5FEB;&#x4E00;&#x500D;&#x3002;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;ICC&#x53D1;&#x6325;test-loop&#x7684;&#x4F18;&#x52BF;&#xFF0C;&#x51FB;&#x8D25;&#x4E86;&#x6807;&#x51C6;&#x3002;&#x3002;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;Intel&#x7F16;&#x8BD1;&#x6CA1;&#x6709;&#x5206;&#x652F;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5B83;&#x53EA;&#x662F;out-right vectorized it.&#x5176;&#x7ED3;&#x679C;&#x4F1A;&#x548C;&#x4F7F;&#x7528;&#x5206;&#x652F;&#xFF08;loop interchange&#xFF09;&#x4E00;&#x6837;&#x5FEB;&#x3002;<br>&#x8FD9;&#x8BF4;&#x660E;&#x5373;&#x4F7F;&#x662F;&#x73B0;&#x4EE3;&#x7684;&#x6210;&#x719F;&#x7684;&#x7F16;&#x8BD1;&#x5668;&#xFF0C;&#x5728;&#x4F18;&#x5316;&#x4EE3;&#x7801;&#x7684;&#x80FD;&#x529B;&#x4E5F;&#x53EF;&#x4EE5;&#x8868;&#x73B0;&#x51FA;&#x5F88;&#x5927;&#x7684;&#x5DEE;&#x522B;&#x3002;  </li>
+</ul>
+<p> <a href="http://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array" target="_blank">link</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"layout":"post","title":"为什么有序数组的执行速度快于无序数组？","category":["编程语言"],"tags":["c++","JAVA","性能","分支预测"],"level":"1.5.1","depth":2,"previous":{"title":"其它","level":"1.5","depth":1,"ref":"","articles":[{"title":"为什么有序数组的执行速度快于无序数组？","level":"1.5.1","depth":2,"path":"others/2016-12-13-why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array.md","ref":"others/2016-12-13-why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["katex","katex-plus","alerts","github","github-buttons","splitter","-sharing","sharing-plus","donate","copy-code-button","anchor-navigation-ex","sectionx","click-reveal"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/windmissing/cpp_notes"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"http://windmissing.github.io/images/2020/alipay.jpg","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"http://windmissing.github.io/images/2020/weixin.jpg","wechatText":"微信打赏"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"click-reveal":{},"sectionx":{},"highlight":{},"anchor-navigation-ex":{"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"isShowTocTitleIcon":true,"printLog":false,"multipleH1":true,"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false}},"katex-plus":{},"alerts":{},"github-buttons":{"repo":"windmissing/cpp_notes","types":["star","watch","fork"],"size":"small"},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"windmissing","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"3.2.3"},"file":{"path":"others/2016-12-13-why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array.md","mtime":"2021-11-20T01:43:35.569Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-20T01:44:50.776Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sectionx/sectionx.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-click-reveal/click_reveal.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

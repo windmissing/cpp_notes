@@ -1,0 +1,1058 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>构造函数、复制构造函数、析构函数混合使用总结 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="windmissing">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-plus/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sectionx/sectionx.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-click-reveal/click_reveal.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="align.html" />
+    
+    
+    <link rel="prev" href="2012-01-12-copy-control-members-summerize.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"windmissing/cpp_notes","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    语法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="2012-01-11-basic.html">
+            
+                <a href="2012-01-11-basic.html">
+            
+                    
+                    基本语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="2012-01-14-address-memory-heap-stack.html">
+            
+                <a href="2012-01-14-address-memory-heap-stack.html">
+            
+                    
+                    地址、内存、堆、栈总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="2012-01-16-porinter-and-reference-in-cpp.html">
+            
+                <a href="2012-01-16-porinter-and-reference-in-cpp.html">
+            
+                    
+                    指针与引用使用总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="pointer_and_address.html">
+            
+                <a href="pointer_and_address.html">
+            
+                    
+                    指针与取地址
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="2015-03-12-what-is-null.html">
+            
+                <a href="2015-03-12-what-is-null.html">
+            
+                    
+                    NULL是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="2015-08-25-Integer-Promotion.html">
+            
+                <a href="2015-08-25-Integer-Promotion.html">
+            
+                    
+                    C语言进阶：整型提升
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="size_and_bits.html">
+            
+                <a href="size_and_bits.html">
+            
+                    
+                    size和bit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="code.html">
+            
+                <a href="code.html">
+            
+                    
+                    数值编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="2012-01-11-static-summarize.html">
+            
+                <a href="2012-01-11-static-summarize.html">
+            
+                    
+                    关键字：static
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="2016-01-18-const-summarize.html">
+            
+                <a href="2016-01-18-const-summarize.html">
+            
+                    
+                    关键字：const
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="function_parameter.html">
+            
+                <a href="function_parameter.html">
+            
+                    
+                    函数传参
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="2012-01-17-return-value-from-function-in-cpp.html">
+            
+                <a href="2012-01-17-return-value-from-function-in-cpp.html">
+            
+                    
+                    函数返回值总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="2012-01-18-pointer-to-function.html">
+            
+                <a href="2012-01-18-pointer-to-function.html">
+            
+                    
+                    函数指针总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="2016-11-30-contructor-in-struct.html">
+            
+                <a href="2016-11-30-contructor-in-struct.html">
+            
+                    
+                    构造函数对结构体初始化的影响
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="2012-01-05-declaration-definition-and-initialization-for-class.html">
+            
+                <a href="2012-01-05-declaration-definition-and-initialization-for-class.html">
+            
+                    
+                    类的声明、定义与初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="2012-01-17-supperclass-inheritance.html">
+            
+                <a href="2012-01-17-supperclass-inheritance.html">
+            
+                    
+                    基类与派生类、继承关系总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="2012-01-12-copy-constructor-summarize.html">
+            
+                <a href="2012-01-12-copy-constructor-summarize.html">
+            
+                    
+                    复制构造函数总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="2012-01-12-copy-control-members-summerize.html">
+            
+                <a href="2012-01-12-copy-control-members-summerize.html">
+            
+                    
+                    复制控制成员总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.19" data-path="2012-09-27-contructor-and-copy-contructor-and-release.html">
+            
+                <a href="2012-09-27-contructor-and-copy-contructor-and-release.html">
+            
+                    
+                    构造函数、复制构造函数、析构函数混合使用总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.20" data-path="align.html">
+            
+                <a href="align.html">
+            
+                    
+                    类成员的对齐规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.21" data-path="2012-08-13-size-of-class.html">
+            
+                <a href="2012-08-13-size-of-class.html">
+            
+                    
+                    类的大小
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.22" data-path="2012-01-17-polymorphism-in-cpp.html">
+            
+                <a href="2012-01-17-polymorphism-in-cpp.html">
+            
+                    
+                    多态总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.23" data-path="virtual_class.html">
+            
+                <a href="virtual_class.html">
+            
+                    
+                    虚基类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.24" data-path="2019-09-05-virtual-function-analyse-0.html">
+            
+                <a href="2019-09-05-virtual-function-analyse-0.html">
+            
+                    
+                    C++虚函数易错题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.25" data-path="2019-09-05-virtual-function-analyse-1.html">
+            
+                <a href="2019-09-05-virtual-function-analyse-1.html">
+            
+                    
+                    virtual关键字在父类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.26" data-path="2019-09-05-virtual-function-analyse-2.html">
+            
+                <a href="2019-09-05-virtual-function-analyse-2.html">
+            
+                    
+                    virtual关键字在子类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.27" data-path="2019-09-06-virtual-function-analyse-3.html">
+            
+                <a href="2019-09-06-virtual-function-analyse-3.html">
+            
+                    
+                    析构函数的virtual在子类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.28" data-path="2019-09-06-virtual-function-analyse-4.html">
+            
+                <a href="2019-09-06-virtual-function-analyse-4.html">
+            
+                    
+                    间接调用虚函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.29" data-path="2012-01-14-operator-overloading-in-cpp.html">
+            
+                <a href="2012-01-14-operator-overloading-in-cpp.html">
+            
+                    
+                    操作符重载总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.30" data-path="2012-01-11-friend-member-of-class.html">
+            
+                <a href="2012-01-11-friend-member-of-class.html">
+            
+                    
+                    友元friend总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.31" data-path="2013-11-24-c++-primer-record.html">
+            
+                <a href="2013-11-24-c++-primer-record.html">
+            
+                    
+                    C++Primer笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.32" data-path="2011-12-29-scanf.html">
+            
+                <a href="2011-12-29-scanf.html">
+            
+                    
+                    使用scanf函数时应该注意的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.33" data-path="file_operation.html">
+            
+                <a href="file_operation.html">
+            
+                    
+                    文件操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    链接
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../linker/2016-07-27-linux-g++-basic-conception.html">
+            
+                <a href="../linker/2016-07-27-linux-g++-basic-conception.html">
+            
+                    
+                    linux g++ 链接器（一）基础概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../linker/2016-07-25-linux-g++-linking.html">
+            
+                <a href="../linker/2016-07-25-linux-g++-linking.html">
+            
+                    
+                    linux g++ 链接 （二）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../linker/2016-07-14-static-linking-g++.html">
+            
+                <a href="../linker/2016-07-14-static-linking-g++.html">
+            
+                    
+                    g++ 链接器（三）-可重定位目标文件的链接（静态链接）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../linker/2016-07-18-dynamic-linking-g++.html">
+            
+                <a href="../linker/2016-07-18-dynamic-linking-g++.html">
+            
+                    
+                    g++ 链接器（四）-共享目标文件的链接（动态链接）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../linker/2015-04-07-symbols-in-linking.html">
+            
+                <a href="../linker/2015-04-07-symbols-in-linking.html">
+            
+                    
+                    链接中的符号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../linker/2015-04-03-symbol-redifine-in-g++-ld.html">
+            
+                <a href="../linker/2015-04-03-symbol-redifine-in-g++-ld.html">
+            
+                    
+                    g++/ld中的符号重定义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../linker/2015-04-07-symbol-confliction-in-normal-target-file.html">
+            
+                <a href="../linker/2015-04-07-symbol-confliction-in-normal-target-file.html">
+            
+                    
+                    普通目标文件的符号重定义处理策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    GTEST
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../GTEST/event.html">
+            
+                <a href="../GTEST/event.html">
+            
+                    
+                    事件机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../GTEST/check.html">
+            
+                <a href="../GTEST/check.html">
+            
+                    
+                    断言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../GTEST?control.md">
+            
+                <span>
+            
+                    
+                    使用控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    其它
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../others/2016-12-13-why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array.html">
+            
+                <a href="../others/2016-12-13-why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array.html">
+            
+                    
+                    为什么有序数组的执行速度快于无序数组？
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >构造函数、复制构造函数、析构函数混合使用总结</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x4E00;&#x3001;&#x7528;&#x6CD5;</p>
+<p>&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x7528;&#x6CD5;&#xFF1A;&#x7C7B;&#x7684;&#x58F0;&#x660E;&#x3001;&#x5B9A;&#x4E49;&#x4E0E;&#x521D;&#x59CB;&#x5316;
+&#x590D;&#x5236;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x7528;&#x6CD5;&#xFF1A;&#x590D;&#x5236;&#x6784;&#x9020;&#x51FD;&#x6570;&#x603B;&#x7ED3;</p>
+<p>2.&#x4E00;&#x4E9B;&#x6DF7;&#x5408;&#x4F7F;&#x7528;&#x7684;&#x4F8B;&#x5B50;</p>
+<p>1.&#x5173;&#x4E8E;&#x5F3A;&#x5236;&#x7C7B;&#x578B;&#x8F6C;&#x6362;
+class A
+{
+    int x;
+public:
+    A(int i):x(i){cout&lt;&lt;&quot;construct     &quot;&lt;&lt;this&lt;&lt;endl;}
+    A(const A&amp; a){x = a.x;cout&lt;&lt;&quot;copy     &quot;&lt;&lt;this&lt;&lt;endl;}
+    ~A(){cout&lt;&lt;&quot;delete     &quot;&lt;&lt;this&lt;&lt;endl;}
+    void operator=(const A&amp; a){x = a.x;cout&lt;&lt;&quot;=     &quot;&lt;&lt;this&lt;&lt;endl;}
+    void get(){cout&lt;&lt;x&lt;&lt;endl;}
+    void set(int i){x = i;}
+};
+int main()
+{
+    A a(99), b(35);
+    a.get();
+    a = 1000; //&#x9690;&#x5F0F;&#x7684;&#x5F3A;&#x5236;&#x7C7B;&#x578B;&#x8F6C;&#x6362; + &#x8D4B;&#x503C;
+    a.get();
+    a = A(2); //&#x663E;&#x5F0F;&#x7684;&#x5F3A;&#x5236;&#x7C7B;&#x578B;&#x8F6C;&#x6362; + &#x8D4B;&#x503C;
+    a.get();
+    a = b;    //&#x8D4B;&#x503C;
+    a.get();
+    return 0;
+}</p>
+<p>&#x8F93;&#x51FA;&#xFF1A;
+construct     0012FF38     //a&#x7684;&#x6784;&#x9020;
+construct     0012FF34     //b&#x7684;&#x6784;&#x9020;
+99
+construct     0012FF30     //&#x4E34;&#x65F6;&#x5BF9;&#x8C61;&#x7684;&#x6784;&#x9020;
+=     0012FF38             //&#x8D4B;&#x503C;
+delete     0012FF30        //&#x4E34;&#x65F6;&#x5BF9;&#x8C61;&#x7684;&#x6790;&#x6784;
+1000
+construct     0012FF2C     //&#x4E34;&#x65F6;&#x5BF9;&#x8C61;&#x7684;&#x6784;&#x9020;
+=     0012FF38             //&#x8D4B;&#x503C;
+delete     0012FF2C        //&#x4E34;&#x65F6;&#x5BF9;&#x8C61;&#x7684;&#x6790;&#x6784;
+2
+=     0012FF38             //&#x8D4B;&#x503C;
+35
+delete     0012FF34        //
+delete     0012FF38        //
+&#x89E3;&#x91CA;&#xFF1A;&#x4E0D;&#x7BA1;&#x662F;&#x663E;&#x793A;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x8FD8;&#x662F;&#x9690;&#x5F0F;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#xFF0C;&#x90FD;&#x6709;&#x4EE5;&#x4E0B;&#x4E00;&#x4E9B;&#x5171;&#x540C;&#x70B9;&#xFF1A;
+1&#xFF09;&#x5148;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x5BF9;&#x8C61;&#xFF0C;&#x628A;&#x4E34;&#x65F6;&#x5BF9;&#x8C61;&#x8D4B;&#x503C;&#x7ED9;&#x76EE;&#x6807;&#xFF0C;&#x7136;&#x540E;&#x6790;&#x6784;&#x4E34;&#x65F6;&#x5BF9;&#x8C61;
+2&#xFF09;&#x7531;&#x4E8E;&#x8981;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x5BF9;&#x8C61;&#xFF0C;&#x5FC5;&#x987B;&#x8981;&#x6709;&#x53EA;&#x5E26;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;
+3&#xFF09;&#x7531;&#x4E8E;&#x8981;&#x7528;&#x5230;&#x8D4B;&#x503C;&#x51FD;&#x6570;&#xFF0C;&#x5F53;&#x7C7B;&#x4E2D;&#x6709;&#x6307;&#x9488;&#x6210;&#x5458;&#x65F6;&#xFF0C;&#x8981;&#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7684;&#x590D;&#x5236;&#x63A7;&#x5236;&#x51FD;&#x6570;</p>
+<p>2.&#x4E24;&#x4E2A;&#x4F8B;&#x5B50;&#x5BF9;&#x6BD4;&#x770B;
+class A
+{
+public:
+    A(){cout&lt;&lt;&quot;construct     &quot;&lt;&lt;this&lt;&lt;endl;}
+    A(const A&amp; a){cout&lt;&lt;&quot;copy     &quot;&lt;&lt;this&lt;&lt;endl;}
+    ~A(){cout&lt;&lt;&quot;delete     &quot;&lt;&lt;this&lt;&lt;endl;}
+    void operator=(const A&amp; a){cout&lt;&lt;&quot;=     &quot;&lt;&lt;this&lt;&lt;endl;}
+    A Test(){return <em>this;}
+};
+int main()
+{
+    A a;
+    A b = a.Test(); 
+    return 0;
+}
+&#x8F93;&#x51FA;&#xFF1A;
+construct     0012FF38  //a&#x7684;&#x6784;&#x9020;
+copy     0012FF34       //b&#x7684;&#x6784;&#x9020;&#xFF08;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x6784;&#x9020;&#xFF09;
+delete     0012FF34     //b&#x7684;&#x6790;&#x6784;&#xFF08;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x6790;&#x6784;&#xFF09;
+delete     0012FF38     //a&#x7684;&#x6790;&#x6784;
+&#x89E3;&#x91CA;&#xFF1A;
+L13&#x4E2D;&#xFF0C;b&#x662F;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x522B;&#x540D;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x662F;</em>this&#x7684;&#x590D;&#x5236;&#xFF0C;<em>this&#x5C31;&#x662F;a
+&#x56E0;&#x6B64;&#xFF1A;b = &#x8FD4;&#x56DE;&#x503C; = </em>this&#x7684;&#x526F;&#x672C; = a&#x7684;&#x526F;&#x672C;
+class A
+{
+public:
+    A(){cout&lt;&lt;&quot;construct     &quot;&lt;&lt;this&lt;&lt;endl;}
+    A(const A&amp; a){cout&lt;&lt;&quot;copy     &quot;&lt;&lt;this&lt;&lt;endl;}
+    ~A(){cout&lt;&lt;&quot;delete     &quot;&lt;&lt;this&lt;&lt;endl;}
+    void operator=(const A&amp; a){cout&lt;&lt;&quot;=     &quot;&lt;&lt;this&lt;&lt;endl;}
+    A Test(){return *this;}
+};
+int main()
+{
+    A a, b;
+    b = a.Test(); 
+    return 0;
+}</p>
+<p>&#x8F93;&#x51FA;&#xFF1A;
+construct     0012FF38   //a&#x7684;&#x6784;&#x9020;
+construct     0012FF34   //b&#x7684;&#x6784;&#x9020;
+copy     0012FF30        //&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x6784;&#x9020;
+=     0012FF34           //&#x628A;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x5185;&#x5BB9;&#x8D4B;&#x503C;&#x7ED9;b
+delete     0012FF30      //&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x6790;&#x6784;
+delete     0012FF34      //b&#x7684;&#x6790;&#x6784;
+delete     0012FF38      //a&#x7684;&#x6790;&#x6784;
+&#x89E3;&#x91CA;&#xFF1A;
+L13&#x4E2D;&#xFF0C;&#x628A;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x5185;&#x5BB9;&#x8D4B;&#x503C;&#x7ED9;b&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x503C;&#x6790;&#x6784;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2012-01-12-copy-control-members-summerize.html" class="navigation navigation-prev " aria-label="Previous page: 复制控制成员总结">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="align.html" class="navigation navigation-next " aria-label="Next page: 类成员的对齐规则">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"构造函数、复制构造函数、析构函数混合使用总结","level":"1.2.19","depth":2,"next":{"title":"类成员的对齐规则","level":"1.2.20","depth":2,"path":"grammar/align.md","ref":"grammar/align.md","articles":[]},"previous":{"title":"复制控制成员总结","level":"1.2.18","depth":2,"path":"grammar/2012-01-12-copy-control-members-summerize.md","ref":"grammar/2012-01-12-copy-control-members-summerize.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","katex-plus","alerts","github","github-buttons","splitter","-sharing","sharing-plus","donate","copy-code-button","anchor-navigation-ex","sectionx","click-reveal"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/windmissing/cpp_notes"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"http://windmissing.github.io/images/2020/alipay.jpg","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"http://windmissing.github.io/images/2020/weixin.jpg","wechatText":"微信打赏"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"click-reveal":{},"sectionx":{},"highlight":{},"anchor-navigation-ex":{"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"isShowTocTitleIcon":true,"printLog":false,"multipleH1":true,"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false}},"katex-plus":{},"alerts":{},"github-buttons":{"repo":"windmissing/cpp_notes","types":["star","watch","fork"],"size":"small"},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"windmissing","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"3.2.3"},"file":{"path":"grammar/2012-09-27-contructor-and-copy-contructor-and-release.md","mtime":"2021-11-20T01:43:35.569Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-20T01:44:50.776Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sectionx/sectionx.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-click-reveal/click_reveal.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

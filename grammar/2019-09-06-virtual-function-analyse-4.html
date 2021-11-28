@@ -1,0 +1,1198 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>间接调用虚函数 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="windmissing">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-plus/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sectionx/sectionx.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-click-reveal/click_reveal.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="2012-01-14-operator-overloading-in-cpp.html" />
+    
+    
+    <link rel="prev" href="2019-09-06-virtual-function-analyse-3.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"windmissing/cpp_notes","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    语法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="2012-01-11-basic.html">
+            
+                <a href="2012-01-11-basic.html">
+            
+                    
+                    基本语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="stack-and-call.html">
+            
+                <a href="stack-and-call.html">
+            
+                    
+                    函数调用时的栈空间管理示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="2012-01-14-address-memory-heap-stack.html">
+            
+                <a href="2012-01-14-address-memory-heap-stack.html">
+            
+                    
+                    地址、内存、堆、栈总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="value.html">
+            
+                <a href="value.html">
+            
+                    
+                    C++的值类别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="2012-01-16-porinter-and-reference-in-cpp.html">
+            
+                <a href="2012-01-16-porinter-and-reference-in-cpp.html">
+            
+                    
+                    指针与引用使用总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="pointer_and_address.html">
+            
+                <a href="pointer_and_address.html">
+            
+                    
+                    指针与取地址
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="2015-03-12-what-is-null.html">
+            
+                <a href="2015-03-12-what-is-null.html">
+            
+                    
+                    NULL是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="2015-08-25-Integer-Promotion.html">
+            
+                <a href="2015-08-25-Integer-Promotion.html">
+            
+                    
+                    C语言进阶：整型提升
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="size_and_bits.html">
+            
+                <a href="size_and_bits.html">
+            
+                    
+                    size和bit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="code.html">
+            
+                <a href="code.html">
+            
+                    
+                    数值编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="2012-01-11-static-summarize.html">
+            
+                <a href="2012-01-11-static-summarize.html">
+            
+                    
+                    关键字：static
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="2016-01-18-const-summarize.html">
+            
+                <a href="2016-01-18-const-summarize.html">
+            
+                    
+                    关键字：const
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="new.html">
+            
+                <a href="new.html">
+            
+                    
+                    关键字：new
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="function_parameter.html">
+            
+                <a href="function_parameter.html">
+            
+                    
+                    函数传参
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="2012-01-17-return-value-from-function-in-cpp.html">
+            
+                <a href="2012-01-17-return-value-from-function-in-cpp.html">
+            
+                    
+                    函数返回值总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="2012-01-18-pointer-to-function.html">
+            
+                <a href="2012-01-18-pointer-to-function.html">
+            
+                    
+                    函数指针总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="2016-11-30-contructor-in-struct.html">
+            
+                <a href="2016-11-30-contructor-in-struct.html">
+            
+                    
+                    构造函数对结构体初始化的影响
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="2012-01-05-declaration-definition-and-initialization-for-class.html">
+            
+                <a href="2012-01-05-declaration-definition-and-initialization-for-class.html">
+            
+                    
+                    类的声明、定义与初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.19" data-path="2012-01-17-supperclass-inheritance.html">
+            
+                <a href="2012-01-17-supperclass-inheritance.html">
+            
+                    
+                    基类与派生类、继承关系总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.20" data-path="2012-01-12-copy-constructor-summarize.html">
+            
+                <a href="2012-01-12-copy-constructor-summarize.html">
+            
+                    
+                    复制构造函数总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.21" data-path="2012-01-12-copy-control-members-summerize.html">
+            
+                <a href="2012-01-12-copy-control-members-summerize.html">
+            
+                    
+                    复制控制成员总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.22" data-path="2012-09-27-contructor-and-copy-contructor-and-release.html">
+            
+                <a href="2012-09-27-contructor-and-copy-contructor-and-release.html">
+            
+                    
+                    构造函数、复制构造函数、析构函数混合使用总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.23" data-path="RAII.html">
+            
+                <a href="RAII.html">
+            
+                    
+                    RAII - 用于资源管理的惯用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.24" data-path="align.html">
+            
+                <a href="align.html">
+            
+                    
+                    类成员的对齐规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.25" data-path="2012-08-13-size-of-class.html">
+            
+                <a href="2012-08-13-size-of-class.html">
+            
+                    
+                    类的大小
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.26" data-path="2012-01-17-polymorphism-in-cpp.html">
+            
+                <a href="2012-01-17-polymorphism-in-cpp.html">
+            
+                    
+                    多态总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.27" data-path="virtual_class.html">
+            
+                <a href="virtual_class.html">
+            
+                    
+                    虚基类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.28" data-path="2019-09-05-virtual-function-analyse-0.html">
+            
+                <a href="2019-09-05-virtual-function-analyse-0.html">
+            
+                    
+                    C++虚函数易错题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.29" data-path="2019-09-05-virtual-function-analyse-1.html">
+            
+                <a href="2019-09-05-virtual-function-analyse-1.html">
+            
+                    
+                    virtual关键字在父类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.30" data-path="2019-09-05-virtual-function-analyse-2.html">
+            
+                <a href="2019-09-05-virtual-function-analyse-2.html">
+            
+                    
+                    virtual关键字在子类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.31" data-path="2019-09-06-virtual-function-analyse-3.html">
+            
+                <a href="2019-09-06-virtual-function-analyse-3.html">
+            
+                    
+                    析构函数的virtual在子类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.32" data-path="2019-09-06-virtual-function-analyse-4.html">
+            
+                <a href="2019-09-06-virtual-function-analyse-4.html">
+            
+                    
+                    间接调用虚函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.33" data-path="2012-01-14-operator-overloading-in-cpp.html">
+            
+                <a href="2012-01-14-operator-overloading-in-cpp.html">
+            
+                    
+                    操作符重载总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.34" data-path="2012-01-11-friend-member-of-class.html">
+            
+                <a href="2012-01-11-friend-member-of-class.html">
+            
+                    
+                    友元friend总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.35" data-path="2013-11-24-c++-primer-record.html">
+            
+                <a href="2013-11-24-c++-primer-record.html">
+            
+                    
+                    C++Primer笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.36" data-path="2011-12-29-scanf.html">
+            
+                <a href="2011-12-29-scanf.html">
+            
+                    
+                    使用scanf函数时应该注意的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.37" data-path="file_operation.html">
+            
+                <a href="file_operation.html">
+            
+                    
+                    文件操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    链接
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../linker/2016-07-27-linux-g++-basic-conception.html">
+            
+                <a href="../linker/2016-07-27-linux-g++-basic-conception.html">
+            
+                    
+                    linux g++ 链接器（一）基础概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../linker/2016-07-25-linux-g++-linking.html">
+            
+                <a href="../linker/2016-07-25-linux-g++-linking.html">
+            
+                    
+                    linux g++ 链接 （二）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../linker/2016-07-14-static-linking-g++.html">
+            
+                <a href="../linker/2016-07-14-static-linking-g++.html">
+            
+                    
+                    g++ 链接器（三）-可重定位目标文件的链接（静态链接）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../linker/2016-07-18-dynamic-linking-g++.html">
+            
+                <a href="../linker/2016-07-18-dynamic-linking-g++.html">
+            
+                    
+                    g++ 链接器（四）-共享目标文件的链接（动态链接）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../linker/2015-04-07-symbols-in-linking.html">
+            
+                <a href="../linker/2015-04-07-symbols-in-linking.html">
+            
+                    
+                    链接中的符号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../linker/2015-04-03-symbol-redifine-in-g++-ld.html">
+            
+                <a href="../linker/2015-04-03-symbol-redifine-in-g++-ld.html">
+            
+                    
+                    g++/ld中的符号重定义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../linker/2015-04-07-symbol-confliction-in-normal-target-file.html">
+            
+                <a href="../linker/2015-04-07-symbol-confliction-in-normal-target-file.html">
+            
+                    
+                    普通目标文件的符号重定义处理策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    GTEST
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../GTEST/event.html">
+            
+                <a href="../GTEST/event.html">
+            
+                    
+                    事件机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../GTEST/check.html">
+            
+                <a href="../GTEST/check.html">
+            
+                    
+                    断言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../GTEST/parameterize.html">
+            
+                <a href="../GTEST/parameterize.html">
+            
+                    
+                    测试用例的参数化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../GTEST/death.html">
+            
+                <a href="../GTEST/death.html">
+            
+                    
+                    死亡测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../GTEST/control.html">
+            
+                <a href="../GTEST/control.html">
+            
+                    
+                    使用控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../GTEST/mock.html">
+            
+                <a href="../GTEST/mock.html">
+            
+                    
+                    Mock
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    其它
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../others/2016-12-13-why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array.html">
+            
+                <a href="../others/2016-12-13-why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array.html">
+            
+                    
+                    为什么有序数组的执行速度快于无序数组？
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >间接调用虚函数</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;"><b>1. </b>&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</a></li><li><span class="title-icon "></span><a href="#&#x8FD0;&#x884C;&#x7ED3;&#x679C;"><b>2. </b>&#x8FD0;&#x884C;&#x7ED3;&#x679C;</a></li><li><span class="title-icon "></span><a href="#&#x89E3;&#x91CA;&#x4E0E;&#x7ED3;&#x8BBA;"><b>3. </b>&#x89E3;&#x91CA;&#x4E0E;&#x7ED3;&#x8BBA;</a></li><ul><li><span class="title-icon "></span><a href="#&#x6784;&#x9020;&#x5BF9;&#x8C61;&#x65F6;"><b>3.1. </b>&#x6784;&#x9020;&#x5BF9;&#x8C61;&#x65F6;</a></li><li><span class="title-icon "></span><a href="#case-3"><b>3.2. </b>case 3</a></li><li><span class="title-icon "></span><a href="#case-4"><b>3.3. </b>case 4</a></li></ul><li><span class="title-icon "></span><a href="#&#x5176;&#x5B83;&#x6D4B;&#x8BD5;"><b>4. </b>&#x5176;&#x5B83;&#x6D4B;&#x8BD5;</a></li><li><span class="title-icon "></span><a href="#&#x5B8C;&#x6574;&#x4EE3;&#x7801;"><b>5. </b>&#x5B8C;&#x6574;&#x4EE3;&#x7801;</a></li></ul></div><a href="#&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;"><a name="&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;" class="anchor-navigation-ex-anchor" href="#&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</h1>
+<p><img src="../images/2019/12.png" alt=""></p>
+<pre><code class="lang-c++">father *pf = <span class="hljs-keyword">new</span> father();
+pf-&gt;A();
+pf-&gt;B();
+<span class="hljs-keyword">delete</span> pf;
+
+father *ps = <span class="hljs-keyword">new</span> son();
+ps-&gt;A();
+ps-&gt;B();
+<span class="hljs-keyword">delete</span> ps;
+
+son *ps1 = <span class="hljs-keyword">new</span> son();
+ps1-&gt;A();
+ps1-&gt;B();
+<span class="hljs-keyword">delete</span> ps1;
+
+son *pss = <span class="hljs-keyword">new</span> sonson();
+pss-&gt;A();
+pss-&gt;B();
+<span class="hljs-keyword">delete</span> pss;
+</code></pre>
+<!-- more -->
+<h1 id="&#x8FD0;&#x884C;&#x7ED3;&#x679C;"><a name="&#x8FD0;&#x884C;&#x7ED3;&#x679C;" class="anchor-navigation-ex-anchor" href="#&#x8FD0;&#x884C;&#x7ED3;&#x679C;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x8FD0;&#x884C;&#x7ED3;&#x679C;</h1>
+<pre><code>this is father::B()
+this is father::B()
+this is father::B()
+this is father::B()
+this is father::B()
+this is son::B()
+this is father::B()
+this is sonson::B()
+</code></pre><table>
+<thead>
+<tr>
+<th>id</th>
+<th>&#x6307;&#x9488;&#x540D;</th>
+<th>&#x6307;&#x9488;&#x7684;&#x7C7B;&#x578B;</th>
+<th>&#x5B9E;&#x9645;&#x7684;&#x7C7B;&#x578B;</th>
+<th>&#x8FD0;&#x884C;&#x7ED3;&#x679C;</th>
+<th>&#x89E3;&#x91CA;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>pf</td>
+<td>father</td>
+<td>father</td>
+<td>this is father::B()<br>this is father::B()</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>ps</td>
+<td>father</td>
+<td>son</td>
+<td>this is father::B()<br>this is father::B()</td>
+<td>&#x7531;<a href="http://windmissing.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/2019-09/virtual-function-analyse-2.html" target="_blank">virtual&#x5173;&#x952E;&#x5B57;&#x5728;&#x5B50;&#x7C7B;</a>&#x53EF;&#x77E5;&#x6B64;&#x5904;&#x4E0D;&#x4F1A;&#x6709;&#x591A;&#x6001;</td>
+</tr>
+<tr>
+<td>3</td>
+<td>ps1</td>
+<td>son</td>
+<td>son</td>
+<td>this is father::B()<br>this is son::B()</td>
+<td>&#x6B64;&#x4F8B;&#x4E2D;&#xFF0C;&#x6307;&#x9488;&#x7684;&#x7C7B;&#x578B;&#x548C;&#x5BF9;&#x8C61;&#x7684;&#x7C7B;&#x578B;&#x90FD;&#x662F;son&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x6700;&#x540E;&#x8C03;&#x7528;&#x7684;&#x662F;fathher::B()?</td>
+</tr>
+<tr>
+<td>4</td>
+<td>pss</td>
+<td>son</td>
+<td>sonson</td>
+<td>this is father::B()<br>this is sonson::B()</td>
+<td>&#x7531;<a href="http://windmissing.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/2019-09/virtual-function-analyse-2.html" target="_blank">virtual&#x5173;&#x952E;&#x5B57;&#x5728;&#x5B50;&#x7C7B;</a>&#x53EF;&#x77E5;&#x6B64;&#x5904;&#x5E94;&#x8BE5;&#x6709;&#x591A;&#x6001;&#x6548;&#x679C;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x6700;&#x540E;&#x8C03;&#x7528;&#x7684;&#x8FD8;&#x662F;fathher::B()?</td>
+</tr>
+</tbody>
+</table>
+<h1 id="&#x89E3;&#x91CA;&#x4E0E;&#x7ED3;&#x8BBA;"><a name="&#x89E3;&#x91CA;&#x4E0E;&#x7ED3;&#x8BBA;" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x91CA;&#x4E0E;&#x7ED3;&#x8BBA;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x89E3;&#x91CA;&#x4E0E;&#x7ED3;&#x8BBA;</h1>
+<h2 id="&#x6784;&#x9020;&#x5BF9;&#x8C61;&#x65F6;"><a name="&#x6784;&#x9020;&#x5BF9;&#x8C61;&#x65F6;" class="anchor-navigation-ex-anchor" href="#&#x6784;&#x9020;&#x5BF9;&#x8C61;&#x65F6;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1. &#x6784;&#x9020;&#x5BF9;&#x8C61;&#x65F6;</h2>
+<p>&#x672C;&#x6587;&#x4E2D;&#x7684;virtual&#x5199;&#x6CD5;&#x4E0E;<a href="http://windmissing.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/2019-09/virtual-function-analyse-2.html" target="_blank">virtual&#x5173;&#x952E;&#x5B57;&#x5728;&#x5B50;&#x7C7B;</a>&#xFF0C;&#x6700;&#x540E;&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x751F;&#x6210;&#x7684;vtable&#x5982;&#x4E0B;&#xFF1A;</p>
+<blockquote>
+<p>father&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x7684;vtable&#x4E2D;B()&#x7684;&#x5730;&#x5740;&#xFF1A;father::B()<br>son&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x7684;vtable&#x4E2D;B()&#x7684;&#x5730;&#x5740;&#xFF1A;son::B()<br>sonson&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x7684;vtable&#x4E2D;B()&#x7684;&#x5730;&#x5740;&#xFF1A;sonson::B()</p>
+</blockquote>
+<h2 id="case-3"><a name="case-3" class="anchor-navigation-ex-anchor" href="#case-3"><i class="fa fa-link" aria-hidden="true"></i></a>3.2. case 3</h2>
+<p>&#x6267;&#x884C;<code>ps-&gt;A();</code>&#x65F6;&#xFF0C;&#x867D;&#x7136;ps&#x7684;&#x7C7B;&#x578B;&#x548C;&#x5B83;&#x6307;&#x5411;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x7C7B;&#x578B;&#x90FD;&#x662F;son&#xFF0C;&#x4F46;son&#x672C;&#x8EAB;&#x6CA1;&#x6709;son::A()&#x51FD;&#x6570;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x8C03;&#x7528;father::A()&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x90FD;&#x77E5;&#x9053;&#xFF0C;&#x7C7B;&#x91CC;&#x6709;&#x4E00;&#x4E2A;&#x9690;&#x85CF;&#x7684;&#x6307;&#x9488;this&#x3002;&#x6240;&#x4EE5;father::A()&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x8FD9;&#x6837;&#x7684;&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">void</span> father::A(){ father::<span class="hljs-keyword">this</span>-&gt;B(); }
+</code></pre>
+<p>&#x53EF;&#x89C1;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4EE5;father&#x7C7B;&#x578B;&#x7684;&#x6307;&#x9488;&#x6765;&#x8C03;&#x7528;B()&#x3002;&#x8FD9;&#x5C31;&#x548C;<a href="http://windmissing.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/2019-09/virtual-function-analyse-2.html" target="_blank">virtual&#x5173;&#x952E;&#x5B57;&#x5728;&#x5B50;&#x7C7B;</a>&#x4E2D;&#x7684;case 2&#x5F88;&#x7C7B;&#x4F3C;&#x4E86;&#x3002;</p>
+<p>&#x7531;&#x4E8E;father::B()&#x4E0D;&#x662F;&#x865A;&#x51FD;&#x6570;&#xFF0C;&#x6240;&#x4EE5;&#x6CA1;&#x6709;&#x67E5;&#x8868;&#xFF0C;&#x800C;&#x662F;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x4E86;father::B()&#x3002;</p>
+<h2 id="case-4"><a name="case-4" class="anchor-navigation-ex-anchor" href="#case-4"><i class="fa fa-link" aria-hidden="true"></i></a>3.3. case 4</h2>
+<p>case 4&#x548C;case 3&#x7684;&#x539F;&#x56E0;&#x7C7B;&#x578B;&#xFF0C;&#x4E0D;&#x7BA1;ps1&#x548C;pss&#x7684;&#x6307;&#x9488;&#x548C;&#x5BF9;&#x8C61;&#x662F;&#x4EC0;&#x4E48;&#x7C7B;&#x578B;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x90FD;&#x662F;&#x4EE5;father&#x7C7B;&#x578B;&#x7684;&#x6307;&#x9488;&#x6765;&#x8C03;&#x7528;B()&#x7684;&#x3002;</p>
+<h1 id="&#x5176;&#x5B83;&#x6D4B;&#x8BD5;"><a name="&#x5176;&#x5B83;&#x6D4B;&#x8BD5;" class="anchor-navigation-ex-anchor" href="#&#x5176;&#x5B83;&#x6D4B;&#x8BD5;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x5176;&#x5B83;&#x6D4B;&#x8BD5;</h1>
+<p><a href="http://windmissing.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/2019-09/virtual-function-analyse-1.html" target="_blank">virtual&#x5173;&#x952E;&#x5B57;&#x5728;&#x7236;&#x7C7B;</a></p>
+<p><a href="http://windmissing.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/2019-09/virtual-function-analyse-2.html" target="_blank">virtual&#x5173;&#x952E;&#x5B57;&#x5728;&#x5B50;&#x7C7B;</a></p>
+<p><a href="http://windmissing.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/2019-09/virtual-function-analyse-2.html" target="_blank">virtual&#x5173;&#x952E;&#x5B57;&#x5728;&#x5B50;&#x7C7B;</a></p>
+<h1 id="&#x5B8C;&#x6574;&#x4EE3;&#x7801;"><a name="&#x5B8C;&#x6574;&#x4EE3;&#x7801;" class="anchor-navigation-ex-anchor" href="#&#x5B8C;&#x6574;&#x4EE3;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>5. &#x5B8C;&#x6574;&#x4EE3;&#x7801;</h1>
+<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-keyword">class</span> father
+{
+<span class="hljs-keyword">public</span>:
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">A</span><span class="hljs-params">()</span>  </span>{ B(); }
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">B</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;this is father::B()&quot;</span>&lt;&lt;<span class="hljs-built_in">endl</span>;
+  }
+};
+
+<span class="hljs-keyword">class</span> son : <span class="hljs-keyword">public</span> father
+{
+<span class="hljs-keyword">public</span>:
+  <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">B</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;this is son::B()&quot;</span>&lt;&lt;<span class="hljs-built_in">endl</span>;
+  }
+};
+
+<span class="hljs-keyword">class</span> sonson : <span class="hljs-keyword">public</span> son
+{
+<span class="hljs-keyword">public</span>:
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">B</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;this is sonson::B()&quot;</span>&lt;&lt;<span class="hljs-built_in">endl</span>;
+  }
+};
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+  father *pf = <span class="hljs-keyword">new</span> father();
+  pf-&gt;A();
+  pf-&gt;B();
+  <span class="hljs-keyword">delete</span> pf;
+  father *ps = <span class="hljs-keyword">new</span> son();
+  ps-&gt;A();
+  ps-&gt;B();
+  <span class="hljs-keyword">delete</span> ps;
+  son *ps1 = <span class="hljs-keyword">new</span> son();
+  ps1-&gt;A();
+  ps1-&gt;B();
+  <span class="hljs-keyword">delete</span> ps1;
+  son *pss = <span class="hljs-keyword">new</span> sonson();
+  pss-&gt;A();
+  pss-&gt;B();
+  <span class="hljs-keyword">delete</span> pss;
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2019-09-06-virtual-function-analyse-3.html" class="navigation navigation-prev " aria-label="Previous page: 析构函数的virtual在子类">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="2012-01-14-operator-overloading-in-cpp.html" class="navigation navigation-next " aria-label="Next page: 操作符重载总结">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"间接调用虚函数","level":"1.2.32","depth":2,"next":{"title":"操作符重载总结","level":"1.2.33","depth":2,"path":"grammar/2012-01-14-operator-overloading-in-cpp.md","ref":"grammar/2012-01-14-operator-overloading-in-cpp.md","articles":[]},"previous":{"title":"析构函数的virtual在子类","level":"1.2.31","depth":2,"path":"grammar/2019-09-06-virtual-function-analyse-3.md","ref":"grammar/2019-09-06-virtual-function-analyse-3.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","katex-plus","alerts","github","github-buttons","splitter","-sharing","sharing-plus","copy-code-button","anchor-navigation-ex","sectionx","click-reveal","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/windmissing/cpp_notes"},"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"click-reveal":{},"sectionx":{},"highlight":{},"anchor-navigation-ex":{"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"isShowTocTitleIcon":true,"printLog":false,"multipleH1":true,"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false}},"katex-plus":{},"alerts":{},"github-buttons":{"repo":"windmissing/cpp_notes","types":["star","watch","fork"],"size":"small"},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"windmissing","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"3.2.3"},"file":{"path":"grammar/2019-09-06-virtual-function-analyse-4.md","mtime":"2021-11-21T02:11:16.105Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-21T03:03:00.356Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sectionx/sectionx.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-click-reveal/click_reveal.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

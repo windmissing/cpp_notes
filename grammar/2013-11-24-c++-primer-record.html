@@ -1,0 +1,1315 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>C++Primer笔记 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="windmissing">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-plus/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sectionx/sectionx.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-click-reveal/click_reveal.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="2011-12-29-scanf.html" />
+    
+    
+    <link rel="prev" href="2012-01-11-friend-member-of-class.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"windmissing/cpp_notes","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    语法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="2012-01-11-basic.html">
+            
+                <a href="2012-01-11-basic.html">
+            
+                    
+                    基本语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="stack-and-call.html">
+            
+                <a href="stack-and-call.html">
+            
+                    
+                    函数调用时的栈空间管理示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="2012-01-14-address-memory-heap-stack.html">
+            
+                <a href="2012-01-14-address-memory-heap-stack.html">
+            
+                    
+                    地址、内存、堆、栈总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="value.html">
+            
+                <a href="value.html">
+            
+                    
+                    C++的值类别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="2012-01-16-porinter-and-reference-in-cpp.html">
+            
+                <a href="2012-01-16-porinter-and-reference-in-cpp.html">
+            
+                    
+                    指针与引用使用总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="pointer_and_address.html">
+            
+                <a href="pointer_and_address.html">
+            
+                    
+                    指针与取地址
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="2015-03-12-what-is-null.html">
+            
+                <a href="2015-03-12-what-is-null.html">
+            
+                    
+                    NULL是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="2015-08-25-Integer-Promotion.html">
+            
+                <a href="2015-08-25-Integer-Promotion.html">
+            
+                    
+                    C语言进阶：整型提升
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="size_and_bits.html">
+            
+                <a href="size_and_bits.html">
+            
+                    
+                    size和bit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="code.html">
+            
+                <a href="code.html">
+            
+                    
+                    数值编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="2012-01-11-static-summarize.html">
+            
+                <a href="2012-01-11-static-summarize.html">
+            
+                    
+                    关键字：static
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="2016-01-18-const-summarize.html">
+            
+                <a href="2016-01-18-const-summarize.html">
+            
+                    
+                    关键字：const
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="new.html">
+            
+                <a href="new.html">
+            
+                    
+                    关键字：new
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="function_parameter.html">
+            
+                <a href="function_parameter.html">
+            
+                    
+                    函数传参
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="2012-01-17-return-value-from-function-in-cpp.html">
+            
+                <a href="2012-01-17-return-value-from-function-in-cpp.html">
+            
+                    
+                    函数返回值总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="2012-01-18-pointer-to-function.html">
+            
+                <a href="2012-01-18-pointer-to-function.html">
+            
+                    
+                    函数指针总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="2016-11-30-contructor-in-struct.html">
+            
+                <a href="2016-11-30-contructor-in-struct.html">
+            
+                    
+                    构造函数对结构体初始化的影响
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="2012-01-05-declaration-definition-and-initialization-for-class.html">
+            
+                <a href="2012-01-05-declaration-definition-and-initialization-for-class.html">
+            
+                    
+                    类的声明、定义与初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.19" data-path="2012-01-17-supperclass-inheritance.html">
+            
+                <a href="2012-01-17-supperclass-inheritance.html">
+            
+                    
+                    基类与派生类、继承关系总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.20" data-path="2012-01-12-copy-constructor-summarize.html">
+            
+                <a href="2012-01-12-copy-constructor-summarize.html">
+            
+                    
+                    复制构造函数总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.21" data-path="2012-01-12-copy-control-members-summerize.html">
+            
+                <a href="2012-01-12-copy-control-members-summerize.html">
+            
+                    
+                    复制控制成员总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.22" data-path="2012-09-27-contructor-and-copy-contructor-and-release.html">
+            
+                <a href="2012-09-27-contructor-and-copy-contructor-and-release.html">
+            
+                    
+                    构造函数、复制构造函数、析构函数混合使用总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.23" data-path="RAII.html">
+            
+                <a href="RAII.html">
+            
+                    
+                    RAII - 用于资源管理的惯用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.24" data-path="align.html">
+            
+                <a href="align.html">
+            
+                    
+                    类成员的对齐规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.25" data-path="2012-08-13-size-of-class.html">
+            
+                <a href="2012-08-13-size-of-class.html">
+            
+                    
+                    类的大小
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.26" data-path="2012-01-17-polymorphism-in-cpp.html">
+            
+                <a href="2012-01-17-polymorphism-in-cpp.html">
+            
+                    
+                    多态总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.27" data-path="virtual_class.html">
+            
+                <a href="virtual_class.html">
+            
+                    
+                    虚基类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.28" data-path="2019-09-05-virtual-function-analyse-0.html">
+            
+                <a href="2019-09-05-virtual-function-analyse-0.html">
+            
+                    
+                    C++虚函数易错题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.29" data-path="2019-09-05-virtual-function-analyse-1.html">
+            
+                <a href="2019-09-05-virtual-function-analyse-1.html">
+            
+                    
+                    virtual关键字在父类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.30" data-path="2019-09-05-virtual-function-analyse-2.html">
+            
+                <a href="2019-09-05-virtual-function-analyse-2.html">
+            
+                    
+                    virtual关键字在子类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.31" data-path="2019-09-06-virtual-function-analyse-3.html">
+            
+                <a href="2019-09-06-virtual-function-analyse-3.html">
+            
+                    
+                    析构函数的virtual在子类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.32" data-path="2019-09-06-virtual-function-analyse-4.html">
+            
+                <a href="2019-09-06-virtual-function-analyse-4.html">
+            
+                    
+                    间接调用虚函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.33" data-path="2012-01-14-operator-overloading-in-cpp.html">
+            
+                <a href="2012-01-14-operator-overloading-in-cpp.html">
+            
+                    
+                    操作符重载总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.34" data-path="2012-01-11-friend-member-of-class.html">
+            
+                <a href="2012-01-11-friend-member-of-class.html">
+            
+                    
+                    友元friend总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.35" data-path="2013-11-24-c++-primer-record.html">
+            
+                <a href="2013-11-24-c++-primer-record.html">
+            
+                    
+                    C++Primer笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.36" data-path="2011-12-29-scanf.html">
+            
+                <a href="2011-12-29-scanf.html">
+            
+                    
+                    使用scanf函数时应该注意的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.37" data-path="file_operation.html">
+            
+                <a href="file_operation.html">
+            
+                    
+                    文件操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    链接
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../linker/2016-07-27-linux-g++-basic-conception.html">
+            
+                <a href="../linker/2016-07-27-linux-g++-basic-conception.html">
+            
+                    
+                    linux g++ 链接器（一）基础概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../linker/2016-07-25-linux-g++-linking.html">
+            
+                <a href="../linker/2016-07-25-linux-g++-linking.html">
+            
+                    
+                    linux g++ 链接 （二）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../linker/2016-07-14-static-linking-g++.html">
+            
+                <a href="../linker/2016-07-14-static-linking-g++.html">
+            
+                    
+                    g++ 链接器（三）-可重定位目标文件的链接（静态链接）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../linker/2016-07-18-dynamic-linking-g++.html">
+            
+                <a href="../linker/2016-07-18-dynamic-linking-g++.html">
+            
+                    
+                    g++ 链接器（四）-共享目标文件的链接（动态链接）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../linker/2015-04-07-symbols-in-linking.html">
+            
+                <a href="../linker/2015-04-07-symbols-in-linking.html">
+            
+                    
+                    链接中的符号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../linker/2015-04-03-symbol-redifine-in-g++-ld.html">
+            
+                <a href="../linker/2015-04-03-symbol-redifine-in-g++-ld.html">
+            
+                    
+                    g++/ld中的符号重定义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../linker/2015-04-07-symbol-confliction-in-normal-target-file.html">
+            
+                <a href="../linker/2015-04-07-symbol-confliction-in-normal-target-file.html">
+            
+                    
+                    普通目标文件的符号重定义处理策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    GTEST
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../GTEST/event.html">
+            
+                <a href="../GTEST/event.html">
+            
+                    
+                    事件机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../GTEST/check.html">
+            
+                <a href="../GTEST/check.html">
+            
+                    
+                    断言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../GTEST/parameterize.html">
+            
+                <a href="../GTEST/parameterize.html">
+            
+                    
+                    测试用例的参数化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../GTEST/death.html">
+            
+                <a href="../GTEST/death.html">
+            
+                    
+                    死亡测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../GTEST/control.html">
+            
+                <a href="../GTEST/control.html">
+            
+                    
+                    使用控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../GTEST/mock.html">
+            
+                <a href="../GTEST/mock.html">
+            
+                    
+                    Mock
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    其它
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../others/2016-12-13-why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array.html">
+            
+                <a href="../others/2016-12-13-why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array.html">
+            
+                    
+                    为什么有序数组的执行速度快于无序数组？
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >C++Primer笔记</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#xFF08;P&#xFF1F;&#xFF09;&#x5934;&#x6587;&#x4EF6;&#x4E2D;&#x5E94;&#x8BE5;&#x53EA;&#x5B9A;&#x4E49;&#x786E;&#x5B9E;&#x9700;&#x8981;&#x7684;&#x4E1C;&#x897F;&#x3002;
+&#xFF08;P37&#xFF09;&#x53CD;&#x659C;&#x7EBF;&#x7B26;&#x53F7;&#x5FC5;&#x987B;&#x662F;&#x8BE5;&#x884C;&#x7684;&#x5C3E;&#x5B57;&#x7B26;&#x2015;&#x2015;&#x4E0D;&#x5141;&#x8BB8;&#x5176;&#x540E;&#x9762;&#x6709;&#x6CE8;&#x91CA;&#x6216;&#x7A7A;&#x683C;&#x3002;&#x540C;&#x6837;&#xFF0C;&#x540E;&#x7EE7;&#x884C;&#x884C;&#x9996;&#x7684;&#x4EFB;&#x4F55;&#x7A7A;&#x683C;&#x548C;&#x5236;&#x8868;&#x7B26;&#x90FD;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x5B57;&#x9762;&#x503C;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x6B63;&#x56E0;&#x5982;&#x6B64;&#xFF0C;&#x957F;&#x5B57;&#x7B26;&#x4E32;&#x5B57;&#x9762;&#x503C;&#x7684;&#x540E;&#x7EE7;&#x884C;&#x624D;&#x4E0D;&#x4F1A;&#x6709;&#x6B63;&#x5E38;&#x7684;&#x7F29;&#x8FDB;&#x3002;
+&#xFF08;P42&#xFF09;&#x76F4;&#x63A5;&#x521D;&#x59CB;&#x5316;int ival(1024);&#x3001;&#x590D;&#x5236;&#x521D;&#x59CB;&#x5316;int ival = 1024;&#x4E0E;&#x8D4B;&#x503C;ival = 1024;&#x3002;&#x521D;&#x59CB;&#x5316;&#x4E0D;&#x662F;&#x8D4B;&#x503C;&#x3002;&#x521D;&#x59CB;&#x5316;&#x662F;&#x6307;&#x521B;&#x5EFA;&#x53D8;&#x91CF;&#x5E76;&#x7ED9;&#x5B83;&#x8D4B;&#x503C;&#x3002;&#x8D4B;&#x503C;&#x662F;&#x6307;&#x64E6;&#x9664;&#x5BF9;&#x8C61;&#x5F53;&#x524D;&#x503C;&#x5E76;&#x7528;&#x65B0;&#x503C;&#x4EE3;&#x66FF;&#x3002;
+&#xFF08;P44&#xFF09;&#x5728;&#x51FD;&#x6570;&#x4F53;&#x5916;&#x5B9A;&#x4E49;&#x7684;&#x53D8;&#x91CF;&#x90FD;&#x521D;&#x59CB;&#x5316;&#x6210;0&#xFF0C;&#x5728;&#x51FD;&#x6570;&#x4F53;&#x91CC;&#x5B9A;&#x5C06;&#x7684;&#x5B9A;&#x4E49;&#x7684;&#x5185;&#x7F6E;&#x7C7B;&#x578B;&#x4E0D;&#x8FDB;&#x884C;&#x81EA;&#x52A8;&#x521D;&#x59CB;&#x5316;&#x3002;
+&#xFF08;P50&#xFF09;&#x4E00;&#x4E2A;&#x975E;const&#x53D8;&#x91CF;&#x5B9A;&#x4E49;&#x5728;.cpp&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x53E6;&#x5916;&#x7684;&#x6587;&#x4EF6;&#x4E2D;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A;extern&#xFF09;&#xFF0C;
+&#x5982;&#xFF1A;
+int counter;//file1.cpp
+extern int counter;//file2.cpp
+&#x4F46;const&#x53D8;&#x91CF;&#x662F;&#x5B9A;&#x4E49;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A;&#x975E;extern&#xFF09;&#xFF0C;&#x4E0D;&#x80FD;&#x88AB;&#x5176;&#x5B83;&#x6587;&#x4EF6;&#x8BBF;&#x95EE;&#xFF0C;&#x5982;&#xFF1A;
+const int counter = 3;//file1.cpp
+extern int counter;//file2.cpp, error
+&#x5982;&#x679C;&#x628A;const&#x53D8;&#x91CF;&#x5B9A;&#x4E49;&#x65F6;&#x663E;&#x793A;&#x5730;&#x6307;&#x5B9A;&#x4E3A;extern&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x88AB;&#x5176;&#x5B83;&#x6587;&#x4EF6;&#x8BBF;&#x95EE;&#xFF0C;&#x5982;&#xFF1A;
+extern const int counter = 3;//file1.cpp
+extern const int counter;//file2.cpp
+&#xFF08;P52&#xFF09;&#x975E;const&#x5F15;&#x7528;&#x53EA;&#x80FD;&#x7ED1;&#x5B9A;&#x5230;&#x4E0E;&#x8BE5;&#x5F15;&#x7528;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#x3002;Const&#x5F15;&#x7528;&#x53EF;&#x4EE5;&#x7ED1;&#x5B9A;&#x5230;&#x4E0D;&#x540C;&#x4F46;&#x76F8;&#x5173;&#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#x6216;&#x7ED1;&#x5B9A;&#x5230;&#x53F3;&#x503C;&#x3002;
+&#xFF08;P54&#xFF09;&#x4E0D;&#x80FD;&#x6539;&#x53D8;&#x679A;&#x4E3E;&#x6210;&#x5458;&#x7684;&#x503C;&#x3002;&#x679A;&#x4E3E;&#x6210;&#x5458;&#x672C;&#x8EAB;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5E38;&#x91CF;&#x8868;&#x8FBE;&#x5F0F;&#x3002;
+&#xFF08;P59&#xFF09;extern int ival = 10;&#x6709;&#x521D;&#x59CB;&#x5316;&#x5F0F;&#xFF0C;&#x6240;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x5B9A;&#x4E49;&#x3002;Double fica<em>rate;&#x6CA1;&#x6709;extern&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5B9A;&#x4E49;&#x3002;&#x540C;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x4E2D;&#x6709;&#x4E24;&#x4E2A;&#x4EE5;&#x4E0A;&#x6587;&#x4EF6;&#x542B;&#x6709;&#x4E0A;&#x8FF0;&#x4EFB;&#x4E00;&#x4E2A;&#x5B9A;&#x4E49;&#x90FD;&#x4F1A;&#x5BFC;&#x81F4;&#x591A;&#x91CD;&#x5B9A;&#x4E49;&#x94FE;&#x63A5;&#x9519;&#x8BEF;&#x3002;
+&#xFF08;P60&#xFF09;&#x5982;&#x679C;const&#x53D8;&#x91CF;&#x4E0D;&#x7528;&#x5E38;&#x91CF;&#x8868;&#x8FBE;&#x5F0F;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5C31;&#x4E0D;&#x80FD;&#x5728;&#x5934;&#x6587;&#x4EF6;&#x4E2D;&#x5B9A;&#x4E49;&#x3002;&#x5B83;&#x5E94;&#x8BE5;&#x5728;&#x6E90;&#x6587;&#x4EF6;&#x4E2D;&#x5B9A;&#x4E49;&#xFF0C;&#x5E76;&#x901A;&#x8FC7;&#x5728;&#x5934;&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;extern&#x58F0;&#x660E;&#x6765;&#x5171;&#x4EAB;&#x3002;
+&#xFF08;P73&#xFF09;string::size&#x64CD;&#x4F5C;&#x8FD4;&#x56DE;&#x7684;&#x662F;string::size<em>type&#x7C7B;&#x578B;&#x7684;&#x503C;&#x3002;&#x4EFB;&#x4F55;&#x5B58;&#x50A8;string::size&#x64CD;&#x4F5C;&#x7ED3;&#x679C;&#x7684;&#x53D8;&#x91CF;&#x5FC5;&#x987B;&#x4E3A;string::size<em>type&#x7C7B;&#x578B;&#xFF0C;&#x4E0D;&#x8981;&#x628A;&#x5B83;&#x8D4B;&#x7ED9;int&#x578B;&#x3002;string::size<em>type&#x5B9E;&#x9645;&#x662F;&#x67D0;&#x79CD;unsigned&#x7C7B;&#x578B;&#xFF0C;&#x5B83;&#x7684;&#x5B58;&#x50A8;&#x8303;&#x56F4;&#x662F;int&#x7684;2&#x500D;&#x3002;&#x56E0;&#x6B64;&#x7528;int&#x6765;&#x63A5;&#x6536;&#x53EF;&#x80FD;&#x4F1A;&#x8D8A;&#x754C;&#x3002;&#xFF08;&#x901A;&#x8FC7;&#x4E0B;&#x6807;&#x8BBF;&#x95EE;string&#x4E2D;&#x7684;&#x5B57;&#x7B26;&#x65F6;&#xFF0C;&#x4E5F;&#x6700;&#x597D;&#x4F7F;&#x7528;string::size<em>type&#xFF09;
+&#xFF08;P75&#xFF09;&#x4F7F;&#x7528;&#x2019;+&#x2019;&#x5BF9;string&#x5BF9;&#x8C61;&#x548C;&#x5B57;&#x7B26;&#x4E32;&#x5B57;&#x9762;&#x503C;&#x6DF7;&#x5408;&#x8FDE;&#x63A5;&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;+&#x7684;&#x5DE6;&#x53F3;&#x64CD;&#x4F5C;&#x6570;&#x81F3;&#x5C11;&#x6709;&#x4E00;&#x4E2A;&#x662F;string&#x7684;&#x3002;
+&#xFF08;P79&#xFF09;vector&#x5BF9;&#x8C61;&#xFF08;&#x4EE5;&#x53CA;&#x5176;&#x5B83;&#x6807;&#x51C6;&#x5E93;&#x5BB9;&#x5668;&#x5BF9;&#x8C61;&#xFF09;&#x7684;&#x91CD;&#x8981;&#x5C5E;&#x6027;&#x5C31;&#x5728;&#x4E8E;&#x53EF;&#x4EE5;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x9AD8;&#x6548;&#x5730;&#x6DFB;&#x52A0;&#x5143;&#x7D20;&#x3002;&#x56E0;&#x4E3A;vector&#x589E;&#x957F;&#x7684;&#x6548;&#x7387;&#x9AD8;&#xFF0C;&#x5728;&#x5143;&#x7D20;&#x503C;&#x5DF2;&#x77E5;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6700;&#x597D;&#x662F;&#x52A8;&#x6001;&#x5730;&#x6DFB;&#x52A0;&#x5143;&#x7D20;&#x3002;
+&#xFF08;P82&#xFF09;vector&#x7684;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;for(vector<int>::size<em>type ix = 0; ix != ivec.size(); ix++)
+&#x3002;&#x6CE8;&#x610F;&#x5FAA;&#x73AF;&#x7ED3;&#x675F;&#x6761;&#x4EF6;&#x7528;&#x7684;&#x662F;!=&#xFF0C;&#x4E0D;&#x662F;&#x89C4;&#x5B9A;&#xFF0C;&#x53EA;&#x662F;&#x4E00;&#x79CD;C++&#x7684;&#x4E60;&#x60EF;
+&#xFF08;P83&#xFF09;vector&#xFF0C;&#x5FC5;&#x987B;&#x662F;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x5143;&#x7D20;&#x624D;&#x80FD;&#x7528;&#x4E0B;&#x6807;&#x64CD;&#x4F5C;&#x7B26;&#x8FDB;&#x884C;&#x7D22;&#x5F15;&#xFF0C;&#x901A;&#x8FC7;&#x4E0B;&#x6807;&#x64CD;&#x4F5C;&#x8FDB;&#x884C;&#x8D4B;&#x503C;&#x65F6;&#xFF0C;&#x4E0D;&#x4F1A;&#x6DFB;&#x52A0;&#x4EFB;&#x4F55;&#x5143;&#x7D20;
+&#xFF08;P86&#xFF09;const<em>iterator&#x7C7B;&#x578B;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#xFF0C;&#x5B83;&#x81EA;&#x8EAB;&#x7684;&#x503C;&#x53EF;&#x4EE5;&#x6539;&#x53D8;&#xFF0C;&#x4F46;&#x4E0D;&#x80FD;&#x6539;&#x53D8;&#x5B83;&#x6240;&#x6307;&#x5411;&#x7684;&#x503C;&#x3002;&#x4E0D;&#x8981;&#x628A;const<em>interator&#x7C7B;&#x578B;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x4E0E;const&#x7684;iterator&#x8FED;&#x4EE3;&#x5668;&#x6DF7;&#x6DC6;&#x3002;
+&#xFF08;P87&#xFF09;&#x8FED;&#x4EE3;&#x5668;&#x652F;&#x6301;&#x7B97;&#x672F;&#x64CD;&#x4F5C;
+&#xFF08;P88&#xFF09;&#x4EFB;&#x4F55;&#x6539;&#x53D8;vector&#x957F;&#x5EA6;&#x7684;&#x64CD;&#x4F5C;&#x90FD;&#x4F1A;&#x4F7F;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x5931;&#x6548;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x8C03;&#x7528;push_back&#x4E4B;&#x540E;&#xFF0C;&#x5C31;&#x4E0D;&#x80FD;&#x518D;&#x4FE1;&#x8D56;&#x6307;&#x5411;vector&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x4E86;&#x3002;
+&#xFF08;P89&#xFF09;string&#x5BF9;&#x8C61;&#x548C;bitset&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x662F;&#x53CD;&#x5411;&#x8F6C;&#x5316;&#x7684;&#xFF1A;string&#x5BF9;&#x8C61;&#x7684;&#x6700;&#x53F3;&#x8FB9;&#x5B57;&#x7B26;&#xFF08;&#x5373;&#x4E0B;&#x6807;&#x6700;&#x5927;&#x7684;&#x90A3;&#x4E2A;&#xFF09;&#x7528;&#x6765;&#x521D;&#x59CB;&#x5316;bitset&#x5BF9;&#x8C61;&#x7684;&#x4F4E;&#x9636;&#x4F4D;&#xFF08;&#x5373;&#x4E0B;&#x6807;&#x4E3A;0&#x7684;&#x4F4D;&#xFF09;&#x3002;
+&#xFF08;P103&#xFF09;&#x5982;&#x679C;&#x53EF;&#x80FD;&#x7684;&#x8BDD;&#xFF0C;&#x9664;&#x975E;&#x5BF9;&#x8C61;&#x5DF2;&#x5B58;&#x5728;&#xFF0C;&#x5426;&#x5219;&#x4E0D;&#x8981;&#x5148;&#x5B9A;&#x4E49;&#x6307;&#x9488;&#x3002;&#x5982;&#x679C;&#x4E00;&#x5B9A;&#x8981;&#x8FD9;&#x6837;&#xFF0C;&#x5C31;&#x521D;&#x59CB;&#x5316;&#x4E3A;0&#x3002;&#x7F16;&#x8BD1;&#x5668;&#x4E0D;&#x80FD;&#x533A;&#x5206;&#x5730;&#x5740;&#x662F;&#x5426;&#x6709;&#x6548;&#xFF0C;&#x4F46;&#x53EF;&#x4EE5;&#x5224;&#x65AD;&#x662F;&#x5426;&#x4E3A;0&#x3002;
+&#xFF08;P104&#xFF09;&#x6307;&#x9488;&#x7C7B;&#x578B;void<em>&#x53EF;&#x4EE5;&#x4FDD;&#x5B58;&#x4EFB;&#x4F55;&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x5730;&#x5740;&#x3002;&#x8BE5;&#x6307;&#x9488;&#x53EF;&#x4EE5;&#xFF08;1&#xFF09;&#x4E0E;&#x53E6;&#x4E00;&#x6307;&#x9488;&#x6BD4;&#x8F83;&#xFF08;2&#xFF09;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x6216;&#x8FD4;&#x56DE;&#x503C;&#xFF08;3&#xFF09;&#x7ED9;&#x53E6;&#x4E00;void</em>&#x8D4B;&#x503C;&#x3002;&#x8BE5;&#x6307;&#x9488;&#x4E0D;&#x652F;&#x6301;&#x5BF9;&#x5B83;&#x7684;&#x5BF9;&#x8C61;&#x64CD;&#x4F5C;&#x3002;
+&#xFF08;P111&#xFF09;&#x6307;&#x5411;const&#x5BF9;&#x8C61;&#x7684;&#x6307;&#x9488;&#xFF1A;const double <em>cptr;//cptr may point to a double that is const&#x3002;&#x8FD9;&#x79CD;&#x6307;&#x9488;&#x5E38;&#x7528;&#x4F5C;&#x51FD;&#x6570;&#x7684;&#x5F62;&#x53C2;&#xFF0C;&#x4EE5;&#x6B64;&#x786E;&#x4FDD;&#x4F20;&#x9012;&#x7ED9;&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x9645;&#x5BF9;&#x8C61;&#x5728;&#x51FD;&#x6570;&#x4E2D;&#x4E0D;&#x56E0;&#x4E3A;&#x5F62;&#x53C2;&#x800C;&#x88AB;&#x6539;&#x53D8;&#x3002;
+Const&#x6307;&#x9488;&#xFF1A;int </em>const curErr = &amp;errNumb;//curErr is a constant pointer
+&#xFF08;P112&#xFF09;&#x6307;&#x9488;&#x548C;typedef&#xFF0C;&#x8868;&#x793A;&#x7406;&#x89E3;&#x4E0D;&#x4E86;&#xFF0C;&#x8BB0;&#x4F4F;&#x5427;
+&#x5728; typedef&#xFF08;&#x7B2C; 2.6&#x8282;&#xFF09;&#x4E2D;&#x4F7F;&#x7528;&#x6307;&#x9488;&#x5F80;&#x5F80;&#x4F1A;&#x5E26;&#x6765;&#x610F;&#x5916;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x4EBA;&#x521A;&#x5F00;&#x59CB;&#x65F6;&#x90FD;&#x4F1A;&#x7B54;&#x9519;&#x7684;&#x95EE;&#x9898;&#x3002;&#x5047;&#x8BBE;&#x7ED9;&#x51FA;&#x4EE5;&#x4E0B;&#x8BED;&#x53E5;&#xFF1A;
+         typedef string <em>pstring;
+         const pstring cstr;
+&#x8BF7;&#x95EE; cstr&#x53D8;&#x91CF;&#x662F;&#x4EC0;&#x4E48;&#x7C7B;&#x578B;&#xFF1F;&#x7B80;&#x5355;&#x7684;&#x56DE;&#x7B54;&#x662F; const pstring&#x7C7B;&#x578B;&#x7684;&#x6307;&#x9488;&#x3002;&#x8FDB;&#x4E00;&#x6B65;&#x95EE;&#xFF1A;const pstring&#x6307;&#x9488;&#x6240;&#x8868;&#x793A;&#x7684;&#x771F;&#x5B9E;&#x7C7B;&#x578B;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;&#x5F88;&#x591A;&#x4EBA;&#x90FD;&#x8BA4;&#x4E3A;&#x771F;&#x6B63;&#x7684;&#x7C7B;&#x578B;&#x662F;&#xFF1A;
+         const string </em>cstr; // wrong interpretation of const pstring cstr
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;const pstring&#x662F;&#x4E00;&#x79CD;&#x6307;&#x9488;&#xFF0C;&#x6307;&#x5411; string&#x7C7B;&#x578B;&#x7684; const&#x5BF9;&#x8C61;&#xFF0C;&#x4F46;&#x8FD9;&#x662F;&#x9519;&#x8BEF;&#x7684;&#x3002;
+&#x9519;&#x8BEF;&#x7684;&#x539F;&#x56E0;&#x5728;&#x4E8E;&#x5C06; typedef&#x5F53;&#x505A;&#x6587;&#x672C;&#x6269;&#x5C55;&#x4E86;&#x3002;&#x58F0;&#x660E; const pstring&#x65F6;&#xFF0C;const&#x4FEE;&#x9970;&#x7684;&#x662F; pstring&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x8BE5;&#x58F0;&#x660E;&#x8BED;&#x53E5;&#x5E94;&#x8BE5;&#x662F;&#x628A; cstr&#x5B9A;&#x4E49;&#x4E3A;&#x6307;&#x5411; string&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x7684; const&#x6307;&#x9488;&#xFF0C;&#x8FD9;&#x4E2A;&#x5B9A;&#x4E49;&#x7B49;&#x4EF7;&#x4E8E;&#xFF1A;
+         // cstr is a const pointer to string
+         string <em>const cstr; // equivalent to const pstring cstr
+&#x5EFA;&#x8BAE;&#xFF1A;&#x7406;&#x89E3;&#x590D;&#x6742;&#x7684; const &#x7C7B;&#x578B;&#x7684;&#x58F0;&#x660E;
+&#x9605;&#x8BFB; const&#x58F0;&#x660E;&#x8BED;&#x53E5;&#x4EA7;&#x751F;&#x7684;&#x90E8;&#x5206;&#x95EE;&#x9898;&#xFF0C;&#x6E90;&#x4E8E; const&#x9650;&#x5B9A;&#x7B26;&#x65E2;&#x53EF;&#x4EE5;&#x653E;&#x5728;&#x7C7B;&#x578B;&#x524D;&#x4E5F;&#x53EF;&#x4EE5;&#x653E;&#x5728;&#x7C7B;&#x578B;&#x540E;&#xFF1A;
+         string const s1;   // s1 and s2 have same type,
+         const string s2;   // they&apos;re both strings that are const
+&#x7528; typedef&#x5199; const&#x7C7B;&#x578B;&#x5B9A;&#x4E49;&#x65F6;&#xFF0C;const&#x9650;&#x5B9A;&#x7B26;&#x52A0;&#x5728;&#x7C7B;&#x578B;&#x540D;&#x524D;&#x9762;&#x5BB9;&#x6613;&#x5F15;&#x8D77;&#x5BF9;&#x6240;&#x5B9A;&#x4E49;&#x7684;&#x771F;&#x6B63;&#x7C7B;&#x578B;&#x7684;&#x8BEF;&#x89E3;&#xFF1A;
+         string s;
+         typedef string </em>pstring;
+         const pstring cstr1 = &amp;s; // written this way the type  is obscured
+         pstring const cstr2 = &amp;s; // all three decreations are  the same type
+         string <em>const cstr3 = &amp;s; // they&apos;re all const pointers  to string
+&#x628A; const&#x653E;&#x5728;&#x7C7B;&#x578B; pstring&#x4E4B;&#x540E;&#xFF0C;&#x7136;&#x540E;&#x4ECE;&#x53F3;&#x5411;&#x5DE6;&#x9605;&#x8BFB;&#x8BE5;&#x58F0;&#x660E;&#x8BED;&#x53E5;&#x5C31;&#x4F1A;&#x975E;&#x5E38;&#x6E05;&#x695A;&#x5730;&#x77E5;&#x9053; cstr2&#x662F; const pstring&#x7C7B;&#x578B;&#xFF0C;&#x5373;&#x6307;&#x5411; string&#x5BF9;&#x8C61;&#x7684; const&#x6307;&#x9488;&#x3002;
+&#x4E0D;&#x5E78;&#x7684;&#x662F;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x4EBA;&#x5728;&#x9605;&#x8BFB; C++&#x7A0B;&#x5E8F;&#x65F6;&#x90FD;&#x4E60;&#x60EF;&#x770B;&#x5230; const&#x653E;&#x5728;&#x7C7B;&#x578B;&#x524D;&#x9762;&#x3002;&#x4E8E;&#x662F;&#x4E3A;&#x4E86;&#x9075;&#x7167;&#x60EF;&#x4F8B;&#xFF0C;&#x53EA;&#x597D;&#x5EFA;&#x8BAE;&#x7F16;&#x7A0B;&#x65F6;&#x628A; const&#x653E;&#x5728;&#x7C7B;&#x578B;&#x524D;&#x9762;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x628A;&#x58F0;&#x660E;&#x8BED;&#x53E5;&#x91CD;&#x5199;&#x4E3A;&#x7F6E; const&#x4E8E;&#x7C7B;&#x578B;&#x4E4B;&#x540E;&#x66F4;&#x4FBF;&#x4E8E;&#x7406;&#x89E3;&#x3002;
+&#x5982;&#x679C;&#x8981;&#x8868;&#x793A;&#x6307;&#x5411;const&#x5BF9;&#x8C61;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x8981;&#x600E;&#x4E48;&#x5199;&#x5462;&#xFF1F;
+&#xFF08;P124&#xFF09;typedef&#x7C7B;&#x578B;&#x5B9A;&#x4E49;&#x53EF;&#x4EE5;&#x4F7F;&#x6307;&#x5411;&#x591A;&#x7EF4;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x7684;&#x6307;&#x9488;&#x66F4;&#x5BB9;&#x6613;&#x8BFB;&#x3001;&#x5199;&#x548C;&#x7406;&#x89E3;&#x3002;
+&#xFF08;P134&#xFF09;&#x5DE6;&#x79FB;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;&lt;&lt;&#xFF09;&#x5728;&#x53F3;&#x8FB9;&#x63D2;&#x5165;0&#x4EE5;&#x8865;&#x5145;&#x7A7A;&#x4F4D;&#x3002;&#x5BF9;&#x4E8E;&#x53F3;&#x79FB;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;&gt;&gt;&#xFF09;&#xFF0C;&#x5982;&#x679C;&#x64CD;&#x4F5C;&#x6570;&#x662F;&#x65E0;&#x7B26;&#x53F7;&#x6570;&#xFF0C;&#x5219;&#x4ECE;&#x5DE6;&#x8FB9;&#x5F00;&#x59CB;&#x63D2;&#x5165;0&#xFF1B;&#x5982;&#x679C;&#x64CD;&#x4F5C;&#x6570;&#x662F;&#x6709;&#x7B26;&#x53F7;&#x6570;&#xFF0C;&#x5219;&#x63D2;&#x5165;&#x7B26;&#x53F7;&#x4F4D;&#x7684;&#x526F;&#x672C;&#x6216;&#x8005;0&#x503C;&#xFF0C;&#x5982;&#x4F55;&#x9009;&#x62E9;&#x4F9D;&#x636E;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#x800C;&#x5B9A;&#x3002;&#x79FB;&#x4F4D;&#x64CD;&#x4F5C;&#x7684;&#x53F3;&#x64CD;&#x4F5C;&#x6570;&#x4E0D;&#x53EF;&#x4EE5;&#x662F;&#x8D1F;&#x6570;&#xFF0C;&#x800C;&#x4E14;&#x5FC5;&#x987B;&#x662F;&#x4E25;&#x683C;&#x5C0F;&#x4E8E;&#x5DE6;&#x64CD;&#x4F5C;&#x6570;&#x4F4D;&#x6570;&#x7684;&#x503C;&#x3002;&#x5426;&#x5219;&#xFF0C;&#x64CD;&#x4F5C;&#x7684;&#x6548;&#x679C;&#x672A;&#x5B9A;&#x4E49;&#x3002;
+&#xFF08;P137&#xFF09;&#x91CD;&#x8F7D;&#x64CD;&#x4F5C;&#x7B26;&#x4E0E;&#x8BE5;&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x5185;&#x7F6E;&#x7248;&#x672C;&#x6709;&#x76F8;&#x540C;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x548C;&#x7ED3;&#x5408;&#x6027;&#x3002;&#x56E0;&#x6B64;&#x79FB;&#x4F4D;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;&lt;&lt;&#x3001;&gt;&gt;&#xFF09;&#x548C;&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;&lt;&lt;&#x3001;&gt;&gt;&#xFF09;&#x6709;&#x76F8;&#x540C;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#xFF08;&#x6BD4;&#x7B97;&#x672F;&#x64CD;&#x4F5C;&#x7B26;&#x4F4E;&#xFF0C;&#x6BD4;&#x5173;&#x7CFB;&#x3001;&#x8D4B;&#x503C;&#x3001;&#x6761;&#x4EF6;&#x64CD;&#x4F5C;&#x7B26;&#x9AD8;&#xFF09;&#x548C;&#x7ED3;&#x5408;&#x6027;&#xFF08;&#x5DE6;&#x7ED3;&#x5408;&#xFF09;&#x3002;&#x8FD9;&#x4F1A;&#x5F71;&#x54CD;&#x7684;&#x4F4D;&#x64CD;&#x4F5C;&#xFF0C;&#x540C;&#x6837;&#x4E5F;&#x5F71;&#x54CD;&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x64CD;&#x4F5C;&#x3002;
+&#xFF08;P141&#xFF09;&#x7531;&#x4E8E;&#x540E;&#x81EA;&#x589E;&#x64CD;&#x4F5C;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x9AD8;&#x4E8E;&#x89E3;&#x5F15;&#x7528;&#x64CD;&#x4F5C;&#xFF0C;</em>iter++&#x7279;&#x7B49;&#x6548;&#x4E8E;<em>(iter++)&#x3002;
+&#xFF08;P138&#xFF09;&#x53EA;&#x8981;&#x88AB;&#x8D4B;&#x503C;&#x7684;&#x6BCF;&#x4E2A;&#x64CD;&#x4F5C;&#x6570;&#x90FD;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x901A;&#x7528;&#x7C7B;&#x578B;&#xFF0C;C++&#x8BED;&#x8A00;&#x5141;&#x8BB8;&#x5C06;&#x8FD9;&#x591A;&#x4E2A;&#x8D4B;&#x503C;&#x64CD;&#x4F5C;&#x5199;&#x5728;&#x4E00;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x4E2D;&#xFF0C;&#x4F8B;&#x5982;int ival, jval; ival = jval = 0;&#x8D4B;&#x503C;&#x64CD;&#x4F5C;&#x5177;&#x6709;&#x53F3;&#x7ED3;&#x5408;&#x6027;&#xFF0C;&#x5F53;&#x8868;&#x8FBE;&#x5F0F;&#x542B;&#x6709;&#x591A;&#x4E2A;&#x8D4B;&#x503C;&#x64CD;&#x4F5C;&#x7B26;&#x65F6;&#xFF0C;&#x4ECE;&#x53F3;&#x5411;&#x5DE6;&#x7ED3;&#x5408;&#x3002;
+&#xFF08;P144&#xFF09;&#x7528;sizeof&#x6570;&#x7EC4;&#x7684;&#x7ED3;&#x679C;&#x9664;&#x4EE5;sizeof&#x5176;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x5373;&#x53EF;&#x6C42;&#x51FA;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x7684;&#x4E2A;&#x6570;&#x3002;
+&#xFF08;P151&#xFF09;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x5BF9;&#x4E8E;&#x7C7B;&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x7528;&#x8BE5;&#x7C7B;&#x7684;&#x9ED8;&#x8BA4;&#x6784;&#x9020;&#x51FD;&#x6570;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5BF9;&#x4E8E;&#x5185;&#x7F6E;&#x7C7B;&#x578B;&#x65E0;&#x521D;&#x59CB;&#x5316;&#x3002;
+string </em>ps = new string; // initialized to empty string
+     int <em>pi = new int;       // pi points to an uninitialized int
+&#x5BF9;&#x4E8E;&#x63D0;&#x4F9B;&#x4E86;&#x9ED8;&#x8BA4;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x7C7B;&#x7C7B;&#x578B;&#xFF0C;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x5BF9;&#x5176;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x503C;&#x521D;&#x59CB;&#x5316;&#xFF1A;&#x65E0;&#x8BBA;&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x660E;&#x786E;&#x5730;&#x4E0D;&#x521D;&#x59CB;&#x5316;&#x8FD8;&#x662F;&#x8981;&#x6C42;&#x8FDB;&#x884C;&#x503C;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x90FD;&#x4F1A;&#x81EA;&#x52A8;&#x8C03;&#x7528;&#x5176;&#x9ED8;&#x8BA4;&#x6784;&#x9020;&#x51FD;&#x6570;&#x521D;&#x59CB;&#x5316;&#x8BE5;&#x5BF9;&#x8C61;&#x3002;&#x800C;&#x5BF9;&#x4E8E;&#x5185;&#x7F6E;&#x7C7B;&#x578B;&#x6216;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x9ED8;&#x8BA4;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x91C7;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x5F0F;&#x5219;&#x6709;&#x663E;&#x8457;&#x5DEE;&#x522B;&#x3002;
+string </em>ps = new string();  // initialized to empty string
+     int <em>pi = new int();  // pi points to an int value-initialized to 0
+     cls </em>pc = new cls();  // pc points to a value-initialized object of type cls
+&#xFF08;P156&#xFF09;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#x6570;&#x7EC4;&#x90FD;&#x4F1A;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x4E3A;&#x6307;&#x5411;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x4EE5;&#x4E0B;&#x4E09;&#x79CD;&#x60C5;&#x51B5;&#x9664;&#x5916;&#xFF1A;&#xFF08;1&#xFF09;&#x6570;&#x7EC4;&#x7528;&#x4F5C;&#x53D6;&#x5730;&#x5740;(&amp;)&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#xFF08;2&#xFF09;&#x6570;&#x7EC4;&#x7528;&#x4F5C;sizeof&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#x65F6;&#xFF08;3&#xFF09;&#x7528;&#x6570;&#x7EC4;&#x5BF9;&#x6570;&#x7EC4;&#x7684;&#x5F15;&#x7528;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x65F6;
+&#xFF08;P159&#xFF09;dynamic_cast&#xFF1A;&#x652F;&#x6301;&#x8FD0;&#x884C;&#x65F6;&#x8BC6;&#x522B;&#x6307;&#x9488;&#x6216;&#x5F15;&#x7528;&#x6240;&#x6307;&#x5411;&#x7684;&#x5BF9;&#x8C61;&#x3002;const_cast&#xFF1A;&#x6DFB;&#x52A0;&#x548C;&#x5220;&#x9664;const&#x7279;&#x6027;&#x3002;static_cast&#xFF1A;&#x9690;&#x533F;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x3002;Reinterpret_cast&#xFF1A;&#x4E3A;&#x64CD;&#x4F5C;&#x6570;&#x7684;&#x4F4D;&#x6A21;&#x5F0F;&#x63D0;&#x4F9B;&#x8F83;&#x4F4E;&#x5C42;&#x6B21;&#x7684;&#x91CD;&#x65B0;&#x89E3;&#x91CA;&#x3002;dynamic_cast&#x548C;static_cast&#x4E5F;&#x4E0D;&#x5E94;&#x9891;&#x7E41;&#x4F7F;&#x7528;&#x3002;&#x6BCF;&#x6B21;&#x4F7F;&#x7528;&#x524D;&#xFF0C;&#x7A0B;&#x5E8F;&#x5458;&#x4E00;&#x4E2A;&#x4ED4;&#x7EC6;&#x8003;&#x8651;&#x662F;&#x5426;&#x8FD8;&#x6709;&#x5176;&#x5B83;&#x65B9;&#x6CD5;&#x3002;&#x5982;&#x975E;&#x5F3A;&#x8F6C;&#x4E0D;&#x53EF;&#xFF0C;&#x4E00;&#x4E2A;&#x9650;&#x5236;&#x5F3A;&#x8F6C;&#x503C;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x5E76;&#x8BB0;&#x5F55;&#x6240;&#x6709;&#x5047;&#x5B9A;&#x6D89;&#x53CA;&#x7684;&#x7C7B;&#x578B;&#x3002;
+&#xFF08;160&#xFF09;&#x907F;&#x514D;&#x4F7F;&#x7528;&#x5F3A;&#x5236;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x3002;Reinterpret_cast&#x603B;&#x662F;&#x975E;&#x5E38;&#x5371;&#x9669;&#x7684;&#x3002;Const_cast&#x4E5F;&#x603B;&#x662F;&#x9884;&#x793A;&#x7740;&#x8BBE;&#x8BA1;&#x7F3A;&#x9677;&#x3002;
+&#xFF08;P176&#xFF09;&#x5BF9;&#x4E8E;switch&#x7ED3;&#x6784;&#xFF0C;&#x53EA;&#x80FD;&#x5728;&#x5B83;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;case&#x6216;default&#x6807;&#x53F7;&#x540E;&#x9762;&#x5B9A;&#x4E49;&#x53D8;&#x91CF;&#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#x4E3A;&#x67D0;&#x4E2A;case&#x5B9A;&#x4E49;&#x53D8;&#x91CF;&#xFF0C;&#x5219;&#x5F15;&#x5165;&#x5757;&#x8BED;&#x53E5;{}&#xFF0C;&#x5728;&#x8BE5;&#x5757;&#x8BED;&#x53E5;&#x4E2D;&#x5B9A;&#x4E49;&#x53D8;&#x91CF;&#x3002;
+&#xFF08;P178&#xFF09;&#x5728;&#x5FAA;&#x73AF;&#x6761;&#x4EF6;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x53D8;&#x91CF;&#x5728;&#x6BCF;&#x6B21;&#x5FAA;&#x73AF;&#x91CC;&#x90FD;&#x8981;&#x7ECF;&#x5386;&#x521B;&#x5EFA;&#x548C;&#x64A4;&#x9500;&#x7684;&#x8FC7;&#x7A0B;&#x3002;
+&#xFF08;P181&#xFF09;&#x53EF;&#x4EE5;&#x5728;for&#x8BED;&#x53E5;&#x7684;init-statement&#x4E2D;&#x5B9A;&#x4E49;&#x591A;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x4F46;&#x4E0D;&#x7BA1;&#x600E;&#x4E48;&#x6837;&#xFF0C;&#x8BE5;&#x5904;&#x53EA;&#x80FD;&#x51FA;&#x73B0;&#x4E00;&#x4E2A;&#x8BED;&#x53E5;&#xFF0C;&#x56E0;&#x6B64;&#x6240;&#x6709;&#x7684;&#x5BF9;&#x8C61;&#x5FC5;&#x987B;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x4E00;&#x822C;&#x7C7B;&#x578B;&#xFF0C;&#x5982;&#xFF1A;
+For(int ival = 0, *pi = ia, &amp;ri = val; ival != size; ival++,pi++,ri++)
+&#xFF08;P188&#xFF09;&#x5BFB;&#x627E;&#x5904;&#x7406;&#x4EE3;&#x7801;&#x7684;&#x8FC7;&#x7A0B;&#x4E0E;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x94FE;&#x521A;&#x597D;&#x76F8;&#x53CD;&#x3002;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#x65F6;&#xFF0C;&#x9996;&#x5148;&#x8981;&#x641C;&#x7D22;&#x7684;&#x662F;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x7684;&#x51FD;&#x6570;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x5339;&#x914D;&#x7684; catch&#xFF0C;&#x5219;&#x7EC8;&#x6B62;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#xFF0C;&#x5E76;&#x5728;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x51FD;&#x6570;&#x4E2D;&#x5BFB;&#x627E;&#x76F8;&#x914D;&#x7684; catch&#x3002;&#x5982;&#x6B64;&#x7C7B;&#x63A8;&#xFF0C;&#x7EE7;&#x7EED;&#x6309;&#x6267;&#x884C;&#x8DEF;&#x5F84;&#x56DE;&#x9000;&#xFF0C;&#x76F4;&#x5230;&#x627E;&#x5230;&#x9002;&#x5F53;&#x7C7B;&#x578B;&#x7684; catch &#x4E3A;&#x6B62;&#x3002;
+&#xFF08;P190&#xFF09;$ CC -DNDEBUG main.C&#x8FD9;&#x6837;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x884C;&#x5C06;&#x4E8E;&#x5728; main.c &#x7684;&#x5F00;&#x5934;&#x63D0;&#x4F9B; #define NDEBUG&#x9884;&#x5904;&#x7406;&#x547D;&#x4EE4;&#x3002;
+&#xFF08;P190&#xFF09;&#x9884;&#x5904;&#x7406;&#x5668;&#x8FD8;&#x5B9A;&#x4E49;&#x4E86;&#x5176;&#x4F59;&#x56DB;&#x79CD;&#x5728;&#x8C03;&#x8BD5;&#x65F6;&#x975E;&#x5E38;&#x6709;&#x7528;&#x7684;&#x5E38;&#x91CF;&#xFF1A;&#xFF08;1&#xFF09;__FILE</em></em>&#x6587;&#x4EF6;&#x540D;&#xFF08;2&#xFF09;__LINE</em></int></em>&#x5F53;&#x524D;&#x884C;&#x53F7;&#xFF08;3&#xFF09;__TIME</em></em>&#x6587;&#x4EF6;&#x88AB;&#x7F16;&#x8BD1;&#x7684;&#x65F6;&#x95F4;&#xFF08;4&#xFF09;__DATE</em></em>&#x6587;&#x4EF6;&#x88AB;&#x7F16;&#x8BD1;&#x7684;&#x65E5;&#x671F;
+&#xFF08;P191&#xFF09;&#x53EA;&#x6709; NDEBUG&#x672A;&#x5B9A;&#x4E49;&#xFF0C;assert(expr) &#x5B8F;&#x624D;&#x6C42;&#x89E3;&#x6761;&#x4EF6;&#x8868;&#x8FBE;&#x5F0F; expr&#x3002;&#x8BE5;&#x8868;&#x8FBE;&#x5F0F;&#x4E0D;&#x80FD;&#x4EE3;&#x7801;&#x7A0B;&#x5E8F;&#x7684;&#x903B;&#x8F91;&#x3002;
+&#xFF08;P192&#xFF09;dangling else&#xFF08;&#x60AC;&#x5782;else&#xFF09;&#x4E00;&#x4E2A;&#x901A;&#x4FD7;&#x672F;&#x8BED;&#xFF0C;&#x6307;&#x51FA;&#x5982;&#x4F55;&#x5904;&#x7406;&#x5D4C;&#x5957;if&#x8BED;&#x53E5;&#x4E2D;if&#x591A;&#x4E8E;else&#x65F6;&#x53D1;&#x751F;&#x7684;&#x4E8C;&#x4E49;&#x6027;&#x95EE;&#x9898;&#x3002;C++&#x4E2D;&#xFF0C;else&#x603B;&#x662F;&#x4E0E;&#x6700;&#x8FD1;&#x7684;&#x672A;&#x5339;&#x914D;&#x7684;if&#x914D;&#x5BF9;&#x3002;
+&#xFF08;P204&#xFF09;&#x975E;const&#x5F15;&#x7528;&#x5F62;&#x53C2;&#x53EA;&#x80FD;&#x4E0E;&#x5B8C;&#x5168;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x975E;const&#x5BF9;&#x8C61;&#x5173;&#x8054;&#x3002;
+&#xFF08;P205&#xFF09;void ptrswap(int <em>&amp;v1, int </em>&amp;v2)&#x3002;&#x5F62;&#x53C2;int <em>&amp;v1&#x7684;&#x5B9A;&#x4E49;&#x5E94;&#x4ECE;&#x53F3;&#x81F3;&#x5DE6;&#x7406;&#x89E3;&#xFF1A;v1&#x662F;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#xFF0C;&#x4E0E;&#x6307;&#x5411; int &#x578B;&#x5BF9;&#x8C61;&#x7684;&#x6307;&#x9488;&#x76F8;&#x5173;&#x8054;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;v1&#x53EA;&#x662F;&#x4F20;&#x9012;&#x8FDB; ptrswap &#x51FD;&#x6570;&#x7684;&#x4EFB;&#x610F;&#x6307;&#x9488;&#x7684;&#x522B;&#x540D;&#x3002;
+&#xFF08;P206&#xFF09;&#x5BB9;&#x5668;&#x7C7B;&#x578B;&#x4E00;&#x822C;&#x4E0D;&#x4F5C;&#x7528;&#x5F62;&#x53C2;&#xFF0C;&#x56E0;&#x4E3A;&#x8C03;&#x7528;&#x542B;&#x6709;&#x666E;&#x901A;&#x7684;&#x975E;&#x5F15;&#x7528;&#x5BB9;&#x5668;&#x5F62;&#x53C2;&#x7684;&#x51FD;&#x6570;&#x5C06;&#x4F1A;&#x590D;&#x5236;&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x3002;&#x5982;&#x679C;&#x8981;&#x7528;&#xFF0C;&#x5E94;&#x58F0;&#x660E;&#x4E3A;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#xFF0C;&#x6216;&#x4F7F;&#x7528;&#x5BB9;&#x5668;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x3002;
+&#xFF08;P208&#xFF09;&#x5982;&#x679C;&#x5F62;&#x53C2;&#x662F;&#x6570;&#x7EC4;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x4E0D;&#x4F1A;&#x5C06;&#x6570;&#x7EC4;&#x5B9E;&#x53C2;&#x8F6C;&#x5316;&#x4E3A;&#x6307;&#x9488;&#xFF0C;&#x800C;&#x662F;&#x4F20;&#x9012;&#x6570;&#x7EC4;&#x7684;&#x5F15;&#x7528;&#x672C;&#x8EAB;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6570;&#x7EC4;&#x5927;&#x5C0F;&#x6210;&#x4E3A;&#x5F62;&#x53C2;&#x548C;&#x5B9E;&#x53C2;&#x7C7B;&#x578B;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;&#x7F16;&#x8BD1;&#x5668;&#x68C0;&#x67E5;&#x6570;&#x7EC4;&#x7684;&#x5B9E;&#x53C2;&#x7684;&#x5927;&#x5C0F;&#x4E0E;&#x5F62;&#x53C2;&#x7684;&#x5927;&#x5C0F;&#x662F;&#x5426;&#x5339;&#x914D;
+&#xFF08;P208&#xFF09;&#x548C;&#x5176;&#x4ED6;&#x6570;&#x7EC4;&#x4E00;&#x6837;&#xFF0C;&#x591A;&#x7EF4;&#x6570;&#x7EC4;&#x4EE5;&#x6307;&#x5411; 0&#x53F7;&#x5143;&#x7D20;&#x7684;&#x6307;&#x9488;&#x65B9;&#x5F0F;&#x4F20;&#x9012;&#x3002;&#x591A;&#x7EF4;&#x6570;&#x7EC4;&#x7684;&#x5143;&#x7D20;&#x672C;&#x8EAB;&#x5C31;&#x662F;&#x6570;&#x7EC4;&#x3002;&#x9664;&#x4E86;&#x7B2C;&#x4E00;&#x7EF4;&#x4EE5;&#x5916;&#x7684;&#x6240;&#x6709;&#x7EF4;&#x7684;&#x957F;&#x5EA6;&#x90FD;&#x662F;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x5FC5;&#x987B;&#x660E;&#x786E;&#x6307;&#x5B9A;&#xFF1A;
+void printValues(int (matrix</em>)[10], int rowSize);
+int <em>matrix[10];   // array of 10 pointers
+int (</em>matrix)[10]; // pointer to an array of 10 ints
+&#xFF08;P211&#xFF09;C++&#x4E2D;&#x7684;&#x7701;&#x7565;&#x7B26;&#x5F62;&#x53C2;&#x662F;&#x4E3A;&#x4E86;&#x7F16;&#x8BD1;&#x4F7F;&#x7528;&#x4E86;varargs&#x7684;C&#x8BED;&#x8A00;&#x7A0B;&#x5E8F;&#x3002;&#x5BF9;&#x4E8E;C++&#x7A0B;&#x5E8F;&#xFF0C;&#x53EA;&#x80FD;&#x5C06;&#x7B80;&#x5355;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x4F20;&#x9012;&#x7ED9;&#x542B;&#x6709;&#x7701;&#x7565;&#x7B26;&#x5F62;&#x53C2;&#x7684;&#x51FD;&#x6570;&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x5F53;&#x9700;&#x8981;&#x4F20;&#x9012;&#x7ED9;&#x7701;&#x7565;&#x7B26;&#x5F62;&#x53C2;&#x65F6;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x7C7B;&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x90FD;&#x4E0D;&#x80FD;&#x6B63;&#x786E;&#x5730;&#x590D;&#x5236;&#x3002;&#x7701;&#x7565;&#x7B26;&#x6682;&#x505C;&#x4E86;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#x673A;&#x5236;&#x3002;&#x5B83;&#x4EEC;&#x7684;&#x51FA;&#x73B0;&#x544A;&#x77E5;&#x7F16;&#x8BD1;&#x5668;&#xFF0C;&#x5F53;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x6709; 0 &#x6216;&#x591A;&#x4E2A;&#x5B9E;&#x53C2;&#xFF0C;&#x800C;&#x5B9E;&#x53C2;&#x7684;&#x7C7B;&#x578B;&#x672A;&#x77E5;&#x3002;&#x7701;&#x7565;&#x7B26;&#x5F62;&#x53C2;&#x6709;&#x4E0B;&#x5217;&#x4E24;&#x79CD;&#x5F62;&#x5F0F;&#xFF1A;
+     void foo(parm_list, ...);
+     void foo(...);
+ &#x7B2C;&#x4E00;&#x79CD;&#x5F62;&#x5F0F;&#x4E3A;&#x7279;&#x5B9A;&#x6570;&#x76EE;&#x7684;&#x5F62;&#x53C2;&#x63D0;&#x4F9B;&#x4E86;&#x58F0;&#x660E;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x53EA;&#x5BF9;&#x663E;&#x793A;&#x58F0;&#x660E;&#x7684;&#x5F62;&#x53C2;&#x76F8;&#x5BF9;&#x5E94;&#x7684;&#x5B9E;&#x53C2;&#x8FDB;&#x884C;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#xFF0C;&#x800C;&#x5BF9;&#x4E8E;&#x4E0E;&#x7701;&#x7565;&#x7B26;&#x5BF9;&#x5E94;&#x7684;&#x5B9E;&#x53C2;&#x5219;&#x6682;&#x505C;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#x3002;&#x5728;&#x7B2C;&#x4E00;&#x79CD;&#x5F62;&#x5F0F;&#x4E2D;&#xFF0C;&#x5F62;&#x53C2;&#x58F0;&#x660E;&#x540E;&#x9762;&#x7684;&#x9017;&#x53F7;&#x662F;&#x53EF;&#x9009;&#x7684;&#x3002;
+&#x5927;&#x90E8;&#x5206;&#x5E26;&#x6709;&#x7701;&#x7565;&#x7B26;&#x5F62;&#x53C2;&#x7684;&#x51FD;&#x6570;&#x90FD;&#x5229;&#x7528;&#x663E;&#x5F0F;&#x58F0;&#x660E;&#x7684;&#x53C2;&#x6570;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x4FE1;&#x606F;&#xFF0C;&#x6765;&#x83B7;&#x53D6;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x4E2D;&#x63D0;&#x4F9B;&#x7684;&#x5176;&#x4ED6;&#x53EF;&#x9009;&#x5B9E;&#x53C2;&#x7684;&#x7C7B;&#x578B;&#x548C;&#x6570;&#x76EE;&#x3002;&#x56E0;&#x6B64;&#x5E26;&#x6709;&#x7701;&#x7565;&#x7B26;&#x7684;&#x7B2C;&#x4E00;&#x79CD;&#x5F62;&#x5F0F;&#x7684;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x662F;&#x6700;&#x5E38;&#x7528;&#x7684;&#x3002;
+&#xFF08;P213&#xFF09;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x4E0D;&#x662F;void&#x7684;&#x51FD;&#x6570;&#x5FC5;&#x987B;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x4F46;main&#x9664;&#x5916;&#x3002;&#x5982;&#x679C;main&#x7684;&#x6700;&#x540E;&#x4E00;&#x53E5;&#x90FD;&#x8FD8;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x9690;&#x5F0F;&#x5730;&#x63D2;&#x5165;return 0;
+&#xFF08;P214&#xFF09;&#x5343;&#x4E07;&#x4E0D;&#x8981;&#x8FD4;&#x56DE;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x5343;&#x4E07;&#x4E0D;&#x8981;&#x8FD4;&#x56DE;&#x6307;&#x5411;&#x5C40;&#x90E8;&#x5BF9;&#x8C61;&#x7684;&#x6307;&#x9488;
+&#xFF08;P215&#xFF09;&#x8FD4;&#x56DE;&#x5F15;&#x7528;&#x7684;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x503C;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x5DE6;&#x503C;&#x3002;
+&#xFF08;P216&#xFF09;&#x4E3B;&#x51FD;&#x6570;main&#x4E0D;&#x80FD;&#x8C03;&#x7528;&#x81EA;&#x8EAB;
+&#xFF08;P222&#xFF09;&#x5185;&#x8054;&#x51FD;&#x6570;&#x5E94;&#x8BE5;&#x5728;&#x5934;&#x6587;&#x4EF6;&#x4E2D;&#x5B9A;&#x4E49;&#xFF0C;&#x8FD9;&#x4E00;&#x70B9;&#x4E0E;&#x5176;&#x5B83;&#x51FD;&#x6570;&#x4E0D;&#x540C;&#x3002;
+&#xFF08;P223&#xFF09;&#x7F16;&#x8BD1;&#x5668;&#x9690;&#x5F0F;&#x5730;&#x5C06;&#x7C7B;&#x5185;&#x5B9A;&#x4E49;&#x7684;&#x6210;&#x5458;&#x51FD;&#x6570;&#x5F53;&#x4F5C;&#x5185;&#x8054;&#x51FD;&#x6570;&#x3002;
+&#xFF08;P228&#xFF09;main&#x51FD;&#x6570;&#x4E0D;&#x80FD;&#x91CD;&#x8F7D;
+&#xFF08;P229&#xFF09;&#x5BF9;&#x4E8E;&#x975E;&#x5F15;&#x7528;&#x7684;&#x5F62;&#x53C2;&#xFF0C;const&#x5F62;&#x53C2;&#x4E0E;&#x975E;const&#x5F62;&#x53C2;&#x662F;&#x7B49;&#x4EF7;&#x7684;&#x3002;&#x5982;&#xFF1A;Record lookup(Phone);&#x4E0E;Record lookup(const Phone)&#x662F;&#x91CD;&#x5B9A;&#x4E49;&#x3002;
+&#x6709;const&#x5F15;&#x7528;&#x5F62;&#x53C2;&#x7684;&#x51FD;&#x6570;&#x4E0E;&#x6709;&#x975E;const&#x5F15;&#x7528;&#x5F62;&#x53C2;&#x7684;&#x51FD;&#x6570;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x3002;&#x5982;&#xFF1A;Record lookup(Phone &amp;);&#x4E0E;Record lookup(const Phone &amp;)
+&#xFF08;P230&#xFF09;&#x5982;&#x679C;&#x5C40;&#x90E8;&#x5730;&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x8BE5;&#x51FD;&#x6570;&#x5C06;&#x5C4F;&#x853D;&#x800C;&#x4E0D;&#x662F;&#x91CD;&#x8F7D;&#x5728;&#x5916;&#x5C42;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x58F0;&#x660E;&#x7684;&#x540C;&#x540D;&#x51FD;&#x6570;&#x3002;&#x7531;&#x6B64;&#x63A8;&#x8BBA;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x7684;&#x91CD;&#x8F7D;&#x51FD;&#x6570;&#x90FD;&#x5E94;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x58F0;&#x660E;&#x3002;
+&#xFF08;P233&#xFF09;&#x91CD;&#x8F7D;&#x5339;&#x914D;&#x6210;&#x529F;&#x6761;&#x4EF6;&#xFF1A;1.&#x5176;&#x6BCF;&#x4E2A;&#x5B9E;&#x53C2;&#x7684;&#x5339;&#x914D;&#x90FD;&#x4E0D;&#x52A3;&#x4E8E;&#x5176;&#x4ED6;&#x53EF;&#x884C;&#x51FD;&#x6570;&#x9700;&#x8981;&#x7684;&#x5339;&#x914D;&#x3002;2. &#x81F3;&#x5C11;&#x6709;&#x4E00;&#x4E2A;&#x5B9E;&#x53C2;&#x7684;&#x5339;&#x914D;&#x4F18;&#x4E8E;&#x5176;&#x4ED6;&#x53EF;&#x884C;&#x51FD;&#x6570;&#x63D0;&#x4F9B;&#x7684;&#x5339;&#x914D;&#x3002;&#x6709;&#x4E2A;CPP&#x63D0;&#x4EA4;&#x6F0F;&#x4E86;&#xFF0C;&#x8865;&#x5145;&#x63D0;&#x4EA4;
+&#xFF08;P234&#xFF09;&#x4E3A;&#x4E86;&#x786E;&#x5B9A;&#x6700;&#x4F73;&#x5339;&#x914D;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x5C06;&#x5B9E;&#x53C2;&#x7C7B;&#x578B;&#x5230;&#x76F8;&#x5E94;&#x5F62;&#x53C2;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x5212;&#x5206;&#x7B49;&#x7EA7;&#x3002;&#x8F6C;&#x6362;&#x7B49;&#x7EA7;&#x4EE5;&#x964D;&#x5E8F;&#x6392;&#x5217;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x7CBE;&#x786E;&#x5339;&#x914D;&#x3002;&#x5B9E;&#x53C2;&#x4E0E;&#x5F62;&#x53C2;&#x7C7B;&#x578B;&#x76F8;&#x540C;&#x3002;</li>
+<li>&#x901A;&#x8FC7;&#x7C7B;&#x578B;&#x63D0;&#x5347;&#x5B9E;&#x73B0;&#x7684;&#x5339;&#x914D;&#xFF08;&#x8F83;&#x5C0F;&#x7684;&#x6574;&#x578B;&#x63D0;&#x5347;&#x4E3A; int&#x578B;&#xFF09;</li>
+<li>&#x901A;&#x8FC7;&#x6807;&#x51C6;&#x8F6C;&#x6362;&#x5B9E;&#x73B0;&#x7684;&#x5339;&#x914D;</li>
+<li>&#x901A;&#x8FC7;&#x7C7B;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x5B9E;&#x73B0;&#x7684;&#x5339;&#x914D;
+&#xFF08;P237&#xFF09;&#x76F4;&#x63A5;&#x5F15;&#x7528;&#x51FD;&#x6570;&#x540D;&#x7B49;&#x6548;&#x4E8E;&#x5728;&#x51FD;&#x6570;&#x540D;&#x4E0A;&#x5E94;&#x7528;&#x53D6;&#x5730;&#x5740;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;
+Typedef bool (<em>cmpFcn)(const string &amp;, const string &amp;);
+Bool lengthCompare(const string &amp;, const string &amp;);
+cmpFcn pf1 = lengthCompare;
+cmpFcn pf2 = &amp;lengthCompare;
+&#xFF08;P238&#xFF09;&#x6307;&#x5411;&#x51FD;&#x6570;&#x7684;&#x6307;&#x9488;&#x53EF;&#x7528;&#x4E8E;&#x8C03;&#x7528;&#x5B83;&#x6240;&#x6307;&#x5411;&#x7684;&#x51FD;&#x6570;&#x3002;&#x53EF;&#x4EE5;&#x4E0D;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x89E3;&#x5F15;&#x7528;&#x64CD;&#x4F5C;
+&#x7B26;&#xFF0C;&#x76F4;&#x63A5;&#x901A;&#x8FC7;&#x6307;&#x9488;&#x8C03;&#x7528;&#x51FD;&#x6570;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;
+cmpFcn pf = lengthCompare;
+  lengthCompare(&quot;hi&quot;, &quot;bye&quot;); // direct call
+  pf(&quot;hi&quot;, &quot;bye&quot;);            // equivalent call: pf1 implicitly dereferenced
+  (</em>pf)(&quot;hi&quot;, &quot;bye&quot;);         // equivalent call: pf1 explicitly dereferenced
+&#xFF08;P238&#xFF09;&#x51FD;&#x6570;&#x6307;&#x9488;&#x4F5C;&#x4E3A;&#x5F62;&#x53C2;&#x6709;&#x4E24;&#x79CD;&#x5199;&#x6CD5;&#xFF1A;
+Void useBigger(const string &amp;, const string &amp;, bool(const string&amp;, const string &amp;));
+Void useBigger(const string &amp;, const string &amp;, bool(<em>)(const string&amp;, const string &amp;));
+&#xFF08;P238&#xFF09;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x6307;&#x5411;&#x51FD;&#x6570;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x4F46;&#x662F;&#xFF0C;&#x6B63;&#x786E;&#x5199;&#x51FA;&#x8FD9;&#x79CD;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x76F8;&#x5F53;&#x4E0D;&#x5BB9;&#x6613;&#xFF1A;
+  int (</em>ff(int))(int<em>, int);
+&#x9605;&#x8BFB;&#x51FD;&#x6570;&#x6307;&#x9488;&#x58F0;&#x660E;&#x7684;&#x6700;&#x4F73;&#x65B9;&#x6CD5;&#x662F;&#x4ECE;&#x58F0;&#x660E;&#x7684;&#x540D;&#x5B57;&#x5F00;&#x59CB;&#x7531;&#x91CC;&#x800C;&#x5916;&#x7406;&#x89E3;&#x3002;
+&#x8981;&#x7406;&#x89E3;&#x8BE5;&#x58F0;&#x660E;&#x7684;&#x542B;&#x4E49;&#xFF0C;&#x9996;&#x5148;&#x89C2;&#x5BDF;ff(int)&#xFF0C;&#x5C06; ff&#x58F0;&#x660E;&#x4E3A;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x5E26;&#x6709;&#x4E00;&#x4E2A; int &#x578B;&#x7684;&#x5F62;&#x53C2;&#x3002;&#x8BE5;&#x51FD;&#x6570;&#x8FD4;&#x56DE;int (</em>)(int<em>, int);&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x51FD;&#x6570;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x6240;&#x6307;&#x5411;&#x7684;&#x51FD;&#x6570;&#x8FD4;&#x56DE; int&#x578B;&#x5E76;&#x5E26;&#x6709;&#x4E24;&#x4E2A;&#x5206;&#x522B;&#x662F;int</em> &#x578B;&#x548C; int&#x578B;&#x7684;&#x5F62;&#x53C2;&#x3002;
+&#x4F7F;&#x7528; typedef &#x53EF;&#x4F7F;&#x8BE5;&#x5B9A;&#x4E49;&#x66F4;&#x7B80;&#x660E;&#x6613;&#x61C2;&#xFF1A;
+  typedef int (<em>PF)(int</em>, int);
+PF ff(int);  // ff returns a pointer to function
+&#xFF08;P239&#xFF09;&#x5141;&#x8BB8;&#x5C06;&#x5F62;&#x53C2;&#x5B9A;&#x4E49;&#x4E3A;&#x51FD;&#x6570;&#x7C7B;&#x578B;&#xFF0C;&#x4F46;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x5219;&#x5FC5;&#x987B;&#x662F;&#x6307;&#x5411;&#x51FD;&#x6570;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x800C;&#x4E0D;&#x80FD;&#x662F;&#x51FD;&#x6570;&#x3002;&#x4F8B;&#x5982;&#xFF1A;
+typedef int func(int<em>, int);
+  void f1(func); // ok: f1 has a parameter of function type
+  func f2(int);  // error: f2 has a return type of function type
+  func </em>f3(int); // ok: f3 returns a pointer to function type
+&#xFF08;P245&#xFF09;&#x5982;&#x679C;&#x51FD;&#x6570;&#x6709;&#x57FA;&#x7C7B;&#x7C7B;&#x578B;&#x7684;&#x5F15;&#x7528;&#x5F62;&#x53C2;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x7ED9;&#x51FD;&#x6570;&#x4F20;&#x9012;&#x5176;&#x6D3E;&#x751F;&#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x4F8B;&#x5982;&#x5BF9;istream&amp;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x4E5F;&#x53EF;&#x4F7F;&#x7528;ifstream&#x6216;&#x8005;istringstream&#x5BF9;&#x8C61;&#x6765;&#x8C03;&#x7528;&#x3002;&#x56E0;&#x6B64;IO&#x7C7B;&#x578B;&#x901A;&#x8FC7;&#x7EE7;&#x627F;&#x5173;&#x8054;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x53EA;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x800C;&#x5C06;&#x5B83;&#x5E94;&#x7528;&#x5230;&#x4E09;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x6D41;&#x4E0A;&#xFF1A;&#x63A7;&#x5236;&#x53F0;&#x3001;&#x78C1;&#x76D8;&#x6587;&#x4EF6;&#x6216;&#x8005;&#x5B57;&#x7B26;&#x4E32;&#x6D41;&#x3002;&#x4EE3;&#x7801;&#xFF1A;
+void func(ostream &amp; t)
+{<pre><code>  t&lt;&lt;&quot;123&quot;&lt;&lt;endl;
+</code></pre>}</li>
+</ol>
+<p>int main()
+{
+         func(cout);
+         ofstream f(&quot;123.txt&quot;);
+         func(f);
+         return 0;
+}
+Sstream&#x4E0D;&#x77E5;&#x9053;&#x600E;&#x4E48;&#x7528;
+&#xFF08;P246&#xFF09;IO&#x5BF9;&#x8C61;&#x4E0D;&#x5141;&#x8BB8;&#x590D;&#x5236;&#x548C;&#x8D4B;&#x503C;&#x64CD;&#x4F5C;&#xFF0C;&#x6240;&#x4EE5;&#xFF08;1&#xFF09;&#x6D41;&#x5BF9;&#x8C61;&#x4E0D;&#x80FD;&#x5B58;&#x50A8;&#x5728;&#x5BB9;&#x5668;&#x4E2D;&#xFF08;2&#xFF09;&#x5F62;&#x53C2;&#x6216;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x4E0D;&#x80FD;&#x662F;&#x6D41;&#x7C7B;&#x578B;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x662F;&#x6D41;&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x6307;&#x9488;&#x6216;&#x5F15;&#x7528;
+&#xFF08;P246&#xFF09;&#x5BF9;IO&#x5BF9;&#x8C61;&#x7684;&#x8BFB;&#x5199;&#x4F1A;&#x6539;&#x53D8;&#x5B83;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x56E0;&#x6B64;&#x5F15;&#x7528;&#x5FC5;&#x987B;&#x662F;&#x975E;const&#x7684;
+&#xFF08;P248&#xFF09;&#x9017;&#x53F7;&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x6C42;&#x89E3;&#x8FC7;&#x7A0B;&#xFF1A;&#x9996;&#x5148;&#x8BA1;&#x7B97;&#x5B83;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x6700;&#x53F3;&#x8FB9;&#x64CD;&#x4F5C;&#x6570;&#x4F5C;&#x4E3A;&#x6574;&#x4E2A;&#x64CD;&#x4F5C;&#x7684;&#x7ED3;&#x679C;&#x3002;
+&#xFF08;P250&#xFF09;&#x5982;&#x679C;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x6700;&#x540E;&#x7684;&#x8F93;&#x51FA;&#x7ED9;&#x7A0B;&#x5E8F;&#x9519;&#x8BEF;&#x5B9A;&#x4F4D;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x786E;&#x5B9A;&#x6240;&#x6709;&#x8981;&#x8F93;&#x51FA;&#x7684;&#x90FD;&#x5DF2;&#x7ECF;&#x8F93;&#x51FA;&#x3002;&#x4E3A;&#x4E86;&#x786E;&#x4FDD;&#x7528;&#x6237;&#x770B;&#x5230;&#x7A0B;&#x5E8F;&#x5B9E;&#x9645;&#x4E0A;&#x5904;&#x7406;&#x7684;&#x6240;&#x6709;&#x8F93;&#x51FA;&#xFF0C;&#x6700;&#x597D;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x4FDD;&#x8BC1;&#x6240;&#x6709;&#x7684;&#x8F93;&#x51FA;&#x64CD;&#x4F5C;&#x90FD;&#x663E;&#x5F0F;&#x5730;&#x8C03;&#x7528;&#x4E86; flush&#x6216; endl&#x3002;
+&#xFF08;P250&#xFF09;&#x5F53;&#x8F93;&#x5165;&#x6D41;&#x4E0E;&#x8F93;&#x51FA;&#x6D41;&#x7ED1;&#x5728;&#x4E00;&#x8D77;&#x65F6;&#xFF0C;&#x4EFB;&#x4F55;&#x8BFB;&#x8F93;&#x5165;&#x6D41;&#x7684;&#x5C1D;&#x8BD5;&#x90FD;&#x5C06;&#x9996;&#x5148;&#x5237;&#x65B0;&#x5176;&#x8F93;&#x51FA;&#x6D41;&#x5173;&#x8054;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x3002;&#x6807;&#x51C6;&#x5E93;&#x5C06; cout&#x4E0E; cin &#x7ED1;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x56E0;&#x6B64;&#x8BED;&#x53E5;&#xFF1A;&#x6807;&#x51C6;&#x5E93;&#x5C06; cout&#x4E0E; cin &#x7ED1;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x56E0;&#x6B64;&#x8BED;&#x53E5;&#xFF1A;cin &gt;&gt; ival;&#x5BFC;&#x81F4; cout&#x5173;&#x8054;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x88AB;&#x5237;&#x65B0;&#x3002;
+&#xFF08;P251&#xFF09;&#x4EA4;&#x4E92;&#x5F0F;&#x7CFB;&#x7EDF;&#x901A;&#x5E38;&#x5E94;&#x786E;&#x4FDD;&#x5B83;&#x4EEC;&#x7684;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;&#x6D41;&#x662F;&#x7ED1;&#x5728;&#x4E00;&#x8D77;&#x7684;&#x3002;&#x8FD9;&#x6837;&#x505A;&#x610F;&#x5473;&#x7740;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x4EFB;&#x4F55;&#x8F93;&#x51FA;&#xFF0C;&#x5305;&#x62EC;&#x7ED9;&#x7528;&#x6237;&#x7684;&#x63D0;&#x793A;&#xFF0C;&#x90FD;&#x5728;&#x8BD5;&#x56FE;&#x8BFB;&#x4E4B;&#x524D;&#x8F93;&#x51FA;
+&#xFF08;P252&#xFF09;IO&#x6807;&#x51C6;&#x5E93;&#x4F7F;&#x7528;C&#x98CE;&#x683C;&#x5B57;&#x7B26;&#x4E32;&#x800C;&#x4E0D;&#x662F;C++strings&#x7C7B;&#x578B;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x4F5C;&#x4E3A;&#x6587;&#x4EF6;&#x540D;&#x3002;&#x5047;&#x8BBE;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x4FDD;&#x5B58;&#x5728;string&#x5BF9;&#x8C61;&#x4E2D;&#xFF0C;&#x5219;&#x53EF;&#x8C03;&#x7528;c_str&#x6210;&#x5458;&#x83B7;&#x53D6; C &#x98CE;&#x683C;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#xFF08;P265&#xFF09;&#x5C3D;&#x7BA1;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x5C06;&#x4E00;&#x79CD;&#x5BB9;&#x5668;&#x5185;&#x7684;&#x5143;&#x7D20;&#x590D;&#x5236;&#x7ED9;&#x53E6;&#x4E00;&#x79CD;&#x5BB9;&#x5668;&#xFF0C;&#x4F46;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4F20;&#x9012;&#x4E00;&#x5BF9;&#x8FED;&#x4EE3;&#x5668;&#x95F4;&#x63A5;&#x5B9E;&#x73B0;&#x8BE5;&#x529F;&#x80FD;&#x3002;&#x4F7F;&#x7528;&#x8FED;&#x4EE3;&#x5668;&#x65F6;&#xFF0C;&#x4E0D;&#x8981;&#x6C42;&#x5BB9;&#x5668;&#x7C7B;&#x578B;&#x76F8;&#x540C;&#x3002;&#x5BB9;&#x5668;&#x5185;&#x7684;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x76F8;&#x540C;&#xFF0C;&#x53EA;&#x8981;&#x5B83;&#x4EEC;&#x76F8;&#x4E92;&#x517C;&#x5BB9;&#xFF0C;&#x80FD;&#x591F;&#x5C06;&#x8981;&#x590D;&#x5236;&#x7684;&#x5143;&#x7D20;&#x8F6C;&#x6362;&#x4E3A;&#x6240;&#x6784;&#x5EFA;&#x7684;&#x65B0;&#x5BB9;&#x5668;&#x7684;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#xFF0C;&#x5373;&#x53EF;&#x5B9E;&#x73B0;&#x590D;&#x5236;&#x3002;
+&#xFF08;P267&#xFF09;&#x5BB9;&#x5668;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#x5FC5;&#x987B;&#x6EE1;&#x8DB3;&#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x7EA6;&#x675F;&#xFF1A;&#xFF08;1&#xFF09;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#x5FC5;&#x987B;&#x652F;&#x6301;&#x8D4B;&#x503C;&#x8FD0;&#x7B97;&#x3002;&#xFF08;2&#xFF09;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#x5FC5;&#x987B;&#x53EF;&#x4EE5;&#x590D;&#x5236;&#x3002;&#x5F15;&#x7528;&#x4E0D;&#x652F;&#x6301;&#x4E00;&#x822C;&#x610F;&#x4E49;&#x7684;&#x8D4B;&#x503C;&#x8FD0;&#x7B97;&#xFF0C;&#x56E0;&#x6B64;&#x6CA1;&#x6709;&#x5143;&#x7D20;&#x662F;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x7684;&#x5BB9;&#x5668;&#x3002;IO&#x5E93;&#x7C7B;&#x578B;&#x4E0D;&#x652F;&#x6301;&#x590D;&#x5236;&#x6216;&#x8D4B;&#x503C;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x4E0D;&#x80FD;&#x521B;&#x5EFA;&#x5B58;&#x653E; IO &#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x5BB9;&#x5668;&#x3002;
+&#xFF08;P268&#xFF09;&#x5FC5;&#x987B;&#x7528;&#x7A7A;&#x683C;&#x9694;&#x5F00;&#x4E24;&#x4E2A;&#x76F8;&#x90BB;&#x7684; &gt;&#x7B26;&#x53F7;&#xFF0C;&#x4EE5;&#x793A;&#x8FD9;&#x662F;&#x4E24;&#x4E2A;&#x5206;&#x5F00;&#x7684;&#x7B26;&#x53F7;&#xFF0C;&#x5426;&#x5219;&#xFF0C;&#x7CFB;&#x7EDF;&#x4F1A;&#x8BA4;&#x4E3A; &gt;&gt; &#x662F;&#x5355;&#x4E2A;&#x7B26;&#x53F7;&#xFF0C;&#x4E3A;&#x53F3;&#x79FB;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x5E76;&#x5BFC;&#x81F4;&#x7F16;&#x8BD1;&#x65F6;&#x9519;&#x8BEF;&#x3002; vector&lt; vector<string> &gt; lines;
+&#xFF08;P269&#xFF09;&#x53EA;&#x6709; vector&#x548C; deque &#x5BB9;&#x5668;&#x63D0;&#x4F9B;&#x4E0B;&#x9762;&#x4E24;&#x79CD;&#x91CD;&#x8981;&#x7684;&#x8FD0;&#x7B97;&#x96C6;&#x5408;&#xFF1A;&#x8FED;&#x4EE3;&#x5668;&#x7B97;&#x672F;&#x8FD0;&#x7B97;&#xFF0C;&#x4EE5;&#x53CA;&#x4F7F;&#x7528;&#x9664;&#x4E86; ==&#x548C; != &#x4E4B;&#x5916;&#x7684;&#x5173;&#x7CFB;&#x64CD;&#x4F5C;&#x7B26;&#x6765;&#x6BD4;&#x8F83;&#x4E24;&#x4E2A;&#x8FED;&#x4EE3;&#x5668;&#xFF08;==&#x548C; != &#x8FD9;&#x4E24;&#x79CD;&#x5173;&#x7CFB;&#x8FD0;&#x7B97;&#x9002;&#x7528;&#x4E8E;&#x6240;&#x6709;&#x5BB9;&#x5668;&#xFF09;&#x3002;&#x56E0;&#x4E3A;&#x53EA;&#x6709;&#x8FD9;&#x79CD;&#x4E24;&#x79CD;&#x5BB9;&#x5668;&#x4E3A;&#x5176;&#x5143;&#x7D20;&#x63D0;&#x4F9B;&#x5FEB;&#x901F;&#x3001;&#x968F;&#x673A;&#x7684;&#x8BBF;&#x95EE;&#x3002;
+&#xFF08;P269&#xFF09;list&#x5BB9;&#x5668;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x65E2;&#x4E0D;&#x652F;&#x6301;&#x7B97;&#x672F;&#x8FD0;&#x7B97;&#xFF0C;&#x4E5F;&#x4E0D;&#x652F;&#x6301;&#x5173;&#x7CFB;&#x8FD0;&#x7B97;&#xFF0C;&#x5B83;&#x53EA;&#x63D0;&#x4F9B;&#x524D;&#x7F6E;&#x548C;&#x540E;&#x7F6E;&#x7684;&#x81EA;&#x589E;&#x3001;&#x81EA;&#x51CF;&#x8FD0;&#x7B97;&#x4EE5;&#x53CA;&#x76F8;&#x7B49;&#xFF08;&#x4E0D;&#x7B49;&#xFF09;&#x8FD0;&#x7B97;&#x3002;
+&#xFF08;P270&#xFF09;&#x8FED;&#x4EE3;&#x5668;&#x662F;&#x7684;end&#x4E0D;&#x6307;&#x5411;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x800C;&#x662F;&#x6307;&#x5411;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x3002;&#x6B64;&#x7C7B;&#x5143;&#x7D20;&#x8303;&#x56F4;&#x79F0;&#x4E3A;&#x5DE6;&#x95ED;&#x53F3;&#x5F00;&#x533A;&#x95F4;&#x3002;
+&#xFF08;P272&#xFF09;&#x65E0;&#x6CD5;&#x68C0;&#x67E5;&#x8FED;&#x4EE3;&#x5668;&#x662F;&#x5426;&#x6709;&#x6548;&#xFF0C;&#x4E5F;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x6D4B;&#x8BD5;&#x6765;&#x53D1;&#x73B0;&#x8FED;&#x4EE3;&#x5668;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x5931;&#x6548;&#x3002;&#x4F7F;&#x7528;&#x8FED;&#x4EE3;&#x5668;&#x65F6;&#xFF0C;&#x5FC5;&#x987B;&#x7559;&#x610F;&#x54EA;&#x4E9B;&#x64CD;&#x4F5C;&#x4F1A;&#x4F7F;&#x8FED;&#x4EE3;&#x5668;&#x5931;&#x6548;&#x3002;&#x901A;&#x5E38;&#x4F7F;&#x5F97;&#x8981;&#x6C42;&#x8FED;&#x4EE3;&#x5668;&#x6709;&#x6548;&#x7684;&#x4EE3;&#x7801;&#x8303;&#x56F4;&#x76F8;&#x5BF9;&#x8F83;&#x77ED;&#x3002;&#x7136;&#x540E;&#x5728;&#x8BE5;&#x8303;&#x56F4;&#x5185;&#x4E25;&#x683C;&#x68C0;&#x67E5;&#x6BCF;&#x4E00;&#x6761;&#x8BED;&#x53E5;&#xFF0C;&#x5224;&#x65AD;&#x662F;&#x5426;&#x6709;&#x5143;&#x7D20;&#x6DFB;&#x52A0;&#x6216;&#x5220;&#x9664;&#xFF0C;&#x4ECE;&#x800C;&#x76F8;&#x5E94;&#x5730;&#x8C03;&#x6574;&#x8FED;&#x4EE3;&#x5668;&#x7684;&#x503C;&#x3002;
+&#xFF08;P274&#xFF09;&#x5728;&#x5BB9;&#x5668;&#x4E2D;&#x6DFB;&#x52A0;&#x5143;&#x7D20;&#x65F6;&#xFF0C;&#x7CFB;&#x7EDF;&#x662F;&#x5C06;&#x5143;&#x7D20;&#x503C;&#x590D;&#x5236;&#x5230;&#x5BB9;&#x5668;&#x91CC;&#xFF0C;&#x88AB;&#x590D;&#x5236;&#x7684;&#x539F;&#x59CB;&#x503C;&#x4E0E;&#x65B0;&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x5404;&#x4E0D;&#x76F8;&#x5173;&#x3002;
+&#xFF08;P277&#xFF09;&#x6240;&#x6709;&#x7684;&#x5BB9;&#x5668;&#x7C7B;&#x578B;&#x90FD;&#x652F;&#x6301;&#x5173;&#x7CFB;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x4F46;&#x5FC5;&#x987B;&#x5BB9;&#x5668;&#x7C7B;&#x578B;&#x76F8;&#x540C;&#x3001;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#x76F8;&#x540C;&#x3001;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#x652F;&#x6301;&#x8BE5;&#x5173;&#x7CFB;&#x64CD;&#x4F5C;&#x7B26;&#x3002;
+&#xFF08;P280&#xFF09;&#x4F7F;&#x7528;front&#x6216;back&#x8FD0;&#x7B97;&#xFF0C;&#x5982;&#x679C;&#x5BB9;&#x5668;&#x4E3A;&#x7A7A;&#xFF0C;&#x5C06;&#x4F1A;&#x4EA7;&#x751F;&#x672A;&#x5B9A;&#x4E49;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x5982;&#x540C;&#x4F7F;&#x7528;&#x8D8A;&#x754C;&#x7684;&#x4E0B;&#x6807;&#xFF0C;&#x7F16;&#x8BD1;&#x4E0D;&#x4F1A;&#x68C0;&#x67E5;&#xFF0C;&#x5374;&#x4F1A;&#x51FA;&#x73B0;&#x4E25;&#x91CD;&#x9519;&#x8BEF;&#x3002;
+&#xFF08;P283&#xFF09;swap&#x64CD;&#x4F5C;&#x4E0D;&#x4F1A;&#x4F7F;&#x8FED;&#x4EE3;&#x5668;&#x5931;&#x6548;&#x3002;&#x5B8C;&#x6210;swap&#x540E;&#xFF0C;&#x5C3D;&#x7BA1;&#x88AB;&#x4EA4;&#x6362;&#x7684;&#x5143;&#x7D20;&#x5DF2;&#x7ECF;&#x5B58;&#x653E;&#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x5BB9;&#x5668;&#x4E2D;&#xFF0C;&#x4F46;&#x8FED;&#x4EE3;&#x5668;&#x4ECD;&#x6307;&#x5411;&#x76F8;&#x540C;&#x7684;&#x5143;&#x7D20;&#x3002;
+&#xFF08;P284&#xFF09;&#x4E3A;&#x4E86;&#x652F;&#x6301;&#x5FEB;&#x901F;&#x7684;&#x968F;&#x673A;&#x8BBF;&#x95EE;&#xFF0C;vector&#x5BB9;&#x5668;&#x7684;&#x5143;&#x7D20;&#x4EE5;&#x8FDE;&#x7EED;&#x7684;&#x65B9;&#x5F0F;&#x5B58;&#x653E;&#x3002;&#x5728;&#x5BB9;&#x5668;&#x5185;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x65F6;&#xFF0C; vector &#x5FC5;&#x987B;&#x91CD;&#x65B0;&#x5206;&#x914D;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#xFF0C;&#x7528;&#x6765;&#x5B58;&#x653E;&#x539F;&#x6765;&#x7684;&#x5143;&#x7D20;&#x4EE5;&#x53CA;&#x65B0;&#x6DFB;&#x52A0;&#x7684;&#x5143;&#x7D20;&#xFF1A;&#x5B58;&#x653E;&#x5728;&#x65E7;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x88AB;&#x590D;&#x5236;&#x5230;&#x65B0;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x91CC;&#xFF0C;&#x63A5;&#x7740;&#x63D2;&#x5165;&#x65B0;&#x5143;&#x7D20;&#xFF0C;&#x6700;&#x540E;&#x64A4;&#x9500;&#x65E7;&#x7684;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x3002;&#x5BF9;&#x4E8E;&#x4E0D;&#x8FDE;&#x7EED;&#x5B58;&#x50A8;&#x5143;&#x7D20;&#x7684;&#x5BB9;&#x5668;&#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x8FD9;&#x6837;&#x7684;&#x5185;&#x5B58;&#x5206;&#x914D;&#x95EE;&#x9898;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5728; list&#x3002;Vector&#x589E;&#x52A0;&#x5143;&#x7D20;&#x6162;&#xFF0C;&#x8BBF;&#x95EE;&#x5143;&#x7D20;&#x5FEB;&#xFF0C;list&#x76F8;&#x53CD;&#x3002;
+&#xFF08;P288&#xFF09;&#x5982;&#x679C;&#x65E0;&#x6CD5;&#x786E;&#x5B9A;&#x67D0;&#x79CD;&#x5E94;&#x7528;&#x5E94;&#x8BE5;&#x91C7;&#x7528;&#x54EA;&#x79CD;&#x5BB9;&#x5668;&#xFF0C;&#x5219;&#x7F16;&#x5199;&#x4EE3;&#x7801;&#x65F6;&#x5C1D;&#x8BD5;&#x53EA;&#x4F7F;&#x7528;vector&#x548C;list&#x5BB9;&#x5668;&#x90FD;&#x63D0;&#x4F9B;&#x7684;&#x64CD;&#x4F5C;&#xFF1A;&#x4F7F;&#x7528;&#x8FED;&#x4EE3;&#x5668;&#x800C;&#x4E0D;&#x662F;&#x4E0B;&#x6807;&#xFF0C;&#x5E76;&#x4E14;&#x907F;&#x514D;&#x968F;&#x673A;&#x8BBF;&#x95EE;&#x3002;&#x8FD9;&#x6837;&#xFF0C;&#x5728;&#x5FC5;&#x8981;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x5730;&#x4ECE;vector&#x6539;&#x4E3A;list&#x3002;
+&#xFF08;P289&#xFF09;&#x5728;&#x67D0;&#x4E9B;&#x65B9;&#x9762;&#xFF0C;&#x53EF;&#x5C06;string&#x7C7B;&#x578B;&#x89C6;&#x4E3A;&#x5B57;&#x7B26;&#x5BB9;&#x5668;
+&#xFF08;P300&#xFF09;&#x5BB9;&#x5668;&#x9002;&#x914D;&#x5668;&#x4E0E;&#x5BB9;&#x5668;</string></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>vector</th>
+<th>list</th>
+<th>Deque</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Queue&#xFF0C;&#x8981;&#x6C42;&#x63D0;&#x4F9B;push_front()</td>
+<td>&#x4E0D;&#x652F;&#x6301;</td>
+<td>&#x652F;&#x6301;</td>
+<td>&#x9ED8;&#x8BA4;</td>
+</tr>
+<tr>
+<td>stack</td>
+<td>&#x652F;&#x6301;</td>
+<td>&#x652F;&#x6301;</td>
+<td>&#x9ED8;&#x8BA4;</td>
+</tr>
+<tr>
+<td>Priority_queue&#xFF0C;&#x8981;&#x6C42;&#x63D0;&#x4F9B;&#x968F;&#x673A;&#x8BBF;&#x95EE;</td>
+<td>&#x9ED8;&#x8BA4;</td>
+<td>&#x4E0D;&#x652F;&#x6301;</td>
+<td>&#x652F;&#x6301;</td>
+</tr>
+</tbody>
+</table>
+<p>&#xFF08;P301&#xFF09;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6808;&#x9002;&#x914D;&#x5668;&#x5EFA;&#x7ACB;&#x5728;deque&#x5BB9;&#x5668;&#x4E0A;&#x3002;
+&#xFF08;P308&#xFF09;&#x201C;&#x5BB9;&#x5668;&#x5143;&#x7D20;&#x6839;&#x636E;&#x952E;&#x7684;&#x6B21;&#x5E8F;&#x6392;&#x5217;&#x201D;&#x8FD9;&#x4E00;&#x4E8B;&#x5B9E;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x7ED3;&#x8BBA;&#xFF1A;&#x5728;&#x8FED;&#x4EE3;&#x904D;&#x5386;&#x5173;&#x8054;&#x5BB9;&#x5668;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x786E;&#x4FDD;&#x6309;&#x952E;&#x7684;&#x987A;&#x5E8F;&#x7684;&#x8BBF;&#x95EE;&#x5143;&#x7D20;&#xFF0C;&#x800C;&#x4E0E;&#x5143;&#x7D20;&#x5728;&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x5B58;&#x653E;&#x4F4D;&#x7F6E;&#x5B8C;&#x5168;&#x65E0;&#x5173;&#x3002;
+&#xFF08;P309&#xFF09;map&#x6240;&#x4F7F;&#x7528;&#x7684;&#x952E;&#xFF0C;&#x5FC5;&#x987B;&#x5728;&#x952E;&#x7C7B;&#x578B;&#x4E0A;&#x5B9A;&#x4E49;&#x4E25;&#x683C;&#x5F31;&#x6392;&#x5E8F;&#x3002;&#x5373;&#x5FC5;&#x987B;&#x5B9A;&#x4E49;&lt;&#x64CD;&#x4F5C;&#x7B26;&#x3002;
+&#xFF08;P315&#xFF09;map&#x4F7F;&#x7528;&#x4E0B;&#x6807;&#x662F;&#x5371;&#x9669;&#x7684;&#xFF1A;&#x5982;&#x679C;&#x8BE5;&#x952E;&#x4E0D;&#x5728;map&#x4E2D;&#xFF0C;&#x5219;&#x4F1A;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x8BE5;&#x952E;&#x7684;&#x65B0;&#x5143;&#x7D20;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x8981;&#x6709;&#x63D2;&#x5165;&#x64CD;&#x4F5C;&#xFF0C;&#x5E94;&#x4F7F;&#x7528;count&#x6216;find
+&#xFF08;P319&#xFF09;map&#x662F;&#x952E;&#xFF0D;&#x503C;&#x5BF9;&#x7684;&#x96C6;&#x5408;&#x3002;Set&#x53EA;&#x662F;&#x5355;&#x7EAF;&#x7684;&#x952E;&#x7684;&#x96C6;&#x5408;&#x3002;&#x5F53;&#x53EA;&#x60F3;&#x77E5;&#x9053;&#x4E00;&#x4E2A;&#x503C;&#x662F;&#x5426;&#x5B58;&#x5728;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;set&#x3002;
+&#xFF08;P322&#xFF09;map&#x548C; set &#x5BB9;&#x5668;&#x4E2D;&#xFF0C;&#x4E00;&#x4E2A;&#x952E;&#x53EA;&#x80FD;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;&#x800C; multiset&#x548C; multimap &#x7C7B;&#x578B;&#x5219;&#x5141;&#x8BB8;&#x4E00;&#x4E2A;&#x952E;&#x5BF9;&#x5E94;&#x591A;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;Multimap&#x4E0D;&#x652F;&#x6301;&#x4E0B;&#x6807;&#x8FD0;&#x7B97;&#x3002;
+&#xFF08;P323&#xFF09;&#x5173;&#x8054;&#x5BB9;&#x5668;map&#x548C;set&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x662F;&#x6309;&#x987A;&#x5E8F;&#x5B58;&#x653E;&#x7684;&#xFF0C;mulmap&#x548C;mulset&#x4E5F;&#x4E00;&#x6837;&#x3002;
+&#xFF08;P337&#xFF09;&#x6307;&#x9488;&#x7684;&#x884C;&#x4E3A;&#x4E0E;&#x4F5C;&#x7528;&#x5728;&#x5185;&#x7F6E;&#x6570;&#x7EC4;&#x4E0A;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x4E00;&#x6837;&#xFF0C;&#x56E0;&#x6B64;&#x5BF9;&#x8FED;&#x4EE3;&#x5668;&#x4F7F;&#x7528;&#x7684;&#x7B97;&#x6CD5;&#x4E5F;&#x53EF;&#x4EE5;&#x5BF9;&#x6570;&#x7EC4;&#x4F7F;&#x7528;&#x3002;
+&#xFF08;P338&#xFF09;&#x6CDB;&#x578B;&#x7B97;&#x6CD5;&#x672C;&#x8EAB;&#x4ECE;&#x4E0D;&#x6267;&#x884C;&#x5BB9;&#x5668;&#x64CD;&#x4F5C;&#xFF0C;&#x53EA;&#x662F;&#x5355;&#x72EC;&#x4F9D;&#x8D56;&#x8FED;&#x4EE3;&#x5668;&#x548C;&#x8FED;&#x4EE3;&#x5668;&#x64CD;&#x4F5C;&#x5B9E;&#x73B0;&#x3002;&#x7B97;&#x6CD5;&#x57FA;&#x4E8E;&#x8FED;&#x4EE3;&#x5668;&#x53CA;&#x5176;&#x64CD;&#x4F5C;&#x5B9E;&#x73B0;&#xFF0C;&#x800C;&#x5E76;&#x975E;&#x57FA;&#x4E8E;&#x5BB9;&#x5668;&#x64CD;&#x4F5C;&#x3002;
+&#xFF08;P375&#xFF09;&#x7C7B;&#x4E0D;&#x80FD;&#x5177;&#x6709;&#x81EA;&#x8EAB;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x6210;&#x5458;&#xFF0C;&#x4F46;&#x7C7B;&#x7684;&#x6570;&#x636E;&#x6210;&#x5458;&#x53EF;&#x4EE5;&#x662F;&#x6307;&#x5411;&#x81EA;&#x8EAB;&#x7C7B;&#x578B;&#x7684;&#x6307;&#x9488;&#x6216;&#x5F15;&#x7528;&#x3002;
+&#xFF08;P381&#xFF09;&#x5F62;&#x53C2;&#x8868;&#x548C;&#x51FD;&#x6570;&#x4F53;&#x5904;&#x4E8E;&#x7C7B;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#xFF0C;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x4E0D;&#x4E00;&#x5B9A;&#x5728;&#x7C7B;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;
+&#xFF08;P388&#xFF09;&#x4E0D;&#x7BA1;&#x6570;&#x636E;&#x6210;&#x5458;&#x662F;&#x5426;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x521D;&#x59CB;&#x5316;&#x5217;&#x8868;&#x4E2D;&#x663E;&#x5F0F;&#x5730;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5B83;&#x603B;&#x662F;&#x4F1A;&#x5728;&#x521D;&#x59CB;&#x5316;&#x9636;&#x6BB5;&#x521D;&#x59CB;&#x5316;&#x3002;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x9690;&#x5F0F;&#x5730;&#x8C03;&#x7528;&#x6570;&#x636E;&#x6210;&#x5458;&#x7684;&#x9ED8;&#x8BA4;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;&#x5982;&#x679C;&#x6570;&#x636E;&#x6210;&#x5458;&#x6CA1;&#x6709;&#x9ED8;&#x8BA4;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x4F1A;&#x51FA;&#x9519;&#x3002;
+&#xFF08;P388&#xFF09;&#x5BF9;&#x4E8E;&#x5185;&#x7F6E;&#x7C7B;&#x578B;&#xFF0C;&#x4F7F;&#x7528;&#x521D;&#x59CB;&#x5316;&#x6216;&#x8D4B;&#x503C;&#x5728;&#x7ED3;&#x679C;&#x548C;&#x6027;&#x80FD;&#x4E0A;&#x662F;&#x7B49;&#x4EF7;&#x7684;&#xFF0C;&#x9664;&#x4E86;&#x4E24;&#x4E2A;&#x4F8B;&#x5916;&#xFF1A;const&#x6210;&#x5458;&#x548C;&#x5F15;&#x7528;&#x3002;
+&#xFF08;P389&#xFF09;&#x521D;&#x59CB;&#x5316;&#x7684;&#x987A;&#x5E8F;&#x5C31;&#x662F;&#x5B9A;&#x4E49;&#x6210;&#x5458;&#x7684;&#x987A;&#x5E8F;&#xFF0C;&#x4E0E;&#x521D;&#x59CB;&#x5316;&#x5217;&#x8868;&#x7684;&#x987A;&#x5E8F;&#x65E0;&#x5173;
+&#xFF08;P394&#xFF09;&#x901A;&#x8FC7;&#x5C06;&#x6784;&#x9020;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x4E3A;explicit&#x6765;&#x9632;&#x6B62;&#x5728;&#x9700;&#x8981;&#x9690;&#x5F0F;&#x8F6C;&#x6362;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x4F7F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;Explicit&#x53EA;&#x7528;&#x4E8E;&#x7C7B;&#x5185;&#x90E8;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E0A;&#x3002;
+&#xFF08;P395&#xFF09;&#x9664;&#x4E86;&#x6709;&#x660E;&#x663E;&#x7684;&#x7406;&#x7531;&#x8981;&#x5B9A;&#x4E49;&#x9690;&#x533F;&#x8F6C;&#x6362;&#xFF0C;&#x5426;&#x5219;&#xFF0C;&#x5355;&#x5F62;&#x53C2;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5E94;&#x8BE5;&#x4E3A;explicit&#x3002;
+&#xFF08;P397&#xFF09;friend&#x5173;&#x952E;&#x5B57;&#x53EA;&#x80FD;&#x51FA;&#x73B0;&#x5728;&#x7C7B;&#x5B9A;&#x4E49;&#x7684;&#x5185;&#x90E8;&#x3002;&#x53CB;&#x5143;&#x4E0D;&#x662F;&#x6388;&#x4E88;&#x53CB;&#x5143;&#x5173;&#x7CFB;&#x7684;&#x90A3;&#x4E2A;&#x7C7B;&#x7684;&#x6210;&#x5458;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x4EEC;&#x4E0D;&#x53D7;&#x58F0;&#x660E;&#x51FA;&#x73B0;&#x90E8;&#x5206;&#x7684;&#x8BBF;&#x95EE;&#x63A7;&#x5236;&#x5F71;&#x54CD;&#x3002;
+&#xFF08;P400&#xFF09;static&#x6210;&#x5458;&#x51FD;&#x6570;&#x6CA1;&#x6709;this&#x6307;&#x9488;&#xFF0C;&#x4E0D;&#x80FD;&#x58F0;&#x660E;&#x4E3A;const&#x6216;virtual
+&#xFF08;P401&#xFF09;static&#x6570;&#x636E;&#x6210;&#x5458;&#x5FC5;&#x987B;&#x5728;&#x7C7B;&#x5B9A;&#x4E49;&#x4F53;&#x5916;&#x90E8;&#x5B9A;&#x4E49;&#xFF08;&#x521A;&#x597D;&#x4E00;&#x6B21;&#xFF09;&#xFF0C;&#x4E14;&#x5728;&#x5B9A;&#x4E49;&#x65F6;&#x521D;&#x59CB;&#x5316;&#x3002;
+&#xFF08;P402&#xFF09;static&#x6570;&#x636E;&#x6210;&#x5458;&#x53EF;&#x5728;&#x5B57;&#x4E49;&#x4F53;&#x5185;&#x90E8;&#x8D4B;&#x503C;&#xFF0C;&#x4F46;&#x662F;&#x4ECD;&#x5230;&#x5728;&#x5916;&#x90E8;&#x5B9A;&#x4E49;&#xFF0C;&#x4F46;&#x662F;&#x5B9A;&#x4E49;&#x65F6;&#x53EF;&#x4EE5;&#x4E0D;&#x521D;&#x59CB;&#x5316;&#x3002;
+&#xFF08;P409&#xFF09;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x7C7B;&#x4E2D;&#x6709;&#x6570;&#x7EC4;&#x6210;&#x5458;&#xFF0C;&#x9ED8;&#x8BA4;&#x7684;&#x590D;&#x5236;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4F1A;&#x590D;&#x5236;&#x6574;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5373;&#x590D;&#x5236;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x3002;
+&#xFF08;P410&#xFF09;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x590D;&#x5236;&#xFF0C;&#x7C7B;&#x5FC5;&#x987B;&#x663E;&#x5F0F;&#x5730;&#x5C06;&#x590D;&#x5236;&#x6784;&#x9020;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x4E3A;private&#x3002;&#x5982;&#x679C;&#x8FDE;&#x53CB;&#x5143;&#x548C;&#x6210;&#x5458;&#x4E2D;&#x7684;&#x590D;&#x5236;&#x4E5F;&#x8981;&#x7981;&#x6B62;&#xFF0C;&#x5C31;&#x58F0;&#x660E;&#x4E00;&#x4E2A;private&#x7684;&#x590D;&#x5236;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4F46;&#x4E0D;&#x5B9A;&#x4E49;&#x3002;
+&#xFF08;P411&#xFF09;&#x58F0;&#x660E;&#x800C;&#x4E0D;&#x5B9A;&#x4E49;&#x6210;&#x5458;&#x51FD;&#x6570;&#x662F;&#x5408;&#x6CD5;&#x7684;&#xFF0C;&#x4F46;&#x4F7F;&#x7528;&#x5B83;&#x4F1A;&#x5BFC;&#x81F4;&#x94FE;&#x63A5;&#x5931;&#x8D25;&#x3002;
+&#xFF08;P411&#xFF09;&#x5982;&#x679C;&#x5B9A;&#x4E49;&#x4E86;&#x590D;&#x5236;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x4E5F;&#x5FC5;&#x987B;&#x5B9A;&#x4E49;&#x9ED8;&#x8BA4;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;
+&#xFF08;P411&#xFF09;&#x8D4B;&#x503C;&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x91CD;&#x8F7D;&#x5FC5;&#x987B;&#x5B9A;&#x4E49;&#x6210;&#x7C7B;&#x7684;&#x6210;&#x5458;&#x51FD;&#x6570;&#x3002;This&#x7ED1;&#x5B9A;&#x5230;&#x6307;&#x5411;&#x5DE6;&#x64CD;&#x4F5C;&#x64CD;&#x4F5C;&#x6570;&#x3002;
+&#xFF08;P431&#xFF09;&#x91CD;&#x8F7D;&#x64CD;&#x4F5C;&#x7B26;&#x5FC5;&#x987B;&#x81F3;&#x5C11;&#x4E00;&#x4E2A;&#x7C7B;&#x7C7B;&#x578B;&#x6216;&#x679A;&#x4E3E;&#x7C7B;&#x578B;&#x7684;&#x64CD;&#x4F5C;&#x6570;
+&#xFF08;P431&#xFF09;&#x91CD;&#x8F7D;&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x3001;&#x7ED3;&#x5408;&#x6027;&#x3001;&#x64CD;&#x4F5C;&#x6570;&#x4E0D;&#x53D8;&#x3002;&#x4F46;&#x4E0D;&#x4FDD;&#x5B58;&#x6C42;&#x503C;&#x987A;&#x5E8F;&#x3002;
+&#xFF08;P435&#xFF09;&#x8F93;&#x51FA;&#x64CD;&#x4F5C;&#x7B26; &lt;&lt;&#x7684;&#x91CD;&#x8F7D;&#xFF0C;&#x64CD;&#x4F5C;&#x7B26;&#x5E94;&#x63A5;&#x53D7; ostream&amp; &#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x5F62;&#x53C2;&#xFF0C;&#x5BF9;&#x7C7B;&#x7C7B;&#x578B; const&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E8C;&#x4E2A;&#x5F62;&#x53C2;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x5BF9; ostream &#x5F62;&#x53C2;&#x7684;&#x5F15;&#x7528;&#x3002;&#x4F8B;&#x5982;&#xFF1A;
+ostream&amp; operator &lt;&lt;(ostream&amp; os, const ClassType &amp;object)&#x3002;
+&#xFF08;P436&#xFF09;&#x8F93;&#x51FA;&#x64CD;&#x4F5C;&#x7B26;&#x5E94;&#x8F93;&#x51FA;&#x5BF9;&#x8C61;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x8FDB;&#x884C;&#x6700;&#x5C0F;&#x9650;&#x5EA6;&#x7684;&#x683C;&#x5F0F;&#x5316;&#xFF0C;&#x8BA9;&#x7528;&#x6237;&#x81EA;&#x5DF1;&#x63A7;&#x5236;&#x8F93;&#x51FA;&#x7EC6;&#x8282;&#x3002;&#x4E14;&#x5B83;&#x4EEC;&#x4E0D;&#x5E94;&#x8BE5;&#x8F93;&#x51FA;&#x6362;&#x884C;&#x7B26;&#x3002;
+&#xFF08;P437&#xFF09;&#x7531;&#x4E8E;&#x7C7B;&#x7684;&#x6210;&#x5458;&#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E00;&#x5B9A;&#x662F;this&#xFF0C;&#x56E0;&#x6B64;&#x8F93;&#x51FA;&#x64CD;&#x4F5C;&#x7B26; &lt;&lt;&#x7684;&#x91CD;&#x8F7D;&#x4E0D;&#x80FD;&#x505A;&#x4E3A;&#x6210;&#x5458;&#x51FD;&#x6570;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x7C7B;&#x901A;&#x5E38;&#x5C06; IO&#x64CD;&#x4F5C;&#x7B26;&#x8BBE;&#x4E3A;&#x53CB;&#x5143;&#x3002;
+&#xFF08;P438&#xFF09;&#x4F7F;&#x7528;&#x6D41;&#x8BFB;&#x5165;&#x6570;&#x636E;&#x4E4B;&#x524D;&#x8981;&#x68C0;&#x67E5;&#x3002;&#x8BBE;&#x8BA1;&#x8F93;&#x5165;&#x64CD;&#x4F5C;&#x7B26;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x53EF;&#x80FD;&#xFF0C;&#x8981;&#x786E;&#x5B9A;&#x9519;&#x8BEF;&#x6062;&#x590D;&#x63AA;&#x65BD;&#xFF0C;&#x8FD9;&#x5F88;&#x91CD;&#x8981;&#x3002;
+&#xFF08;P441&#xFF09;&#x7C7B;&#x7684;&#x8D4B;&#x503C;&#x64CD;&#x4F5C;&#x7B26;&#x5FC5;&#x987B;&#x4E3A;&#x7C7B;&#x7684;&#x6210;&#x5458;&#xFF0C;&#x4EE5;&#x4FBF;&#x7F16;&#x8BD1;&#x5668;&#x77E5;&#x9053;&#x662F;&#x5426;&#x9700;&#x8981;&#x5408;&#x6210;&#x4E00;&#x4E2A;&#x3002;
+&#xFF08;P442&#xFF09;&#x8D4B;&#x503C;&#x64CD;&#x4F5C;&#x7B26;&#x5FC5;&#x987B;&#x8FD4;&#x56DE;&#x5BF9;<em>this&#x7684;&#x5F15;&#x7528;
+&#xFF08;P442&#xFF09;&#x4E0B;&#x6807;&#x64CD;&#x4F5C;&#x7B26;&#x5FC5;&#x987B;&#x5B9A;&#x4E49;&#x4E3A;&#x7C7B;&#x6210;&#x5458;&#x51FD;&#x6570;
+&#xFF08;P443&#xFF09;&#x7C7B;&#x5B9A;&#x4E49;&#x4E0B;&#x6807;&#x64CD;&#x4F5C;&#x7B26;&#x65F6;&#xFF0C;&#x4E00;&#x822C;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x4E24;&#x4E2A;&#x7248;&#x672C;&#xFF1A;&#x4E00;&#x4E2A;&#x4E3A;&#x975E;const&#x6210;&#x5458;&#x5E76;&#x8FD4;&#x56DE;&#x5F15;&#x7528;&#xFF1B;&#x53E6;&#x4E00;&#x4E2A;&#x4E3A;const&#x6210;&#x5458;&#x5E76;&#x8FD4;&#x56DE;const&#x5F15;&#x7528;&#x3002;
+&#xFF08;P443&#xFF09;&#x7BAD;&#x5934;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;-&gt;&#xFF09;&#x5FC5;&#x987B;&#x5B9A;&#x4E49;&#x4E3A;&#x6210;&#x5458;&#x51FD;&#x6570;&#x3002;&#x89E3;&#x5F15;&#x7528;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;</em>&#xFF09;&#x65E0;&#x6B64;&#x8981;&#x6C42;
+&#xFF08;P445&#xFF09;&#x7BAD;&#x5934;&#x64CD;&#x4F5C;&#x7B26;&#x4E0D;&#x63A5;&#x53D7;&#x663E;&#x793A;&#x5F62;&#x53C2;&#x3002;&#x5FC5;&#x987B;&#x8FD4;&#x56DE;&#x6307;&#x5411;&#x7C7B;&#x7C7B;&#x578B;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x6216;&#x8005;&#x8FD4;&#x56DE;&#x5B9A;&#x4E49;&#x4E86;&#x81EA;&#x5DF1;&#x7684;&#x7BAD;&#x5934;&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x7C7B;&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x3002;
+&#xFF08;P447&#xFF09;&#x81EA;&#x589E;/&#x81EA;&#x51CF;&#x64CD;&#x4F5C;&#x7B26;&#x4F1A;&#x6539;&#x53D8;&#x64CD;&#x4F5C;&#x5BF9;&#x8C61;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x56E0;&#x6B64;&#x66F4;&#x503E;&#x5411;&#x4E8E;&#x5C06;&#x5B83;&#x4EEC;&#x4F5C;&#x4E3A;&#x6210;&#x5458;&#x3002;
+&#xFF08;P447&#xFF09;&#x524D;&#x7F18;&#x5F0F;&#x64CD;&#x4F5C;&#x7B26;&#x5E94;&#x8FD4;&#x56DE;&#x88AB;&#x589E;/&#x51CF;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;
+&#xFF08;P447&#xFF09;&#x4E3A;&#x4E86;&#x533A;&#x5206;&#x81EA;&#x589E;/&#x81EA;&#x51CF;&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x524D;&#x7F00;&#x548C;&#x540E;&#x7F00;&#x5F62;&#xFF0C;&#x540E;&#x7F00;&#x5F0F;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x989D;&#x5916;&#x7684;int&#x5F62;&#x53C2;
+&#xFF08;P448&#xFF09;&#x540E;&#x7F00;&#x64CD;&#x4F5C;&#x7B26;&#x8FD4;&#x56DE;&#x65E7;&#x503C;&#xFF0C;&#x5E94;&#x4F5C;&#x4E3A;&#x503C;&#x8FD4;&#x56DE;&#xFF0C;&#x4E0D;&#x662F;&#x8FD4;&#x56DE;&#x5F15;&#x7528;&#x3002;
+&#xFF08;P450&#xFF09;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x64CD;&#x4F5C;&#x7B26;&#x5FC5;&#x987B;&#x58F0;&#x660E;&#x4E3A;&#x6210;&#x5458;&#x51FD;&#x6570;&#x3002;&#x5B9A;&#x4E49;&#x4E86;&#x8C03;&#x7528;&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x7C7B;&#xFF0C;&#x5176;&#x5BF9;&#x8C61;&#x5E38;&#x79F0;&#x4E3A;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x3002;
+&#xFF08;P454&#xFF09;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x8F6C;&#x6362;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x5B8C;&#x6210;&#x4ECE;&#x7C7B;&#x7C7B;&#x578B;&#x5230;&#x5176;&#x5B83;&#x7C7B;&#x578B;&#x7684;&#x8F6C;&#x6362;&#x3002;
+&#xFF08;P455&#xFF09;&#x8F6C;&#x6362;&#x64CD;&#x4F5C;&#x7B26;&#x5728;&#x7C7B;&#x5B9A;&#x4E49;&#x4F53;&#x5185;&#x58F0;&#x660E;&#xFF0C;&#x5728;&#x4FDD;&#x7559;&#x5B57;operator&#x4E4B;&#x540E;&#x8DDF;&#x7740;&#x8F6C;&#x6362;&#x7684;&#x76EE;&#x6807;&#x7C7B;&#x578B;&#x3002;&#x5BF9;&#x4EFB;&#x4F55;&#x53EF;&#x4F5C;&#x4E3A;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x7684;&#x7C7B;&#x578B;&#xFF08;&#x9664;&#x4E86;void&#xFF09;&#x90FD;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x8F6C;&#x6362;&#x51FD;&#x6570;&#x3002;&#x4E0D;&#x5141;&#x8BB8;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x7EC4;&#x6216;&#x51FD;&#x6570;&#x7C7B;&#x578B;&#xFF0C;&#x53EF;&#x4EE5;&#x8F6C;&#x6362;&#x6210;&#x6307;&#x9488;&#xFF08;&#x6570;&#x636E;&#x548C;&#x51FD;&#x6570;&#x6307;&#x9488;&#xFF09;&#x4EE5;&#x53CA;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x3002;
+&#xFF08;P455&#xFF09;&#x8F6C;&#x6362;&#x51FD;&#x6570;&#x5FC5;&#x987B;&#x662F;&#x6210;&#x5458;&#x51FD;&#x6570;&#xFF0C;&#x901A;&#x5E38;&#x5B9A;&#x4E49;&#x4E3A;const&#x6210;&#x5458;&#x3002;&#x4E0D;&#x80FD;&#x6307;&#x5B9A;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#xFF0C;&#x4E14;&#x5F62;&#x53C2;&#x5FC5;&#x987B;&#x4E3A;&#x7A7A;&#x3002;&#x4F46;&#x53C8;&#x5FC5;&#x987B;&#x663E;&#x793A;&#x5730;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7C7B;&#x578B;&#x7684;&#x503C;&#x3002;
+&#xFF08;P456&#xFF09;&#x4E00;&#x4E2A;&#x7C7B;&#x53EA;&#x80FD;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x3002;
+&#xFF08;P464&#xFF09;&#x4E00;&#x822C;&#x800C;&#x8A00;&#xFF0C;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;&#x5019;&#x9009;&#x96C6;&#x53EA;&#x5305;&#x62EC;&#x6210;&#x5458;&#x51FD;&#x6570;&#x6216;&#x975E;&#x6210;&#x5458;&#x51FD;&#x6570;&#xFF0C;&#x4E0D;&#x4F1A;&#x4E24;&#x8005;&#x90FD;&#x5305;&#x62EC;&#x3002;&#x800C;&#x786E;&#x5B9A;&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x975E;&#x6210;&#x5458;&#x548C;&#x6210;&#x5458;&#x7248;&#x672C;&#x53EF;&#x80FD;&#x90FD;&#x662F;&#x5019;&#x9009;&#x8005;&#x3002;
+&#xFF08;P475&#xFF09;&#x6D3E;&#x751F;&#x7C7B;&#x53EA;&#x80FD;&#x901A;&#x8FC7;&#x6D3E;&#x751F;&#x7C7B;&#x5BF9;&#x8C61;&#x8BBF;&#x95EE;&#x5176;&#x57FA;&#x7C7B;&#x7684;protected&#x6210;&#x5458;&#xFF0C;&#x6D3E;&#x751F;&#x7C7B;&#x5BF9;&#x5176;&#x57FA;&#x7C7B;&#x7684;protected&#x6210;&#x5458;&#x65E0;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x3002;
+&#xFF08;P476&#xFF09;&#x4E00;&#x822C;&#x800C;&#x8A00;&#xFF0C;&#x6D3E;&#x751F;&#x7C7B;&#x53EA;&#xFF08;&#x91CD;&#xFF09;&#x5B9A;&#x4E49;&#x90A3;&#x4E9B;&#x4E0E;&#x57FA;&#x7C7B;&#x4E0D;&#x540C;&#x6216;&#x6269;&#x5C55;&#x57FA;&#x7C7B;&#x884C;&#x4E3A;&#x7684;&#x65B9;&#x9762;&#x3002;
+&#xFF08;P477&#xFF09;&#x6D3E;&#x751F;&#x7C7B;&#x4E2D;&#x865A;&#x51FD;&#x6570;&#x7684;&#x58F0;&#x660E;&#x5FC5;&#x987B;&#x4E0E;&#x57FA;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49;&#x65B9;&#x5F0F;&#x5B8C;&#x5168;&#x5339;&#x914D;&#x3002;&#x4F46;&#x6709;&#x4E00;&#x4E2A;&#x4F8B;&#x5916;&#xFF0C;&#x8FD4;&#x56DE;&#x5BF9;&#x57FA;&#x7C7B;&#x578B;&#x7684;&#x5F15;&#x7528;&#xFF08;&#x6216;&#x6307;&#x9488;&#xFF09;&#x7684;&#x865A;&#x51FD;&#x6570;&#x3002;&#x6D3E;&#x751F;&#x7C7B;&#x56FD;&#x7684;&#x865A;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x57FA;&#x7C7B;&#x51FD;&#x6570;&#x6240;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x7684;&#x6D3E;&#x751F;&#x7C7B;&#x7684;&#x5F15;&#x7528;&#xFF08;&#x6216;&#x6307;&#x9488;&#xFF09;&#x3002;
+&#xFF08;P480&#xFF09;&#x5F15;&#x7528;&#x7684;&#x6307;&#x9488;&#x7684;&#x9759;&#x6001;&#x7C7B;&#x578B;&#x4E0E;&#x52A8;&#x6001;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x4E0D;&#x540C;&#xFF0C;&#x8FD9;&#x662F;C++&#x7528;&#x4EE5;&#x652F;&#x6301;&#x591A;&#x6001;&#x6027;&#x7684;&#x57FA;&#x77F3;&#x3002;
+&#xFF08;P481&#xFF09;&#x53EA;&#x6709;&#x6210;&#x5458;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x624D;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x4F5C;&#x7528;&#x57DF;&#x64CD;&#x4F5C;&#x7B26;&#x8986;&#x76D6;&#x865A;&#x51FD;&#x6570;&#x673A;&#x5236;&#x3002;
+&#xFF08;P482&#xFF09;&#x5982;&#x679C;&#x57FA;&#x7C7B;&#x548C;&#x6D3E;&#x751F;&#x7C7B;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x865A;&#x51FD;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x5B9E;&#x53C2;&#xFF0C;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;&#x5B9E;&#x53C2;&#x7531;&#x8C03;&#x7528;&#x8005;&#x51B3;&#x5B9A;&#xFF0C;&#x4E0E;&#x52A8;&#x6001;&#x7C7B;&#x578B;&#x65E0;&#x5173;&#x3002;
+&#xFF08;P484&#xFF09;&#x63A5;&#x53E3;&#x7EE7;&#x627F;&#xFF1A;public&#x7EE7;&#x627F;&#x65B9;&#x5F0F;&#xFF0C;&#x5177;&#x6709;&#x4E0E;&#x57FA;&#x7C7B;&#x76F8;&#x540C;&#x7684;&#x63A5;&#x53E3;&#x3002;&#x5B9E;&#x73B0;&#x7EE7;&#x627F;&#xFF1A;private&#x6216;protected&#x7EE7;&#x627F;&#x65B9;&#x5F0F;&#xFF0C;&#x4E0D;&#x7EE7;&#x627F;&#x57FA;&#x7C7B;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x4F46;&#x4F7F;&#x7528;&#x57FA;&#x7C7B;&#x7684;&#x63A5;&#x53E3;&#x3002;
+&#xFF08;P485&#xFF09;class&#x9ED8;&#x8BA4;private&#x7EE7;&#x627F;&#x3002;Struct&#x9ED8;&#x8BA4;public&#x7EE7;&#x627F;
+&#xFF08;P486&#xFF09;&#x53CB;&#x5143;&#x5173;&#x7CFB;&#x4E0D;&#x80FD;&#x7EE7;&#x627F;&#xFF0C;&#x57FA;&#x7C7B;&#x7684;&#x53CB;&#x5143;&#x5BF9;&#x6D3E;&#x751F;&#x7C7B;&#x7684;&#x6210;&#x5458;&#x6CA1;&#x6709;&#x7279;&#x6B8A;&#x8BBF;&#x95EE;&#x6743;&#x9650;
+&#xFF08;P486&#xFF09;&#x5982;&#x679C;&#x57FA;&#x7C7B;&#x5B9A;&#x4E49;&#x4E86;static&#x6210;&#x5458;&#xFF0C;&#x5219;&#x6574;&#x4E2A;&#x7EE7;&#x627F;&#x5C42;&#x6B21;&#x4E2D;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x8FD9;&#x6837;&#x7684;&#x6210;&#x5458;&#x3002;&#x65E0;&#x8BBA;&#x4ECE;&#x57FA;&#x7C7B;&#x6D3E;&#x751F;&#x51FA;&#x591A;&#x5C11;&#x4E2A;&#x6D3E;&#x751F;&#x7C7B;&#xFF0C;&#x6BCF;&#x4E2A;static&#x6210;&#x5458;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;
+&#xFF08;P490&#xFF09;&#x6784;&#x9020;&#x51FD;&#x6570;&#x548C;&#x590D;&#x5236;&#x63A7;&#x5236;&#x6210;&#x5458;&#x4E0D;&#x80FD;&#x7EE7;&#x627F;&#xFF0C;&#x6BCF;&#x4E2A;&#x7C7B;&#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x548C;&#x590D;&#x5236;&#x63A7;&#x5236;&#x6210;&#x5458;&#x3002;
+&#xFF08;P491&#x6D3E;&#x751F;&#x7C7B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x521D;&#x59CB;&#x5316;&#x5217;&#x8868;&#x53EA;&#x80FD;&#x521D;&#x59CB;&#x5316;&#x6D3E;&#x751F;&#x7C7B;&#x6210;&#x5458;&#xFF0C;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x521D;&#x59CB;&#x5316;&#x7EE7;&#x627F;&#x6210;&#x5458;&#x3002;
+&#xFF08;P492&#xFF09;&#x4E00;&#x4E2A;&#x7C7B;&#x53EA;&#x80FD;&#x76F4;&#x63A5;&#x521D;&#x59CB;&#x5316;&#x76F4;&#x63A5;&#x57FA;&#x7C7B;
+&#xFF08;P494&#xFF09;&#x5982;&#x679C;&#x6D3E;&#x751F;&#x7C7B;&#x5B9A;&#x4E49;&#x4E86;&#x81EA;&#x5DF1;&#x7684;&#x590D;&#x5236;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x8BE5;&#x590D;&#x5236;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E00;&#x822C;&#x5E94;&#x663E;&#x5F0F;&#x4F7F;&#x7528;&#x57FA;&#x7C7B;&#x590D;&#x5236;&#x6784;&#x9020;&#x51FD;&#x6570;&#x521D;&#x59CB;&#x5316;&#x5BF9;&#x8C61;&#x7684;&#x57FA;&#x7C7B;&#x90E8;&#x5206;&#x3002;&#x6D3E;&#x751F;&#x7C7B;&#x8D4B;&#x503C;&#x64CD;&#x4F5C;&#x7B26;&#x7C7B;&#x4F3C;&#x3002;&#x6D3E;&#x751F;&#x7C7B;&#x6790;&#x6784;&#x51FD;&#x6570;&#x4E0D;&#x540C;&#xFF0C;&#x5B83;&#x53EA;&#x8D1F;&#x8D23;&#x6E05;&#x9664;&#x81EA;&#x5DF1;&#x7684;&#x6210;&#x5458;
+&#xFF08;P497&#xFF09;&#x5728;&#x57FA;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6216;&#x6790;&#x6784;&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x5C06;&#x6D3E;&#x751F;&#x7C7B;&#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x57FA;&#x7C7B;&#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#x6765;&#x770B;&#x5F85;&#x3002;&#x56E0;&#x6B64;&#x5982;&#x679C;&#x5728;&#x57FA;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6216;&#x6790;&#x6784;&#x51FD;&#x6570;&#x4E2D;&#x8C03;&#x7528;&#x865A;&#x51FD;&#x6570;&#xFF0C;&#x8C03;&#x7528;&#x7684;&#x662F;&#x57FA;&#x7C7B;&#x5B9A;&#x4E49;&#x7684;&#x7248;&#x672C;&#x3002;
+&#xFF08;P498&#xFF09;&#x5BF9;&#x8C61;&#x3001;&#x5F15;&#x7528;&#x6216;&#x6307;&#x9488;&#x7684;&#x9759;&#x6001;&#x7C7B;&#x578B;&#x51B3;&#x5B9A;&#x4E86;&#x5BF9;&#x8C61;&#x80FD;&#x591F;&#x5B8C;&#x6210;&#x7684;&#x884C;&#x4E3A;&#x3002;
+&#xFF08;P504&#xFF09;&#x53E5;&#x67C4;&#x7C7B;&#x5B58;&#x50A8;&#x548C;&#x7BA1;&#x7406;&#x57FA;&#x7C7B;&#x6307;&#x9488;&#x3002;&#x7528;&#x6237;&#x901A;&#x8FC7;&#x53E5;&#x67C4;&#x7C7B;&#x8BBF;&#x95EE;&#x7EE7;&#x627F;&#x5C42;&#x6B21;&#x7684;&#x64CD;&#x4F5C;&#x3002;&#x53E5;&#x67C4;&#x7684;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x52A8;&#x6001;&#x884C;&#x4E3A;&#x4F46;&#x65E0;&#x987B;&#x62C5;&#x5FC3;&#x6307;&#x9488;&#x7684;&#x7BA1;&#x7406;&#x3002;
+&#xFF08;P529&#xFF09;&#x4E0E;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x6A21;&#x677F;&#x5F62;&#x6210;&#x5BF9;&#x6BD4;&#xFF0C;&#x4F7F;&#x7528;&#x7C7B;&#x6A21;&#x677F;&#x65F6;&#xFF0C;&#x5FC5;&#x987B;&#x4E3A;&#x6A21;&#x677F;&#x5F62;&#x53C2;&#x663E;&#x793A;&#x6307;&#x5B9A;&#x5B9E;&#x53C2;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2012-01-11-friend-member-of-class.html" class="navigation navigation-prev " aria-label="Previous page: 友元friend总结">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="2011-12-29-scanf.html" class="navigation navigation-next " aria-label="Next page: 使用scanf函数时应该注意的问题">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"C++Primer笔记","level":"1.2.35","depth":2,"next":{"title":"使用scanf函数时应该注意的问题","level":"1.2.36","depth":2,"path":"grammar/2011-12-29-scanf.md","ref":"grammar/2011-12-29-scanf.md","articles":[]},"previous":{"title":"友元friend总结","level":"1.2.34","depth":2,"path":"grammar/2012-01-11-friend-member-of-class.md","ref":"grammar/2012-01-11-friend-member-of-class.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","katex-plus","alerts","github","github-buttons","splitter","-sharing","sharing-plus","copy-code-button","anchor-navigation-ex","sectionx","click-reveal","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/windmissing/cpp_notes"},"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"click-reveal":{},"sectionx":{},"highlight":{},"anchor-navigation-ex":{"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"isShowTocTitleIcon":true,"printLog":false,"multipleH1":true,"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false}},"katex-plus":{},"alerts":{},"github-buttons":{"repo":"windmissing/cpp_notes","types":["star","watch","fork"],"size":"small"},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"windmissing","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"3.2.3"},"file":{"path":"grammar/2013-11-24-c++-primer-record.md","mtime":"2021-11-21T02:11:16.108Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-21T03:03:00.356Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sectionx/sectionx.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-click-reveal/click_reveal.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

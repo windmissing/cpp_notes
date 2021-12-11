@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>C语言进阶：整型提升 · GitBook</title>
+        <title>多线程编程 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -90,10 +90,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="size_and_bits.html" />
     
-    
-    <link rel="prev" href="2015-03-12-what-is-null.html" />
+    <link rel="prev" href="keywords.html" />
     
 
     <style>
@@ -303,7 +301,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.12" data-path="2015-08-25-Integer-Promotion.html">
+        <li class="chapter " data-level="1.2.12" data-path="2015-08-25-Integer-Promotion.html">
             
                 <a href="2015-08-25-Integer-Promotion.html">
             
@@ -537,7 +535,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.30" data-path="thread.html">
+        <li class="chapter active" data-level="1.2.30" data-path="thread.html">
             
                 <a href="thread.html">
             
@@ -1226,7 +1224,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >C语言进阶：整型提升</a>
+        <a href=".." >多线程编程</a>
     </h1>
 </div>
 
@@ -1241,88 +1239,167 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x539F;&#x6587;&#x94FE;&#x63A5;&#xFF1A;<a href="http://www.idryman.org/blog/2012/11/21/integer-promotion/" target="_blank">http://www.idryman.org/blog/2012/11/21/integer-promotion/</a></p>
-<p>&#x51E0;&#x4E4E;&#x6BCF;&#x4E2A;&#x7A0B;&#x5E8F;&#x5458;&#x90FD;&#x5B66;&#x8FC7;C&#xFF0C;&#x800C;&#x4E14;&#x5927;&#x591A;&#x6570;&#x5728;&#x4ED6;&#x4EEC;&#x7684;&#x5DE5;&#x4F5C;&#x4E2D;&#x4F7F;&#x7528;C&#x3002;&#x5F88;&#x663E;&#x7136;C&#x662F;TIOBE&#xFF08;2012&#x5E74;11&#x6708;&#x65F6;&#x6392;&#x699C;&#x9996;&#xFF09;&#x4E0A;&#x6700;&#x6D41;&#x7A0B;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x4E4B;&#x4E00;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x6709;&#x65F6;&#xFF0C;C&#x7684;&#x884C;&#x4E3A;&#x4F1A;&#x8BA9;&#x4EBA;&#x610F;&#x5916;&#x548C;&#x56F0;&#x60D1;&#x3002;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x5C31;&#x662F;<strong>&#x6574;&#x578B;&#x63D0;&#x5347;</strong>&#x3002;&#x8BF7;&#x770B;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#thread"><b>1. </b>thread</a></li><li><span class="title-icon "></span><a href="#mutex"><b>2. </b>mutex</a></li><li><span class="title-icon "></span><a href="#sharedmutex"><b>3. </b>shared_mutex</a></li><li><span class="title-icon "></span><a href="#&#x4F7F;&#x7528;&#x6761;&#x4EF6;&#x53D8;&#x91CF;&#x548C;&#x9501;&#x5B9E;&#x73B0;&#x540C;&#x6B65;&#x9501;"><b>4. </b>&#x4F7F;&#x7528;&#x6761;&#x4EF6;&#x53D8;&#x91CF;&#x548C;&#x9501;&#x5B9E;&#x73B0;&#x540C;&#x6B65;&#x9501;</a></li><li><span class="title-icon "></span><a href="#&#x4F7F;&#x7528;future&#x5B9E;&#x73B0;&#x540C;&#x6B65;&#x9501;"><b>5. </b>&#x4F7F;&#x7528;future&#x5B9E;&#x73B0;&#x540C;&#x6B65;&#x9501;</a></li><li><span class="title-icon "></span><a href="#&#x6307;&#x4EE4;&#x987A;&#x5E8F;&#x95EE;&#x9898;&#x7684;&#x539F;&#x56E0;"><b>6. </b>&#x6307;&#x4EE4;&#x987A;&#x5E8F;&#x95EE;&#x9898;&#x7684;&#x539F;&#x56E0;</a></li><ul><li><span class="title-icon "></span><a href="#&#x4F8B;&#x5B50;"><b>6.1. </b>&#x4F8B;&#x5B50;</a></li><li><span class="title-icon "></span><a href="#&#x83B7;&#x53D6;&#x3001;&#x91CA;&#x653E;&#x8BED;&#x4E49;"><b>6.2. </b>&#x83B7;&#x53D6;&#x3001;&#x91CA;&#x653E;&#x8BED;&#x4E49;</a></li></ul><li><span class="title-icon "></span><a href="#threadlocal"><b>7. </b>thread_local</a></li><ul><li><span class="title-icon "></span><a href="#threadlocal&#x4F5C;&#x4E3A;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x7684;&#x7528;&#x6CD5;"><b>7.1. </b>thread_local&#x4F5C;&#x4E3A;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x7684;&#x7528;&#x6CD5;</a></li><li><span class="title-icon "></span><a href="#threadlocal&#x4F5C;&#x4E3A;&#x666E;&#x901A;&#x53D8;&#x91CF;&#x7684;&#x7528;&#x6CD5;"><b>7.2. </b>thread_local&#x4F5C;&#x4E3A;&#x666E;&#x901A;&#x53D8;&#x91CF;&#x7684;&#x7528;&#x6CD5;</a></li></ul><li><span class="title-icon "></span><a href="#&#x591A;&#x7EBF;&#x7A0B;&#x6027;&#x80FD;&#x4F18;&#x5316;"><b>8. </b>&#x591A;&#x7EBF;&#x7A0B;&#x6027;&#x80FD;&#x4F18;&#x5316;</a></li></ul></div><a href="#thread" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="thread"><a name="thread" class="anchor-navigation-ex-anchor" href="#thread"><i class="fa fa-link" aria-hidden="true"></i></a>1. thread</h1>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
 </span>{
-    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> a = <span class="hljs-number">0xff</span>;
-    <span class="hljs-keyword">char</span> b = <span class="hljs-number">0xff</span>;
-    <span class="hljs-keyword">int</span> c = a==b; <span class="hljs-comment">// true, or false?</span>
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;C: %d\n&quot;</span>,c);
+    thread t1{func1, <span class="hljs-string">&quot;A&quot;</span>};
+    thread t2{func2, <span class="hljs-string">&quot;B&quot;</span>};
+    t1.join();
+    t2.join();
 }
 </code></pre>
-<p>&#x4F60;&#x53EF;&#x80FD;&#x8BA4;&#x4E3A;&#x8F93;&#x51FA;&#x662F;<code>1</code>.&#x5176;&#x5B9E;&#x662F;<code>0</code>&#x3002;&#x5662;&#xFF01;</p>
-<!-- more -->
-<h4 id="c99&#x6807;&#x51C6;"><a name="c99&#x6807;&#x51C6;" class="anchor-navigation-ex-anchor" href="#c99&#x6807;&#x51C6;"><i class="fa fa-link" aria-hidden="true"></i></a>C99&#x6807;&#x51C6;</h4>
-<p>&#x5728;K&amp;R&#x548C;C89&#x7684;&#x65E9;&#x671F;&#x5B9E;&#x73B0;&#x4E2D;&#xFF0C;&#x57FA;&#x4E8E;<code>short</code>&#x548C;<code>char</code>&#x7684;&#x7B97;&#x672F;&#x8FD0;&#x7B97;&#x9677;&#x5165;&#x4E24;&#x96BE;&#x7684;&#x56F0;&#x5883;&#xFF0C;&#x56E0;&#x4E3A;&#x53EF;&#x80FD;&#x4F1A;&#x4EA7;&#x751F;&#x4E24;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5728;C99&#x4E2D;&#x5F88;&#x660E;&#x786E;&#x5730;&#x5B9A;&#x4E49;&#x4E86;&#x6574;&#x578B;&#x63D0;&#x5347;&#x7684;&#x89C4;&#x5219;&#xFF08;6.3.1.1&#xFF09;&#xFF1A;</p>
-<blockquote>
-<p>&#x5982;&#x679C;int&#x80FD;&#x591F;&#x8868;&#x793A;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6570;&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x6570;&#x503C;&#x5C31;&#x88AB;&#x8F6C;&#x6210;int&#x578B;&#xFF0C;&#x5426;&#x5219;&#xFF0C;&#x5B83;&#x88AB;&#x8F6C;&#x6210;unsigned int&#x578B;&#x3002;&#x8FD9;&#x79CD;&#x89C4;&#x5219;&#x88AB;&#x79F0;&#x4E3A;&#x6574;&#x578B;&#x63D0;&#x5347;&#x3002;&#x6240;&#x6709;&#x5176;&#x5B83;&#x7C7B;&#x578B;&#x90FD;&#x4E0D;&#x4F1A;&#x88AB;&#x6574;&#x578B;&#x63D0;&#x5347;&#x6539;&#x53D8;&#x3002;</p>
-</blockquote>
-<p>&#x8BA9;&#x6211;&#x4EEC;&#x56DE;&#x5FC6;&#x4E00;&#x4E0B;&#x6574;&#x578B;&#x7684;&#x8303;&#x56F4;&#xFF1A;</p>
-<ul>
-<li>signed char: -127 -&gt; 127</li>
-<li>unsigned char: 0 -&gt; 255</li>
-<li>signed short: -32767 -&gt; 32767</li>
-<li>unsigned short: 0 -&gt; 65535</li>
-<li>signed int: -2147483647 -&gt; 2147483647</li>
-</ul>
-<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x6709;&#x7B26;&#x53F7;&#x6216;&#x8005;&#x65E0;&#x7B26;&#x53F7;&#x7684;char&#x3001;short&#x90FD;&#x53EF;&#x4EE5;&#x88AB;signed int&#x8868;&#x793A;&#xFF0C;&#x6240;&#x4EE5;&#x5F53;&#x5B83;&#x4EEC;&#x4F5C;&#x7B97;&#x672F;&#x8FD0;&#x7B97;&#x65F6;&#xFF0C;&#x90FD;&#x4F1A;&#x88AB;&#x8F6C;&#x6210;signed int&#x3002;
-&#x5728;&#x524D;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C; <code>unsigned char a = 0xff</code> &#x7684;&#x503C;&#x662F;255&#x3002;&#x4F46;&#x662F;&#xFF0C; <code>char b = 0xff</code> &#x7684;&#x503C;&#x662F;-1&#x3002;&#x5F53;&#x5B83;&#x4EEC;&#x90FD;&#x88AB;&#x8F6C;&#x4E3A;int&#x7C7B;&#x578B;&#x65F6;&#xFF0C;<code>a</code> &#x4ECD;&#x7136;&#x662F;255&#xFF0C;&#x5373; <code>0x000000ff</code>&#xFF0C; &#x800C;<code>b</code>&#x5374;&#x53D8;&#x6210;<code>0xffffffff</code> &#xFF0C;&#x4EE3;&#x8868;&#x6574;&#x578B;&#x4E2D;&#x7684;-1&#x3002;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x8BC1;&#x660E;&#xFF1A;</p>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+<p>&#x8BF4;&#x660E;&#xFF1A;  </p>
+<ol>
+<li>t1&#x548C;t2&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x7EBF;&#x7A0B;&#x8981;&#x6267;&#x884C;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x7B2C;&#x4E8C;&#x53C2;&#x6570;&#x4E3A;&#x53C2;&#x6570;1&#x7684;&#x53C2;&#x6570;  </li>
+<li>thread&#x5BF9;&#x8C61;&#x5728;&#x9500;&#x6BC1;&#x4E4B;&#x524D;&#x5FC5;&#x987B;join&#x6216;&#x8005;detach&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#xFF0C;&#x7A0B;&#x5E8F;&#x4F1A;&#x6302;&#x6389;  </li>
+<li>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7C7B;&#x4F3C;RAII&#x7684;&#x65B9;&#x6CD5;&#x89E3;&#x51B3;thread&#x4E0D;&#x80FD;&#x81EA;&#x52A8;detach&#x7684;&#x95EE;&#x9898;&#x3002;  </li>
+</ol>
+<h1 id="mutex"><a name="mutex" class="anchor-navigation-ex-anchor" href="#mutex"><i class="fa fa-link" aria-hidden="true"></i></a>2. mutex</h1>
+<p>&#x6700;&#x7B80;&#x5355;&#x7684;&#x4E92;&#x65A5;&#x9501;&#xFF0C;&#x7528;&#x6CD5;&#xFF1A;  </p>
+<pre><code class="lang-c++">lock_guard&lt;mutex&gt; guard{mtx}; <span class="hljs-comment">// C++11</span>
+lock_guard guard{mtx}; <span class="hljs-comment">// C++ 17</span>
+</code></pre>
+<p>&#x5728;guard&#x79BB;&#x5F00;&#x4F5C;&#x7528;&#x57DF;&#x65F6;&#x81EA;&#x52A8;&#x91CA;&#x653E;&#x9501;&#x3002;  </p>
+<h1 id="sharedmutex"><a name="sharedmutex" class="anchor-navigation-ex-anchor" href="#sharedmutex"><i class="fa fa-link" aria-hidden="true"></i></a>3. shared_mutex</h1>
+<p>&#x5171;&#x4EAB;&#x8BFB;&#x5199;&#x4E92;&#x65A5;&#x9501;</p>
+<pre><code class="lang-c++">shared_lock guard{mtx}; <span class="hljs-comment">// for read</span>
+unique_lock guard{mtx}; <span class="hljs-comment">// for write</span>
+</code></pre>
+<h1 id="&#x4F7F;&#x7528;&#x6761;&#x4EF6;&#x53D8;&#x91CF;&#x548C;&#x9501;&#x5B9E;&#x73B0;&#x540C;&#x6B65;&#x9501;"><a name="&#x4F7F;&#x7528;&#x6761;&#x4EF6;&#x53D8;&#x91CF;&#x548C;&#x9501;&#x5B9E;&#x73B0;&#x540C;&#x6B65;&#x9501;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;&#x6761;&#x4EF6;&#x53D8;&#x91CF;&#x548C;&#x9501;&#x5B9E;&#x73B0;&#x540C;&#x6B65;&#x9501;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x4F7F;&#x7528;&#x6761;&#x4EF6;&#x53D8;&#x91CF;&#x548C;&#x9501;&#x5B9E;&#x73B0;&#x540C;&#x6B65;&#x9501;</h1>
+<pre><code class="lang-c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">work</span><span class="hljs-params">(condition_variable &amp;cv, <span class="hljs-keyword">int</span>&amp; result)</span>
 </span>{
-    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> a = <span class="hljs-number">0xff</span>;
-    <span class="hljs-keyword">char</span> b = <span class="hljs-number">0xff</span>;
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;A: %08x, B: %08x\n&quot;</span>, a, b);
+    this_thread::sleep_for(<span class="hljs-number">2</span>s); <span class="hljs-comment">// &#x6A21;&#x62DF;&#x67D0;&#x4E2A;&#x8017;&#x65F6;&#x7684;&#x5DE5;&#x4F5C;</span>
+    result = <span class="hljs-number">42</span>; <span class="hljs-comment">// &#x5DE5;&#x4F5C;&#x7684;&#x7ED3;&#x679C;</span>
+    cv.notify_one(); <span class="hljs-comment">// &#x901A;&#x77E5;&#x4E3B;&#x7EBF;&#x7A0B;&#x5DE5;&#x4F5C;&#x5DF2;&#x5B8C;&#x6210; 4</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    condition_variable cv;
+    mutex cv_mut;
+    <span class="hljs-keyword">int</span> result;
+
+    scope_thread th{work, ref(cv), ref(result)}; <span class="hljs-comment">// 1</span>
+    <span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;I am waiting, now\n&quot;</span>;
+    unique_lock lock{cv_mut}; <span class="hljs-comment">// 2</span>
+    cv.wait(lock);  <span class="hljs-comment">// 3</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Answer: &quot;</span>&lt;&lt; result&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>;
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
 </code></pre>
-<p>&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x662F;&#xFF1A;</p>
-<pre><code>A: 000000ff, B: ffffffff
-</code></pre><p>&#x8FD9;&#x5C31;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x8868;&#x793A;&#x662F;<code>a==b</code>&#x7684;&#x7ED3;&#x679C;&#x662F;<code>0</code>&#x3002;</p>
-<h4 id="&#x4ECE;&#x6C47;&#x7F16;&#x5C42;&#x9762;&#x7406;&#x89E3;"><a name="&#x4ECE;&#x6C47;&#x7F16;&#x5C42;&#x9762;&#x7406;&#x89E3;" class="anchor-navigation-ex-anchor" href="#&#x4ECE;&#x6C47;&#x7F16;&#x5C42;&#x9762;&#x7406;&#x89E3;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4ECE;&#x6C47;&#x7F16;&#x5C42;&#x9762;&#x7406;&#x89E3;</h4>
-<p>&#x5F53;&#x6211;&#x7B2C;&#x4E00;&#x6B21;&#x542C;&#x8BF4;&#x6574;&#x578B;&#x63D0;&#x5347;&#x65F6;&#xFF0C;&#x6211;&#x66F4;&#x52A0;&#x56F0;&#x60D1;&#xFF1A;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x6709;&#x8FD9;&#x4E48;&#x5947;&#x602A;&#x7684;&#x89C4;&#x5219;&#xFF1F;&#x60F3;&#x8981;&#x77E5;&#x9053;&#x4E3A;&#x4EC0;&#x4E48;&#x8FD9;&#x6837;&#x8BBE;&#x8BA1;&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x4ECE;&#x6C47;&#x7F16;&#x4EE3;&#x7801;&#x4E2D;&#x6316;&#x6398;&#x539F;&#x56E0;&#x3002;</p>
-<p>&#x4ECE;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;&#x5F00;&#x59CB;&#xFF1A;</p>
-<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+<p>&#x8BF4;&#x660E;&#xFF1A;  </p>
+<ol>
+<li>&#x8D77;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6765;&#x505A;&#x67D0;&#x4E2A;&#x4EFB;&#x52A1;&#x3002;work&#x662F;&#x4EFB;&#x52A1;&#x7684;&#x5185;&#x5BB9;&#xFF0C;ref&#x662F;&#x5305;&#x88C5;&#x5668;&#xFF0C;&#x7528;&#x4E8E;&#x628A;&#x53C2;&#x6570;&#x5305;&#x88C5;&#x6210;&#x5F15;&#x7528;&#x5F62;&#x5F0F;  </li>
+<li>&#x60EF;&#x7528;&#x6CD5;&#xFF0C;&#x914D;&#x5408;<code>condition_variable</code>&#x4F7F;&#x7528;  </li>
+<li>&#x7B49;&#x5F85;&#x5DE5;&#x4F5C;&#x5B8C;&#x6210;  </li>
+<li>&#x6F5C;&#x5728;&#x95EE;&#x9898;&#xFF1A;&#x5982;&#x679C;&#x5728;&#xFF08;3&#xFF09;&#x4E4B;&#x524D;&#x5C31;&#x5DF2;&#x7ECF;&#x6267;&#x884C;&#x4E86;&#xFF08;4&#xFF09;notify&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x5C31;&#x6C38;&#x8FDC;&#x4E5F;&#x7B49;&#x4E0D;&#x5230;&#x4E86;&#x3002;  </li>
+</ol>
+<h1 id="&#x4F7F;&#x7528;future&#x5B9E;&#x73B0;&#x540C;&#x6B65;&#x9501;"><a name="&#x4F7F;&#x7528;future&#x5B9E;&#x73B0;&#x540C;&#x6B65;&#x9501;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;future&#x5B9E;&#x73B0;&#x540C;&#x6B65;&#x9501;"><i class="fa fa-link" aria-hidden="true"></i></a>5. &#x4F7F;&#x7528;future&#x5B9E;&#x73B0;&#x540C;&#x6B65;&#x9501;</h1>
+<p>&#x4F8B;&#x5B50;&#xFF1A;  </p>
+<pre><code class="lang-c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">work</span><span class="hljs-params">()</span> <span class="hljs-comment">// 1</span>
 </span>{
-    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> a = <span class="hljs-number">0xff</span>;
-    <span class="hljs-keyword">char</span> b = <span class="hljs-number">0xff</span>;
-    <span class="hljs-keyword">int</span> c = a + b;
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    this_thread::sleep(<span class="hljs-number">2</span>s);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">42</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">auto</span> fut = async(launch::async, work);  <span class="hljs-comment">// 2</span>
+    <span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">&quot;I am waiting, now\n&quot;</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Answer: &quot;</span>&lt;&lt; result&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>;
 }
 </code></pre>
-<p>&#x53CD;&#x6C47;&#x7F16;&#x7ED3;&#x679C;&#x662F;&#xFF1A;</p>
-<pre><code class="lang-asm">movl    {% math_inline %}0, -4(%rbp)        # The return value of main is 0
-movb    {% endmath_inline %}-1, -5(%rbp)       # unsigned char a = 0xff;
-movb    {% math_inline %}-1, -6(%rbp)       # char b = 0xff;
-movzbl  -5(%rbp), %eax
-movsbl  -6(%rbp), %ecx
-addl    %eax, %ecx          # int c = a + b
-movl    %ecx, -12(%rbp)     # store c onto the stack
-movl    -4(%rbp), %eax
-popq    %rbp
-ret                         # return value 0 from eax
+<p>&#x8BF4;&#x660E;&#xFF1A;  </p>
+<ol>
+<li>&#x4EE5;&#x6B63;&#x5E38;&#x51FD;&#x6570;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5199;&#x8981;&#x6267;&#x884C;&#x7684;&#x5DE5;&#x4F5C;  </li>
+<li><code>launch::async</code>&#x8868;&#x660E;&#x4EE5;&#x5F02;&#x6B65;&#x7684;&#x65B9;&#x5F0F;&#x6267;&#x884C;</li>
+</ol>
+<h1 id="&#x6307;&#x4EE4;&#x987A;&#x5E8F;&#x95EE;&#x9898;&#x7684;&#x539F;&#x56E0;"><a name="&#x6307;&#x4EE4;&#x987A;&#x5E8F;&#x95EE;&#x9898;&#x7684;&#x539F;&#x56E0;" class="anchor-navigation-ex-anchor" href="#&#x6307;&#x4EE4;&#x987A;&#x5E8F;&#x95EE;&#x9898;&#x7684;&#x539F;&#x56E0;"><i class="fa fa-link" aria-hidden="true"></i></a>6. &#x6307;&#x4EE4;&#x987A;&#x5E8F;&#x95EE;&#x9898;&#x7684;&#x539F;&#x56E0;</h1>
+<ol>
+<li>&#x7F16;&#x8BD1;&#x5668;&#x4F18;&#x5316;  </li>
+<li>&#x5904;&#x7406;&#x5668;&#x4E71;&#x5E8F;</li>
+</ol>
+<h2 id="&#x4F8B;&#x5B50;"><a name="&#x4F8B;&#x5B50;" class="anchor-navigation-ex-anchor" href="#&#x4F8B;&#x5B50;"><i class="fa fa-link" aria-hidden="true"></i></a>6.1. &#x4F8B;&#x5B50;</h2>
+<p>&#x521D;&#x59CB;&#x5316;&#x72B6;&#x6001;&#xFF1A;  </p>
+<pre><code class="lang-c++"><span class="hljs-keyword">int</span> x = <span class="hljs-number">0</span>, y = <span class="hljs-number">0</span>;
 </code></pre>
-<p>&#x5982;&#x679C;&#x4F60;&#x7684;GAS&#x8BED;&#x6CD5;&#x4E0D;&#x719F;&#x6089;&#xFF0C;&#x53EF;&#x4EE5;&#x67E5;&#x770B;X86 Assembly/GAS Syntax&#x3002;GAS&#x8BED;&#x6CD5;&#x6307;&#x4EE4;&#x901A;&#x5E38;&#x4EE5;&#x201C;b&#x201D;, &#x201C;s&#x201D;, &#x201C;w&#x201D;, &#x201C;l&#x201D;, &#x201C;q&#x201D; &#x548C;&#x201C;t&#x201D; &#x4E3A;&#x540E;&#x7F00;&#xFF0C;&#x4EE5;&#x533A;&#x5206;&#x64CD;&#x4F5C;&#x6570;&#x5728;&#x5927;&#x5C0F;&#x3002;</p>
+<p>&#x7EBF;&#x7A0B;1&#xFF1A;  </p>
+<pre><code class="lang-c++">x = <span class="hljs-number">1</span>;
+y = <span class="hljs-number">2</span>;
+</code></pre>
+<p>&#x7EBF;&#x7A0B;2&#xFF1A;  </p>
+<pre><code class="lang-c++"><span class="hljs-keyword">if</span>(y == <span class="hljs-number">2</span>)
+{
+    x = <span class="hljs-number">3</span>;
+    y = <span class="hljs-number">4</span>;
+}
+</code></pre>
+<p>&#x53EF;&#x80FD;&#x7684;&#x7ED3;&#x679C;&#x662F;&#xFF1A;  </p>
 <ul>
-<li>b = byte (8 bit)</li>
-<li>s = short (16 bit integer) or single (32-bit floating point)</li>
-<li>w = word (16 bit)</li>
-<li>l = long (32 bit integer or 64-bit floating point)</li>
-<li>q = quad (64 bit)</li>
-<li>t = 10 bytes (80-bit floating point)</li>
+<li>x=1, y=2</li>
+<li>x=3, y=4</li>
+<li>x=1, y=4&#xFF0C;&#x56E0;&#x4E3A;&#x7EBF;&#x7A0B;1&#x6709;&#x53EF;&#x80FD;&#x662F;&#x5148;y=2&#x518D;x=1</li>
 </ul>
-<p>GAS&#x8BED;&#x6CD5;&#x4E2D;&#x7684;mov&#x662F;&#x628A;&#x53C2;&#x6570;&#x4ECE;&#x5DE6;&#x8FB9;&#x79FB;&#x5230;&#x53F3;&#x8FB9;&#x3002;&#x4F8B;&#x5982;&#xFF1A; <code>movl {% endmath_inline %}0, -4(%rbp)</code>&#x7684;&#x610F;&#x601D;&#x662F;&#x628A; <code>0x00000000</code> &#x79FB;&#x5230;&#x5730;&#x5740; <code>-4(%rbp)</code>&#x5904;&#x3002;</p>
-<p>&#x6307;&#x4EE4; <code>movzbl</code> &#x8868;&#x793A;&#x628A;&#x4E00;&#x4E2A;byte&#x53D8;&#x6210;long&#x5E76;&#x5C06;&#x7A7A;&#x4F4D;<strong>&#x96F6;&#x586B;&#x5145;</strong> &#x3002;<code>movzbl -5(%rbp), %eax</code> &#x628A; <code>0xff</code> &#x79FB;&#x5230;&#x5BC4;&#x5B58;&#x5668; <code>%eax</code> &#x4E0A;&#xFF0C;&#x5E76;&#x628A;&#x7A7A;&#x4F4D;&#x8865;0&#x3002;&#x5BC4;&#x5B58;&#x5668; <code>%eax</code> &#x7684;&#x503C;&#x53D8;&#x6210;&#x4E86; <code>0x000000ff</code>&#x3002;</p>
-<p>&#x6307;&#x4EE4; <code>movsbl</code> &#x8868;&#x793A;&#x628A;&#x4E00;&#x4E2A;byte&#x53D8;&#x6210;long&#x5E76;&#x5C06;&#x7A7A;&#x4F4D;<strong>&#x7B26;&#x53F7;&#x586B;&#x5145;</strong>&#x3002;<code>movsbl -6(%rbp), %ecx</code> &#x628A; <code>0xff</code> &#x79FB;&#x5230;&#x5BC4;&#x5B58;&#x5668; <code>%eax</code> &#xFF0C;&#x7136;&#x540E;&#x628A;&#x7A7A;&#x4F4D;&#x8865;&#x6210;&#x6709;&#x7B26;&#x53F7;&#x7684;&#x6570;&#x503C;&#xFF0C;&#x8FD9;&#x4F7F;&#x5F97;&#x5BC4;&#x5B58;&#x5668; <code>%ecx</code> &#x503C;&#x53D8;&#x4E3A; <code>0xffffffff</code>&#x3002;&#x6700;&#x540E;&#xFF0C; <code>addl %eax, %ecx</code> &#x6267;&#x884C;&#x52A0;&#x6CD5;&#x64CD;&#x4F5C;&#xFF0C; <code>movl %ecx, -12(%rbp)</code> &#x628A;&#x7ED3;&#x679C;&#x5B58;&#x5230;&#x6808;&#x4E0A;&#x3002;</p>
-<p>&#x73B0;&#x5728;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x628A;&#x6574;&#x578B;&#x63D0;&#x5347;&#x7406;&#x89E3;&#x4E3A;&#x628A;C&#x8BED;&#x8A00;&#x7C7B;&#x578B;&#x76F4;&#x63A5;&#x6620;&#x5C04;&#x5230;&#x673A;&#x5668;&#x6307;&#x4EE4;&#x7684;&#x4E00;&#x79CD;&#x673A;&#x5236;&#x4E86;&#x3002;&#x6240;&#x6709;&#x7B97;&#x672F;&#x64CD;&#x4F5C;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#x88AB;&#x8F6C;&#x6210;&#x6709;&#x7B26;&#x53F7;&#x6216;&#x65E0;&#x7B26;&#x53F7;int&#x540E;&#xFF0C;&#x90FD;&#x4F1A;&#x88AB;&#x5F53;&#x4F5C;&#x4E00;&#x4E2A;&#x5C0F;&#x7684;int&#x7684;&#x8BA1;&#x7B97;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x8FD9;&#x4E48;&#x60F3;&#xFF1A;&#x5C3D;&#x7BA1;short&#x548C;char&#x53EA;&#x5360;&#x4E00;&#x4E24;&#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x5F53;&#x5B83;&#x4EEC;&#x5728;&#x8FDB;&#x884C;&#x7B97;&#x672F;&#x8FD0;&#x7B97;&#x65F6;&#xFF0C;&#x90FD;&#x662F;&#x5F53;&#x4F5C;int&#x7684;&#x3002;&#x8FD9;&#x79CD;&#x8F6C;&#x6210;int&#x89C4;&#x5219;&#x88AB;&#x79F0;&#x4E3A;&#x6574;&#x578B;&#x63D0;&#x5347;&#x3002;</p>
-<h4 id="&#x603B;&#x7ED3;"><a name="&#x603B;&#x7ED3;" class="anchor-navigation-ex-anchor" href="#&#x603B;&#x7ED3;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x603B;&#x7ED3;</h4>
-<p>&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5728;&#x5BF9;int&#x7C7B;&#x578B;&#x7684;&#x6570;&#x503C;&#x4F5C;&#x8FD0;&#x7B97;&#x65F6;&#xFF0C;CPU&#x7684;&#x8FD0;&#x7B97;&#x901F;&#x5EA6;&#x662F;&#x6700;&#x5FEB;&#x7684;&#x3002;&#x5728;x86&#x4E0A;&#xFF0C;32&#x4F4D;&#x7B97;&#x672F;&#x8FD0;&#x7B97;&#x7684;&#x901F;&#x5EA6;&#x6BD4;16&#x4F4D;&#x7B97;&#x672F;&#x8FD0;&#x7B97;&#x7684;&#x901F;&#x5EA6;&#x5FEB;&#x4E00;&#x500D;&#x3002;C&#x8BED;&#x8A00;&#x662F;&#x4E00;&#x4E2A;&#x6CE8;&#x91CD;&#x6548;&#x7387;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x4F1A;&#x4F5C;&#x6574;&#x578B;&#x63D0;&#x5347;&#xFF0C;&#x4F7F;&#x5F97;&#x7A0B;&#x5E8F;&#x7684;&#x8FD0;&#x884C;&#x901F;&#x5EA6;&#x5C3D;&#x53EF;&#x80FD;&#x5730;&#x5FEB;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x8BB0;&#x4F4F;&#x6574;&#x578B;&#x63D0;&#x5347;&#x89C4;&#x5219;&#xFF0C;&#x4EE5;&#x514D;&#x53D1;&#x751F;&#x4E00;&#x4E9B;&#x6574;&#x578B;&#x6EA2;&#x51FA;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
-<p>&#x4F5C;&#x8005;&#xFF1A;dryman (Felix Ren-Chyan Chern)
-&#x65F6;&#x95F4;&#xFF1A;11/21/2012</p>
+<h2 id="&#x83B7;&#x53D6;&#x3001;&#x91CA;&#x653E;&#x8BED;&#x4E49;"><a name="&#x83B7;&#x53D6;&#x3001;&#x91CA;&#x653E;&#x8BED;&#x4E49;" class="anchor-navigation-ex-anchor" href="#&#x83B7;&#x53D6;&#x3001;&#x91CA;&#x653E;&#x8BED;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a>6.2. &#x83B7;&#x53D6;&#x3001;&#x91CA;&#x653E;&#x8BED;&#x4E49;</h2>
+<p>acquire&#x8BED;&#x4E49;&#xFF1A;&#x6B64;&#x5904;&#x662F;&#x4E00;&#x4E2A;&#x539F;&#x5B50;&#x8BFB;&#x64CD;&#x4F5C;&#xFF0C;&#x4E14;&#x5728;&#x6B64;&#x540E;&#x9762;&#x7684;&#x6240;&#x6709;&#x8BFB;&#x64CD;&#x4F5C;&#x90FD;&#x4E0D;&#x5E94;&#x5728;&#x6B64;&#x4E4B;&#x524D;&#x6267;&#x884C;<br>release&#x8BED;&#x4E49;&#xFF1A;&#x6B64;&#x5904;&#x662F;&#x4E00;&#x4E2A;&#x539F;&#x5B50;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x4E14;&#x5728;&#x6B64;&#x524D;&#x9762;&#x7684;&#x6240;&#x6709;&#x5199;&#x64CD;&#x4F5C;&#x90FD;&#x4E0D;&#x5E94;&#x5728;&#x6B64;&#x4E4B;&#x540E;&#x6267;&#x884C;    </p>
+<p>&#x8FD8;&#x662F;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;      </p>
+<p>&#x521D;&#x59CB;&#x5316;&#x72B6;&#x6001;&#xFF1A;  </p>
+<pre><code class="lang-c++"><span class="hljs-keyword">int</span> x = <span class="hljs-number">0</span>;
+atomic&lt;<span class="hljs-keyword">int</span>&gt; y = <span class="hljs-number">0</span>;    
+}
+</code></pre>
+<p>&#x7EBF;&#x7A0B;1&#xFF1A;   </p>
+<pre><code class="lang-c++">x = <span class="hljs-number">1</span>;   <span class="hljs-comment">// 1</span>
+y.store(<span class="hljs-number">2</span>, memory_order_release);   <span class="hljs-comment">// 2</span>
+</code></pre>
+<p>&#x7EBF;&#x7A0B;2&#xFF1A;  </p>
+<pre><code class="lang-c++"><span class="hljs-keyword">if</span>(y.load(memory_order_acquire) == <span class="hljs-number">2</span>)
+{
+    x = <span class="hljs-number">3</span>;
+    y.store(<span class="hljs-number">4</span>, memory_order_relaxed);  <span class="hljs-comment">// 3</span>
+}
+</code></pre>
+<p>&#x8BF4;&#x660E;&#xFF1A;  </p>
+<ol>
+<li>&#x8FD9;&#x79CD;&#x5199;&#x6CD5;&#x4FDD;&#x8BC1;&#xFF08;1&#xFF09;&#x4E00;&#x5B9A;&#x5728;&#xFF08;2&#xFF09;&#x4E4B;&#x524D;&#x6267;&#x884C;  </li>
+<li>&#x53EA;&#x9700;&#x8981;&#x4FDD;&#x8BC1;&#x662F;&#x539F;&#x5B50;&#x5199;</li>
+</ol>
+<h1 id="threadlocal"><a name="threadlocal" class="anchor-navigation-ex-anchor" href="#threadlocal"><i class="fa fa-link" aria-hidden="true"></i></a>7. thread_local</h1>
+<h2 id="threadlocal&#x4F5C;&#x4E3A;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x7684;&#x7528;&#x6CD5;"><a name="threadlocal&#x4F5C;&#x4E3A;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x7684;&#x7528;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#threadlocal&#x4F5C;&#x4E3A;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x7684;&#x7528;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>7.1. thread_local&#x4F5C;&#x4E3A;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x7684;&#x7528;&#x6CD5;</h2>
+<pre><code class="lang-c++"><span class="hljs-keyword">class</span> Obj
+{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-function"><span class="hljs-keyword">static</span> Obj&amp; <span class="hljs-title">get_instance</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-keyword">private</span>:
+        <span class="hljs-keyword">static</span> <span class="hljs-keyword">thread_local</span> Obj inst_;
+};
+
+<span class="hljs-keyword">thread_local</span> Obj obj::inst_; <span class="hljs-comment">// &#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x521B;&#x5EFA;&#x65F6;&#x6784;&#x9020;inst_</span>
+
+Obj&amp; Obj::get_instance()
+{
+    <span class="hljs-keyword">return</span> inst_;
+}
+</code></pre>
+<h2 id="threadlocal&#x4F5C;&#x4E3A;&#x666E;&#x901A;&#x53D8;&#x91CF;&#x7684;&#x7528;&#x6CD5;"><a name="threadlocal&#x4F5C;&#x4E3A;&#x666E;&#x901A;&#x53D8;&#x91CF;&#x7684;&#x7528;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#threadlocal&#x4F5C;&#x4E3A;&#x666E;&#x901A;&#x53D8;&#x91CF;&#x7684;&#x7528;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>7.2. thread_local&#x4F5C;&#x4E3A;&#x666E;&#x901A;&#x53D8;&#x91CF;&#x7684;&#x7528;&#x6CD5;</h2>
+<pre><code class="lang-c++"><span class="hljs-keyword">class</span> Obj
+{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Obj&amp; <span class="hljs-title">get_instance</span><span class="hljs-params">()</span></span>;
+};
+Obj &amp;Obj::get_instance() <span class="hljs-comment">// &#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x7B2C;&#x4E00;&#x6B21;&#x8C03;&#x7528;&#x6B21;&#x51FD;&#x6570;&#x65F6;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;</span>
+{
+    <span class="hljs-keyword">thread_local</span> Obj inst;
+    retun inst;
+}
+</code></pre>
+<h1 id="&#x591A;&#x7EBF;&#x7A0B;&#x6027;&#x80FD;&#x4F18;&#x5316;"><a name="&#x591A;&#x7EBF;&#x7A0B;&#x6027;&#x80FD;&#x4F18;&#x5316;" class="anchor-navigation-ex-anchor" href="#&#x591A;&#x7EBF;&#x7A0B;&#x6027;&#x80FD;&#x4F18;&#x5316;"><i class="fa fa-link" aria-hidden="true"></i></a>8. &#x591A;&#x7EBF;&#x7A0B;&#x6027;&#x80FD;&#x4F18;&#x5316;</h1>
+<ol>
+<li>&#x591A;&#x7EBF;&#x7A0B;&#x52A0;&#x9501;&#x548C;&#x7ADE;&#x4E89;&#x662F;&#x6027;&#x80FD;&#x6740;&#x624B;  </li>
+<li>&#x80FD;&#x4F7F;&#x7528;atomic&#x5C31;&#x4E0D;&#x8981;&#x4F7F;&#x7528;mutex&#xFF0C;&#x4F8B;&#x5982;count++</li>
+<li>&#x5982;&#x679C;&#x8BFB;&#x6BD4;&#x5199;&#x591A;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;<code>shared_mutex</code>&#x4EE3;&#x66FF;mutex</li>
+<li>&#x4F7F;&#x7528;<code>thread_local</code>&#x53D8;&#x91CF;</li>
+</ol>
 
                                 
                                 </section>
@@ -1350,14 +1427,10 @@ ret                         # return value 0 from eax
 
             
                 
-                <a href="2015-03-12-what-is-null.html" class="navigation navigation-prev " aria-label="Previous page: 空指针">
+                <a href="keywords.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 关键字">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="size_and_bits.html" class="navigation navigation-next " aria-label="Next page: size和bit">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -1366,7 +1439,7 @@ ret                         # return value 0 from eax
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"C语言进阶：整型提升","level":"1.2.12","depth":2,"next":{"title":"size和bit","level":"1.2.13","depth":2,"path":"grammar/size_and_bits.md","ref":"grammar/size_and_bits.md","articles":[]},"previous":{"title":"空指针","level":"1.2.11","depth":2,"path":"grammar/2015-03-12-what-is-null.md","ref":"grammar/2015-03-12-what-is-null.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","katex-plus","alerts","github","github-buttons","splitter","-sharing","sharing-plus","copy-code-button","anchor-navigation-ex","sectionx","click-reveal"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/windmissing/cpp_notes"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"click-reveal":{},"sectionx":{},"highlight":{},"anchor-navigation-ex":{"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"isShowTocTitleIcon":true,"printLog":false,"multipleH1":true,"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false}},"katex-plus":{},"alerts":{},"github-buttons":{"repo":"windmissing/cpp_notes","types":["star","watch","fork"],"size":"small"},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"windmissing","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"3.2.3"},"file":{"path":"grammar/2015-08-25-Integer-Promotion.md","mtime":"2021-11-21T02:11:16.080Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-11T07:45:29.430Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"多线程编程","level":"1.2.30","depth":2,"next":{"title":"面向对象","level":"1.3","depth":1,"ref":"","articles":[{"title":"构造函数对结构体初始化的影响","level":"1.3.1","depth":2,"path":"grammar/2016-11-30-contructor-in-struct.md","ref":"grammar/2016-11-30-contructor-in-struct.md","articles":[]},{"title":"类的声明、定义与初始化","level":"1.3.2","depth":2,"path":"grammar/2012-01-05-declaration-definition-and-initialization-for-class.md","ref":"grammar/2012-01-05-declaration-definition-and-initialization-for-class.md","articles":[]},{"title":"基类与派生类、继承关系总结","level":"1.3.3","depth":2,"path":"grammar/2012-01-17-supperclass-inheritance.md","ref":"grammar/2012-01-17-supperclass-inheritance.md","articles":[]},{"title":"复制构造函数总结","level":"1.3.4","depth":2,"path":"grammar/2012-01-12-copy-constructor-summarize.md","ref":"grammar/2012-01-12-copy-constructor-summarize.md","articles":[]},{"title":"特殊成员函数总结","level":"1.3.5","depth":2,"path":"grammar/special-member-function.md.md","ref":"grammar/special-member-function.md.md","articles":[]},{"title":"构造函数、复制构造函数、析构函数混合使用总结","level":"1.3.6","depth":2,"path":"grammar/2012-09-27-contructor-and-copy-contructor-and-release.md","ref":"grammar/2012-09-27-contructor-and-copy-contructor-and-release.md","articles":[]},{"title":"RAII - 用于资源管理的惯用法","level":"1.3.7","depth":2,"path":"grammar/RAII.md","ref":"grammar/RAII.md","articles":[]},{"title":"利用RAII实现智能指针","level":"1.3.8","depth":2,"path":"grammar/smart-pointer-with-RAII.md","ref":"grammar/smart-pointer-with-RAII.md","articles":[]},{"title":"类成员的对齐规则","level":"1.3.9","depth":2,"path":"grammar/align.md","ref":"grammar/align.md","articles":[]},{"title":"类的大小","level":"1.3.10","depth":2,"path":"grammar/2012-08-13-size-of-class.md","ref":"grammar/2012-08-13-size-of-class.md","articles":[]},{"title":"多态总结","level":"1.3.11","depth":2,"path":"grammar/2012-01-17-polymorphism-in-cpp.md","ref":"grammar/2012-01-17-polymorphism-in-cpp.md","articles":[]},{"title":"虚基类","level":"1.3.12","depth":2,"path":"grammar/virtual_class.md","ref":"grammar/virtual_class.md","articles":[]},{"title":"C++虚函数易错题","level":"1.3.13","depth":2,"path":"grammar/2019-09-05-virtual-function-analyse-0.md","ref":"grammar/2019-09-05-virtual-function-analyse-0.md","articles":[]},{"title":"virtual关键字在父类","level":"1.3.14","depth":2,"path":"grammar/2019-09-05-virtual-function-analyse-1.md","ref":"grammar/2019-09-05-virtual-function-analyse-1.md","articles":[]},{"title":"virtual关键字在子类","level":"1.3.15","depth":2,"path":"grammar/2019-09-05-virtual-function-analyse-2.md","ref":"grammar/2019-09-05-virtual-function-analyse-2.md","articles":[]},{"title":"析构函数的virtual在子类","level":"1.3.16","depth":2,"path":"grammar/2019-09-06-virtual-function-analyse-3.md","ref":"grammar/2019-09-06-virtual-function-analyse-3.md","articles":[]},{"title":"间接调用虚函数","level":"1.3.17","depth":2,"path":"grammar/2019-09-06-virtual-function-analyse-4.md","ref":"grammar/2019-09-06-virtual-function-analyse-4.md","articles":[]},{"title":"关键字override","level":"1.3.18","depth":2,"path":"OO/override.md","ref":"OO/override.md","articles":[]},{"title":"操作符重载总结","level":"1.3.19","depth":2,"path":"grammar/2012-01-14-operator-overloading-in-cpp.md","ref":"grammar/2012-01-14-operator-overloading-in-cpp.md","articles":[]},{"title":"友元friend总结","level":"1.3.20","depth":2,"path":"grammar/2012-01-11-friend-member-of-class.md","ref":"grammar/2012-01-11-friend-member-of-class.md","articles":[]}]},"previous":{"title":"关键字","level":"1.2.29","depth":2,"path":"grammar/keywords.md","ref":"grammar/keywords.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","katex-plus","alerts","github","github-buttons","splitter","-sharing","sharing-plus","copy-code-button","anchor-navigation-ex","sectionx","click-reveal"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/windmissing/cpp_notes"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"click-reveal":{},"sectionx":{},"highlight":{},"anchor-navigation-ex":{"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"isShowTocTitleIcon":true,"printLog":false,"multipleH1":true,"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false}},"katex-plus":{},"alerts":{},"github-buttons":{"repo":"windmissing/cpp_notes","types":["star","watch","fork"],"size":"small"},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"windmissing","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"3.2.3"},"file":{"path":"grammar/thread.md","mtime":"2021-12-11T07:43:40.929Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-11T07:45:29.430Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

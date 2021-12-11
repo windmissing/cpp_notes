@@ -1,0 +1,1461 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>利用RAII实现智能指针 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="windmissing">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-plus/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sectionx/sectionx.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-click-reveal/click_reveal.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="align.html" />
+    
+    
+    <link rel="prev" href="RAII.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"windmissing/cpp_notes","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    基础语法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="2012-01-11-basic.html">
+            
+                <a href="2012-01-11-basic.html">
+            
+                    
+                    基本语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="stack-and-call.html">
+            
+                <a href="stack-and-call.html">
+            
+                    
+                    函数调用时的栈空间管理示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="2012-01-14-address-memory-heap-stack.html">
+            
+                <a href="2012-01-14-address-memory-heap-stack.html">
+            
+                    
+                    地址、内存、堆、栈总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="value.html">
+            
+                <a href="value.html">
+            
+                    
+                    C++的值类别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="auto.html">
+            
+                <a href="auto.html">
+            
+                    
+                    auto
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="initialization.html">
+            
+                <a href="initialization.html">
+            
+                    
+                    初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="lifecycle.html">
+            
+                <a href="lifecycle.html">
+            
+                    
+                    对象的生成周期
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="2012-01-16-porinter-and-reference-in-cpp.html">
+            
+                <a href="2012-01-16-porinter-and-reference-in-cpp.html">
+            
+                    
+                    指针与引用使用总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="pointer_and_address.html">
+            
+                <a href="pointer_and_address.html">
+            
+                    
+                    指针与取地址
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="smart-pointer.html">
+            
+                <a href="smart-pointer.html">
+            
+                    
+                    智能指针
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="2015-03-12-what-is-null.html">
+            
+                <a href="2015-03-12-what-is-null.html">
+            
+                    
+                    空指针
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="2015-08-25-Integer-Promotion.html">
+            
+                <a href="2015-08-25-Integer-Promotion.html">
+            
+                    
+                    C语言进阶：整型提升
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="size_and_bits.html">
+            
+                <a href="size_and_bits.html">
+            
+                    
+                    size和bit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="code.html">
+            
+                <a href="code.html">
+            
+                    
+                    数值编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="2012-01-11-static-summarize.html">
+            
+                <a href="2012-01-11-static-summarize.html">
+            
+                    
+                    关键字：static
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="2016-01-18-const-summarize.html">
+            
+                <a href="2016-01-18-const-summarize.html">
+            
+                    
+                    关键字：const
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="new.html">
+            
+                <a href="new.html">
+            
+                    
+                    关键字：new
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="function_parameter.html">
+            
+                <a href="function_parameter.html">
+            
+                    
+                    函数传参
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.19" data-path="2012-01-17-return-value-from-function-in-cpp.html">
+            
+                <a href="2012-01-17-return-value-from-function-in-cpp.html">
+            
+                    
+                    函数返回值总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.20" data-path="RVO.md">
+            
+                <span>
+            
+                    
+                    返回值优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.21" data-path="2012-01-18-pointer-to-function.html">
+            
+                <a href="2012-01-18-pointer-to-function.html">
+            
+                    
+                    函数指针总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.22" data-path="enum.html">
+            
+                <a href="enum.html">
+            
+                    
+                    枚举
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.23" data-path="exception.html">
+            
+                <a href="exception.html">
+            
+                    
+                    异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.24" data-path="assert.html">
+            
+                <a href="assert.html">
+            
+                    
+                    断言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.25" data-path="template.html">
+            
+                <a href="template.html">
+            
+                    
+                    模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.26" data-path="2013-11-24-c++-primer-record.html">
+            
+                <a href="2013-11-24-c++-primer-record.html">
+            
+                    
+                    C++Primer笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.27" data-path="2011-12-29-scanf.html">
+            
+                <a href="2011-12-29-scanf.html">
+            
+                    
+                    使用scanf函数时应该注意的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.28" data-path="file_operation.html">
+            
+                <a href="file_operation.html">
+            
+                    
+                    文件操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.29" data-path="keywords.html">
+            
+                <a href="keywords.html">
+            
+                    
+                    关键字
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    面向对象
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="2016-11-30-contructor-in-struct.html">
+            
+                <a href="2016-11-30-contructor-in-struct.html">
+            
+                    
+                    构造函数对结构体初始化的影响
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="2012-01-05-declaration-definition-and-initialization-for-class.html">
+            
+                <a href="2012-01-05-declaration-definition-and-initialization-for-class.html">
+            
+                    
+                    类的声明、定义与初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="2012-01-17-supperclass-inheritance.html">
+            
+                <a href="2012-01-17-supperclass-inheritance.html">
+            
+                    
+                    基类与派生类、继承关系总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="2012-01-12-copy-constructor-summarize.html">
+            
+                <a href="2012-01-12-copy-constructor-summarize.html">
+            
+                    
+                    复制构造函数总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="special-member-function.md.md">
+            
+                <span>
+            
+                    
+                    特殊成员函数总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="2012-09-27-contructor-and-copy-contructor-and-release.html">
+            
+                <a href="2012-09-27-contructor-and-copy-contructor-and-release.html">
+            
+                    
+                    构造函数、复制构造函数、析构函数混合使用总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="RAII.html">
+            
+                <a href="RAII.html">
+            
+                    
+                    RAII - 用于资源管理的惯用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.8" data-path="smart-pointer-with-RAII.html">
+            
+                <a href="smart-pointer-with-RAII.html">
+            
+                    
+                    利用RAII实现智能指针
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="align.html">
+            
+                <a href="align.html">
+            
+                    
+                    类成员的对齐规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="2012-08-13-size-of-class.html">
+            
+                <a href="2012-08-13-size-of-class.html">
+            
+                    
+                    类的大小
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="2012-01-17-polymorphism-in-cpp.html">
+            
+                <a href="2012-01-17-polymorphism-in-cpp.html">
+            
+                    
+                    多态总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="virtual_class.html">
+            
+                <a href="virtual_class.html">
+            
+                    
+                    虚基类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="2019-09-05-virtual-function-analyse-0.html">
+            
+                <a href="2019-09-05-virtual-function-analyse-0.html">
+            
+                    
+                    C++虚函数易错题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="2019-09-05-virtual-function-analyse-1.html">
+            
+                <a href="2019-09-05-virtual-function-analyse-1.html">
+            
+                    
+                    virtual关键字在父类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="2019-09-05-virtual-function-analyse-2.html">
+            
+                <a href="2019-09-05-virtual-function-analyse-2.html">
+            
+                    
+                    virtual关键字在子类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.16" data-path="2019-09-06-virtual-function-analyse-3.html">
+            
+                <a href="2019-09-06-virtual-function-analyse-3.html">
+            
+                    
+                    析构函数的virtual在子类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.17" data-path="2019-09-06-virtual-function-analyse-4.html">
+            
+                <a href="2019-09-06-virtual-function-analyse-4.html">
+            
+                    
+                    间接调用虚函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.18" data-path="../OO/override.html">
+            
+                <a href="../OO/override.html">
+            
+                    
+                    关键字override
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.19" data-path="2012-01-14-operator-overloading-in-cpp.html">
+            
+                <a href="2012-01-14-operator-overloading-in-cpp.html">
+            
+                    
+                    操作符重载总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.20" data-path="2012-01-11-friend-member-of-class.html">
+            
+                <a href="2012-01-11-friend-member-of-class.html">
+            
+                    
+                    友元friend总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../container/overview.html">
+            
+                <a href="../container/overview.html">
+            
+                    
+                    容器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../container/string.html">
+            
+                <a href="../container/string.html">
+            
+                    
+                    类容器 - string
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../container/array.html">
+            
+                <a href="../container/array.html">
+            
+                    
+                    类容器 - array
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../container/vector.html">
+            
+                <a href="../container/vector.html">
+            
+                    
+                    容器 - vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../container/dequeue.html">
+            
+                <a href="../container/dequeue.html">
+            
+                    
+                    容器 - dequeue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../container/list.html">
+            
+                <a href="../container/list.html">
+            
+                    
+                    容器 - list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../container/queue.html">
+            
+                <a href="../container/queue.html">
+            
+                    
+                    容器适配器 - queue, stack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../container/Associative-containers.html">
+            
+                <a href="../container/Associative-containers.html">
+            
+                    
+                    关联容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../container/function-object.md">
+            
+                <span>
+            
+                    
+                    函数类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    链接
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../linker/2016-07-27-linux-g++-basic-conception.html">
+            
+                <a href="../linker/2016-07-27-linux-g++-basic-conception.html">
+            
+                    
+                    linux g++ 链接器（一）基础概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../linker/2016-07-25-linux-g++-linking.html">
+            
+                <a href="../linker/2016-07-25-linux-g++-linking.html">
+            
+                    
+                    linux g++ 链接 （二）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../linker/2016-07-14-static-linking-g++.html">
+            
+                <a href="../linker/2016-07-14-static-linking-g++.html">
+            
+                    
+                    g++ 链接器（三）-可重定位目标文件的链接（静态链接）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../linker/2016-07-18-dynamic-linking-g++.html">
+            
+                <a href="../linker/2016-07-18-dynamic-linking-g++.html">
+            
+                    
+                    g++ 链接器（四）-共享目标文件的链接（动态链接）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../linker/2015-04-07-symbols-in-linking.html">
+            
+                <a href="../linker/2015-04-07-symbols-in-linking.html">
+            
+                    
+                    链接中的符号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../linker/2015-04-03-symbol-redifine-in-g++-ld.html">
+            
+                <a href="../linker/2015-04-03-symbol-redifine-in-g++-ld.html">
+            
+                    
+                    g++/ld中的符号重定义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../linker/2015-04-07-symbol-confliction-in-normal-target-file.html">
+            
+                <a href="../linker/2015-04-07-symbol-confliction-in-normal-target-file.html">
+            
+                    
+                    普通目标文件的符号重定义处理策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    GTEST
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../GTEST/event.html">
+            
+                <a href="../GTEST/event.html">
+            
+                    
+                    事件机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../GTEST/check.html">
+            
+                <a href="../GTEST/check.html">
+            
+                    
+                    断言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../GTEST/parameterize.html">
+            
+                <a href="../GTEST/parameterize.html">
+            
+                    
+                    测试用例的参数化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../GTEST/death.html">
+            
+                <a href="../GTEST/death.html">
+            
+                    
+                    死亡测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../GTEST/control.html">
+            
+                <a href="../GTEST/control.html">
+            
+                    
+                    使用控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../GTEST/mock.html">
+            
+                <a href="../GTEST/mock.html">
+            
+                    
+                    Mock
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    其它
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../others/2016-12-13-why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array.html">
+            
+                <a href="../others/2016-12-13-why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array.html">
+            
+                    
+                    为什么有序数组的执行速度快于无序数组？
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >利用RAII实现智能指针</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x7B2C;&#x4E00;&#x6B65;&#xFF0C;&#x628A;wrapper&#x6539;&#x9020;&#x4E3A;&#x6A21;&#x677F;&#x7C7B;"><b>1. </b>&#x7B2C;&#x4E00;&#x6B65;&#xFF0C;&#x628A;wrapper&#x6539;&#x9020;&#x4E3A;&#x6A21;&#x677F;&#x7C7B;</a></li><li><span class="title-icon "></span><a href="#&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x4EFF;&#x6307;&#x9488;&#x884C;&#x4E3A;"><b>2. </b>&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x4EFF;&#x6307;&#x9488;&#x884C;&#x4E3A;</a></li><li><span class="title-icon "></span><a href="#&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x5B9E;&#x73B0;&#x8D44;&#x6E90;&#x79FB;&#x52A8;"><b>3. </b>&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x5B9E;&#x73B0;&#x8D44;&#x6E90;&#x79FB;&#x52A8;</a></li><ul><li><span class="title-icon "></span><a href="#&#x7B56;&#x7565;&#x4E00;&#xFF1A;&#x7981;&#x6B62;&#x62F7;&#x8D1D;"><b>3.1. </b>&#x7B56;&#x7565;&#x4E00;&#xFF1A;&#x7981;&#x6B62;&#x62F7;&#x8D1D;</a></li><li><span class="title-icon "></span><a href="#&#x7B56;&#x7565;&#x4E8C;&#xFF1A;&#x62F7;&#x8D1D;&#x65F6;&#x81EA;&#x52A8;&#x79FB;&#x52A8;&#x8D44;&#x6E90;"><b>3.2. </b>&#x7B56;&#x7565;&#x4E8C;&#xFF1A;&#x62F7;&#x8D1D;&#x65F6;&#x81EA;&#x52A8;&#x79FB;&#x52A8;&#x8D44;&#x6E90;</a></li><ul><li><span class="title-icon "></span><a href="#&#x7B56;&#x7565;&#x4E8C;&#x5B58;&#x5728;&#x7684;&#x95EE;&#x9898;"><b>3.2.1. </b>&#x7B56;&#x7565;&#x4E8C;&#x5B58;&#x5728;&#x7684;&#x95EE;&#x9898;</a></li></ul><li><span class="title-icon "></span><a href="#&#x7B56;&#x7565;&#x4E09;&#xFF1A;&#x5229;&#x7528;&#x53F3;&#x503C;&#x5F15;&#x7528;&#xFF0C;&#x533A;&#x5206;&#x62F7;&#x8D1D;&#x548C;&#x79FB;&#x52A8;"><b>3.3. </b>&#x7B56;&#x7565;&#x4E09;&#xFF1A;&#x5229;&#x7528;&#x53F3;&#x503C;&#x5F15;&#x7528;&#xFF0C;&#x533A;&#x5206;&#x62F7;&#x8D1D;&#x548C;&#x79FB;&#x52A8;</a></li><ul><li><span class="title-icon "></span><a href="#&#x7B56;&#x7565;&#x4E09;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;"><b>3.3.1. </b>&#x7B56;&#x7565;&#x4E09;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</a></li><li><span class="title-icon "></span><a href="#&#x8BF4;&#x660E;"><b>3.3.2. </b>&#x8BF4;&#x660E;</a></li></ul><li><span class="title-icon "></span><a href="#&#x7B56;&#x7565;&#x56DB;&#xFF1A;&#x5171;&#x4EAB;&#x548C;&#x8BA1;&#x6570;"><b>3.4. </b>&#x7B56;&#x7565;&#x56DB;&#xFF1A;&#x5171;&#x4EAB;&#x548C;&#x8BA1;&#x6570;</a></li><ul><li><span class="title-icon "></span><a href="#&#x5B9E;&#x73B0;"><b>3.4.1. </b>&#x5B9E;&#x73B0;</a></li></ul><li><span class="title-icon "></span><a href="#&#x5B9E;&#x73B0;&#x5BF9;&#x8C61;&#x79FB;&#x52A8;&#x7684;&#x603B;&#x7ED3;"><b>3.5. </b>&#x5B9E;&#x73B0;&#x5BF9;&#x8C61;&#x79FB;&#x52A8;&#x7684;&#x603B;&#x7ED3;</a></li></ul></ul></div><a href="#&#x7B2C;&#x4E00;&#x6B65;&#xFF0C;&#x628A;wrapper&#x6539;&#x9020;&#x4E3A;&#x6A21;&#x677F;&#x7C7B;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x7B2C;&#x4E00;&#x6B65;&#xFF0C;&#x628A;wrapper&#x6539;&#x9020;&#x4E3A;&#x6A21;&#x677F;&#x7C7B;"><a name="&#x7B2C;&#x4E00;&#x6B65;&#xFF0C;&#x628A;wrapper&#x6539;&#x9020;&#x4E3A;&#x6A21;&#x677F;&#x7C7B;" class="anchor-navigation-ex-anchor" href="#&#x7B2C;&#x4E00;&#x6B65;&#xFF0C;&#x628A;wrapper&#x6539;&#x9020;&#x4E3A;&#x6A21;&#x677F;&#x7C7B;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x7B2C;&#x4E00;&#x6B65;&#xFF0C;&#x628A;wrapper&#x6539;&#x9020;&#x4E3A;&#x6A21;&#x677F;&#x7C7B;</h1>
+<pre><code class="lang-c++">template &lt;typename T&gt;
+class smart_ptr
+{
+public:
+    explicit smart_ptr(T * ptr = nullptr)
+        : ptr_(ptr){}
+    ~smart_ptr() {delete ptr_;}
+    T * get() const {return ptr_;}
+private:
+    T * ptr_;
+}
+</code></pre>
+<h1 id="&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x4EFF;&#x6307;&#x9488;&#x884C;&#x4E3A;"><a name="&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x4EFF;&#x6307;&#x9488;&#x884C;&#x4E3A;" class="anchor-navigation-ex-anchor" href="#&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x4EFF;&#x6307;&#x9488;&#x884C;&#x4E3A;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x4EFF;&#x6307;&#x9488;&#x884C;&#x4E3A;</h1>
+<pre><code class="lang-c++">T&amp; <span class="hljs-keyword">operator</span>*() <span class="hljs-keyword">const</span> {<span class="hljs-keyword">return</span> *ptr_;}
+T* <span class="hljs-keyword">operator</span>-&gt;() <span class="hljs-keyword">const</span> {<span class="hljs-keyword">return</span> ptr_;}
+<span class="hljs-function"><span class="hljs-keyword">operator</span> <span class="hljs-title">bool</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{<span class="hljs-keyword">return</span> ptr_;}
+</code></pre>
+<h1 id="&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x5B9E;&#x73B0;&#x8D44;&#x6E90;&#x79FB;&#x52A8;"><a name="&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x5B9E;&#x73B0;&#x8D44;&#x6E90;&#x79FB;&#x52A8;" class="anchor-navigation-ex-anchor" href="#&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x5B9E;&#x73B0;&#x8D44;&#x6E90;&#x79FB;&#x52A8;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x5B9E;&#x73B0;&#x8D44;&#x6E90;&#x79FB;&#x52A8;</h1>
+<h2 id="&#x7B56;&#x7565;&#x4E00;&#xFF1A;&#x7981;&#x6B62;&#x62F7;&#x8D1D;"><a name="&#x7B56;&#x7565;&#x4E00;&#xFF1A;&#x7981;&#x6B62;&#x62F7;&#x8D1D;" class="anchor-navigation-ex-anchor" href="#&#x7B56;&#x7565;&#x4E00;&#xFF1A;&#x7981;&#x6B62;&#x62F7;&#x8D1D;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1. &#x7B56;&#x7565;&#x4E00;&#xFF1A;&#x7981;&#x6B62;&#x62F7;&#x8D1D;</h2>
+<p>&#x4F7F;&#x7528;&#x540E;&#xFF0C;&#x4E00;&#x4E2A;&#x7A7A;&#x95F4;&#x53EA;&#x4F1A;&#x88AB;&#x4E00;&#x4E2A;smart_ptr&#x6307;&#x5411;&#x3002;<br>&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#xFF1A;  </p>
+<pre><code class="lang-c++">smart_ptr(<span class="hljs-keyword">const</span> smart_ptr &amp;) = <span class="hljs-keyword">delete</span>;
+smart_ptr&amp; <span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> smart_ptr&amp;) = <span class="hljs-keyword">delete</span>;
+</code></pre>
+<h2 id="&#x7B56;&#x7565;&#x4E8C;&#xFF1A;&#x62F7;&#x8D1D;&#x65F6;&#x81EA;&#x52A8;&#x79FB;&#x52A8;&#x8D44;&#x6E90;"><a name="&#x7B56;&#x7565;&#x4E8C;&#xFF1A;&#x62F7;&#x8D1D;&#x65F6;&#x81EA;&#x52A8;&#x79FB;&#x52A8;&#x8D44;&#x6E90;" class="anchor-navigation-ex-anchor" href="#&#x7B56;&#x7565;&#x4E8C;&#xFF1A;&#x62F7;&#x8D1D;&#x65F6;&#x81EA;&#x52A8;&#x79FB;&#x52A8;&#x8D44;&#x6E90;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2. &#x7B56;&#x7565;&#x4E8C;&#xFF1A;&#x62F7;&#x8D1D;&#x65F6;&#x81EA;&#x52A8;&#x79FB;&#x52A8;&#x8D44;&#x6E90;</h2>
+<p>&#x4F7F;&#x7528;&#x540E;&#xFF0C;&#x4E00;&#x4E2A;&#x7A7A;&#x95F4;&#x53EA;&#x4F1A;&#x88AB;&#x4E00;&#x4E2A;smart_ptr&#x6307;&#x5411;&#x3002;<br>&#x53EF;&#x4EE5;&#x62F7;&#x8D1D;&#x3002;&#x62F7;&#x8D1D;&#x540E;&#xFF0C;&#x65B0;smart_ptr&#x6307;&#x5411;&#x7A7A;&#x95F4;&#xFF0C;&#x65E7;smart_ptr&#x5931;&#x6548;&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-function">T* <span class="hljs-title">release</span><span class="hljs-params">()</span>
+</span>{
+    T* ptr = ptr_;
+    ptr_ = <span class="hljs-literal">nullptr</span>;
+    <span class="hljs-keyword">return</span> ptr;
+}
+
+smart_ptr(smart_ptr &amp; other)
+{
+    ptr_ = other.release();
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(smart &amp;rhs)</span>
+</span>{
+    <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::swap;
+    swap(ptr_, rhs.ptr_);
+}
+
+smart_ptr&amp; <span class="hljs-keyword">operator</span>=(smart_ptr &amp;rhs)
+{
+    smart_ptr(rhs).swap(*<span class="hljs-keyword">this</span>);
+    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+}
+</code></pre>
+<p>&#x8BF4;&#x660E;&#xFF1A;&#x7528;&#x62F7;&#x8D1D;&#x6784;&#x9020; + swap&#x5B9E;&#x73B0;&#x62F7;&#x8D1D;&#x8D4B;&#x503C;&#x662F;&#x4E00;&#x79CD;&#x60EF;&#x7528;&#x6CD5;&#xFF0C;&#x7528;&#x4E8E;&#x4FDD;&#x8BC1;&#x5F02;&#x5E38;&#x5B89;&#x5168;</p>
+<h3 id="&#x7B56;&#x7565;&#x4E8C;&#x5B58;&#x5728;&#x7684;&#x95EE;&#x9898;"><a name="&#x7B56;&#x7565;&#x4E8C;&#x5B58;&#x5728;&#x7684;&#x95EE;&#x9898;" class="anchor-navigation-ex-anchor" href="#&#x7B56;&#x7565;&#x4E8C;&#x5B58;&#x5728;&#x7684;&#x95EE;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2.1. &#x7B56;&#x7565;&#x4E8C;&#x5B58;&#x5728;&#x7684;&#x95EE;&#x9898;</h3>
+<pre><code class="lang-c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print_addr</span><span class="hljs-params">(smart_ptr&lt;ptr&gt;)</span>
+</span>{
+    ....
+}
+</code></pre>
+<p>&#x6267;&#x884C;<code>print_addr(ptr);</code>&#x4E4B;&#x540E;ptr&#x4F1A;&#x53D8;&#x6210;&#x7A7A;&#x6307;&#x9488;&#x3002;<br>&#x56E0;&#x4E3A;ptr&#x7684;&#x5185;&#x5BB9;&#x79FB;&#x52A8;&#x5230;&#x4E86;<code>print_addr</code>&#x7684;&#x6808;&#x4E0A;&#xFF0C;&#x800C;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x65F6;<code>print_addr</code>&#x7684;&#x6808;&#x53C8;&#x88AB;&#x91CA;&#x653E;&#x6389;&#x4E86;&#x3002;<br>&#x7B56;&#x7565;&#x4E8C;&#x662F;<code>auto_ptr</code>&#x7684;&#x884C;&#x4E3A;&#xFF0C;&#x5B83;&#x6709;&#x98CE;&#x9669;&#xFF0C;&#x56E0;&#x6B64;&#x5728;C++ 19&#x4E2D;&#x88AB;&#x53D6;&#x6D88;&#x6389;&#x4E86;&#x3002; </p>
+<h2 id="&#x7B56;&#x7565;&#x4E09;&#xFF1A;&#x5229;&#x7528;&#x53F3;&#x503C;&#x5F15;&#x7528;&#xFF0C;&#x533A;&#x5206;&#x62F7;&#x8D1D;&#x548C;&#x79FB;&#x52A8;"><a name="&#x7B56;&#x7565;&#x4E09;&#xFF1A;&#x5229;&#x7528;&#x53F3;&#x503C;&#x5F15;&#x7528;&#xFF0C;&#x533A;&#x5206;&#x62F7;&#x8D1D;&#x548C;&#x79FB;&#x52A8;" class="anchor-navigation-ex-anchor" href="#&#x7B56;&#x7565;&#x4E09;&#xFF1A;&#x5229;&#x7528;&#x53F3;&#x503C;&#x5F15;&#x7528;&#xFF0C;&#x533A;&#x5206;&#x62F7;&#x8D1D;&#x548C;&#x79FB;&#x52A8;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3. &#x7B56;&#x7565;&#x4E09;&#xFF1A;&#x5229;&#x7528;&#x53F3;&#x503C;&#x5F15;&#x7528;&#xFF0C;&#x533A;&#x5206;&#x62F7;&#x8D1D;&#x548C;&#x79FB;&#x52A8;</h2>
+<pre><code class="lang-c++">smart_ptr(smart_ptr&amp;&amp; other)
+{
+    ptr_ = other.release();
+}
+smart_ptr&amp; <span class="hljs-keyword">operator</span>=(smart_ptr rhs)
+{
+    rhs.swap(*<span class="hljs-keyword">this</span>);
+    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+}
+</code></pre>
+<p>&#x8BF4;&#x660E;&#xFF1A;<br><code>smart_ptr(smart_ptr&amp;&amp; other)</code>&#x662F;&#x4E00;&#x4E2A;&#x79FB;&#x52A8;&#x6784;&#x9020;&#x51FD;&#x6570;<br><code>operator=</code>&#x7684;&#x5F62;&#x53C2;<code>smart_ptr rh</code>&#xFF0C;&#x6839;&#x636E;&#x5B9E;&#x53C2;&#x9009;&#x62E9;&#x8C03;&#x7528;&#x79FB;&#x52A8;&#x6784;&#x9020;&#x8FD8;&#x662F;&#x62F7;&#x8D1D;&#x6784;&#x9020;&#x3002;&#x8FD9;&#x6837;&#x4E0D;&#x9700;&#x8981;&#x5206;&#x522B;&#x5B9E;&#x73B0;&#x79FB;&#x52A8;&#x8D4B;&#x503C;&#x548C;&#x62F7;&#x8D1D;&#x8D4B;&#x503C;&#x3002;<br>&#x4F46;&#x6B64;&#x5904;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x62F7;&#x8D1D;&#x6784;&#x9020;&#xFF0C;&#x56E0;&#x6B64;&#x4E5F;&#x4E0D;&#x5B58;&#x5728;&#x62F7;&#x8D1D;&#x8D4B;&#x503C;&#x3002;  </p>
+<h3 id="&#x7B56;&#x7565;&#x4E09;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;"><a name="&#x7B56;&#x7565;&#x4E09;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x7B56;&#x7565;&#x4E09;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3.1. &#x7B56;&#x7565;&#x4E09;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</h3>
+<ol>
+<li><p><code>smart_ptr&lt;T&gt; ptr1{create()};</code><br><code>{}</code>&#x5185;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x53F3;&#x503C;&#xFF0C;&#x56E0;&#x6B64;&#x8C03;&#x7528;&#x79FB;&#x52A8;&#x6784;&#x9020;&#x3002;  </p>
+</li>
+<li><p><code>smart_ptr&lt;T&gt; ptr2{ptr1};</code><br><code>ptr1</code>&#x662F;&#x4E00;&#x4E2A;&#x5DE6;&#x503C;&#xFF0C;&#x56E0;&#x6B64;&#x8C03;&#x7528;&#x62F7;&#x8D1D;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;&#x4F46;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x62F7;&#x8D1D;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x56E0;&#x6B64;&#x7F16;&#x8BD1;&#x51FA;&#x9519;&#x3002;  </p>
+</li>
+<li><pre><code class="lang-c++">smart_ptr&lt;T&gt; ptr3;
+ptr3 = ptr1;
+</code></pre>
+<p><code>ptr1</code>&#x662F;&#x4E00;&#x4E2A;&#x5DE6;&#x503C;&#xFF0C;&#x8C03;&#x7528;&#x62F7;&#x8D1D;&#x8D4B;&#x503C;&#xFF0C;&#x7F16;&#x8BD1;&#x51FA;&#x9519;&#x3002;  </p>
+</li>
+<li><p><code>ptr3 = std::move(ptr1)</code><br>&#x5C06;&#x5DE6;&#x503C;<code>ptr1</code>&#x8F6C;&#x4E3A;&#x53F3;&#x503C;&#xFF0C;&#x8C03;&#x7528;&#x79FB;&#x52A8;&#x8D4B;&#x503C;&#x3002;  </p>
+</li>
+<li><p><code>smart_ptr&lt;T&gt; ptr4{std::move(ptr3};</code>
+&#x5DE6;&#x503C;&#x8F6C;&#x4E3A;&#x53F3;&#x503C;&#xFF0C;&#x8C03;&#x7528;&#x79FB;&#x52A8;&#x6784;&#x9020;&#x3002;  </p>
+</li>
+</ol>
+<h3 id="&#x8BF4;&#x660E;"><a name="&#x8BF4;&#x660E;" class="anchor-navigation-ex-anchor" href="#&#x8BF4;&#x660E;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3.2. &#x8BF4;&#x660E;</h3>
+<p>&#x7B56;&#x7565;&#x4E09;&#x662F;<code>unique_ptr</code>&#x7684;&#x884C;&#x4E3A;&#x3002;<br>&#x7B56;&#x7565;&#x4E09;&#x5982;&#x679C;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x5B50;&#x7C7B;&#x6307;&#x9488;&#x5411;&#x7236;&#x7C7B;&#x6307;&#x9488;&#x7684;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#xFF0C;&#x9700;&#x8981;&#x518D;&#x52A0;&#x4E00;&#x4E2A;&#x51FD;&#x6570;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> U&gt;
+smart_ptr(smart_ptr&lt;U&gt; &amp;&amp;ohter)
+{
+    ptr_ = other.release();
+}
+</code></pre>
+<h2 id="&#x7B56;&#x7565;&#x56DB;&#xFF1A;&#x5171;&#x4EAB;&#x548C;&#x8BA1;&#x6570;"><a name="&#x7B56;&#x7565;&#x56DB;&#xFF1A;&#x5171;&#x4EAB;&#x548C;&#x8BA1;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x7B56;&#x7565;&#x56DB;&#xFF1A;&#x5171;&#x4EAB;&#x548C;&#x8BA1;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>3.4. &#x7B56;&#x7565;&#x56DB;&#xFF1A;&#x5171;&#x4EAB;&#x548C;&#x8BA1;&#x6570;</h2>
+<p>&#x591A;&#x4E2A;&#x6307;&#x9488;&#x6307;&#x5411;&#x540C;&#x4E00;&#x5185;&#x5B58;&#xFF0C;&#x4E14;&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x8BA1;&#x6570;&#x5668;&#x3002;<br>&#x7B2C;&#x4E00;&#x4E2A;&#x521B;&#x5EFA;&#x7A7A;&#x95F4;&#x7684;&#x6307;&#x9488;&#x540C;&#x65F6;&#x521B;&#x5EFA;&#x548C;&#x521D;&#x59CB;&#x5316;&#x8BA1;&#x6570;&#x5668;&#x3002;<br>&#x8BA1;&#x6570;&#x5668;&#x51CF;&#x4E3A;0&#x65F6;&#x91CA;&#x653E;&#x7A7A;&#x95F4;&#x3002;  </p>
+<h3 id="&#x5B9E;&#x73B0;"><a name="&#x5B9E;&#x73B0;" class="anchor-navigation-ex-anchor" href="#&#x5B9E;&#x73B0;"><i class="fa fa-link" aria-hidden="true"></i></a>3.4.1. &#x5B9E;&#x73B0;</h3>
+<p>&#x7B56;&#x7565;&#x56DB;&#x9700;&#x8981;&#x63D0;&#x4F9B;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF1A;  </p>
+<pre><code class="lang-c++"><span class="hljs-comment">// &#x6A21;&#x677F;&#x62F7;&#x8D1D;&#x6784;&#x9020;&#x51FD;&#x6570;</span>
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> U&gt;
+smart_ptr(<span class="hljs-keyword">const</span> smart_ptr&lt;U&gt; &amp; other)
+
+<span class="hljs-comment">// &#x6A21;&#x677F;&#x79FB;&#x52A8;&#x6784;&#x9020;</span>
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> U&gt;
+smart_ptr(<span class="hljs-keyword">const</span> smart_ptr&lt;U&gt; &amp;&amp; other)
+
+<span class="hljs-comment">// &#x62F7;&#x8D1D;&#x6784;&#x9020;&#x51FD;&#x6570;</span>
+smart_ptr(<span class="hljs-keyword">const</span> smart_ptr&amp; other)
+</code></pre>
+<p>&#x8BF4;&#x660E;&#xFF1A;<br>&#x5982;&#x679C;&#x65E0;&#x663E;&#x5F0F;&#x7684;&#x62F7;&#x8D1D;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x7684;&#x3002;&#x5982;&#x679C;&#x4EC5;&#x63D0;&#x4F9B;&#x4E86;&#x6A21;&#x677F;&#x62F7;&#x8D1D;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x4E0D;&#x4F1A;&#x8BA4;&#x4E3A;&#x662F;&#x6709;&#x663E;&#x5F0F;&#x7684;&#x62F7;&#x8D1D;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;<br>&#x5982;&#x679C;&#x6709;&#x663E;&#x5F0F;&#x7684;&#x62F7;&#x8D1D;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x5C31;&#x4E0D;&#x4F1A;&#x63D0;&#x4F9B;&#x79FB;&#x52A8;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x90A3;&#x4E48;&#x6240;&#x6709;&#x79FB;&#x52A8;&#x6784;&#x9020;&#x4F1A;&#x8C03;&#x7528;&#x4E0A;&#x9762;&#x7684;&#x201C;&#x6A21;&#x677F;&#x79FB;&#x52A8;&#x6784;&#x9020;&#x201D;&#xFF0C;&#x4E0D;&#x4F1A;&#x51FA;&#x9519;&#x3002;  </p>
+<h2 id="&#x5B9E;&#x73B0;&#x5BF9;&#x8C61;&#x79FB;&#x52A8;&#x7684;&#x603B;&#x7ED3;"><a name="&#x5B9E;&#x73B0;&#x5BF9;&#x8C61;&#x79FB;&#x52A8;&#x7684;&#x603B;&#x7ED3;" class="anchor-navigation-ex-anchor" href="#&#x5B9E;&#x73B0;&#x5BF9;&#x8C61;&#x79FB;&#x52A8;&#x7684;&#x603B;&#x7ED3;"><i class="fa fa-link" aria-hidden="true"></i></a>3.5. &#x5B9E;&#x73B0;&#x5BF9;&#x8C61;&#x79FB;&#x52A8;&#x7684;&#x603B;&#x7ED3;</h2>
+<ol>
+<li>&#x5206;&#x522B;&#x5B9E;&#x73B0;&#x62F7;&#x8D1D;&#x6784;&#x9020;&#x548C;&#x79FB;&#x52A8;&#x6784;&#x9020;&#xFF0C;&#x9664;&#x975E;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x53EA;&#x80FD;&#x79FB;&#x52A8;&#x4E0D;&#x80FD;&#x62F7;&#x8D1D;&#x3002;&#x5982;<code>unique_ptr</code><br>&#x65E0;&#x62F7;&#x8D1D;&#x53EA;&#x79FB;&#x52A8;&#xFF0C;&#x53C2;&#x8003;&#x7B56;&#x7565;&#x4E8C;<code>unique_ptr</code>&#x3002;&#x7B56;&#x7565;&#x4E00;<code>auto_pr</code>&#x662F;&#x53CD;&#x800C;&#x6559;&#x6750;&#x3002;  </li>
+<li>&#x5BF9;&#x8C61;&#x5E94;&#x6709;swap&#x6210;&#x5458;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x4E8E;&#x4E0E;&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5FEB;&#x901F;&#x4EA4;&#x6362;&#x6210;&#x5458;&#x3002;<br>&#x5BF9;&#x8C61;&#x7684;&#x540D;&#x7A7A;&#x95F4;&#x4E0B;&#x6709;&#x81EA;&#x7531;swap&#x51FD;&#x6570;&#xFF0C;&#x8C03;&#x7528;&#x6210;&#x5458;&#x51FD;&#x6570;&#x7684;swap&#x5B9E;&#x73B0;&#x4EA4;&#x6362;&#x3002;  </li>
+<li>&#x5B9E;&#x73B0;&#x4E00;&#x4EFD;&#x80FD;&#x7528;&#x7684;operator=&#xFF0C;&#x53EF;&#x81EA;&#x52A8;&#x9002;&#x914D;&#x79FB;&#x52A8;&#x8D4B;&#x503C;&#x548C;&#x62F7;&#x8D1D;&#x8D4B;&#x503C;&#x3002;  </li>
+<li>&#x79FB;&#x52A8;&#x51FD;&#x6570;&#x548C;swap&#x51FD;&#x6570;&#x4E0D;&#x80FD;&#x629B;&#x5F02;&#x5E38;&#xFF0C;noexcept  </li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="RAII.html" class="navigation navigation-prev " aria-label="Previous page: RAII - 用于资源管理的惯用法">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="align.html" class="navigation navigation-next " aria-label="Next page: 类成员的对齐规则">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"利用RAII实现智能指针","level":"1.3.8","depth":2,"next":{"title":"类成员的对齐规则","level":"1.3.9","depth":2,"path":"grammar/align.md","ref":"grammar/align.md","articles":[]},"previous":{"title":"RAII - 用于资源管理的惯用法","level":"1.3.7","depth":2,"path":"grammar/RAII.md","ref":"grammar/RAII.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","katex-plus","alerts","github","github-buttons","splitter","-sharing","sharing-plus","copy-code-button","anchor-navigation-ex","sectionx","click-reveal"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/windmissing/cpp_notes"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"click-reveal":{},"sectionx":{},"highlight":{},"anchor-navigation-ex":{"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"isShowTocTitleIcon":true,"printLog":false,"multipleH1":true,"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false}},"katex-plus":{},"alerts":{},"github-buttons":{"repo":"windmissing/cpp_notes","types":["star","watch","fork"],"size":"small"},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"windmissing","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"3.2.3"},"file":{"path":"grammar/smart-pointer-with-RAII.md","mtime":"2021-11-21T09:01:50.887Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-11T05:56:12.690Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sectionx/sectionx.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-click-reveal/click_reveal.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
